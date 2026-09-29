@@ -144,6 +144,10 @@ section:not(#home):not(#projects) {
 }
 
 #home img {
+    width: auto;
+    max-width: 100%;
+    max-height: 34rem;
+    object-fit: contain;
     border: 10px solid rgba(255, 255, 255, 0.78);
     box-shadow: 18px 22px 0 rgba(51, 121, 183, 0.15), 0 24px 50px rgba(23, 59, 94, 0.16);
 }

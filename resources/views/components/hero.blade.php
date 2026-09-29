@@ -159,7 +159,7 @@
                     <!-- Profile Image with Sticker-Like White Border & Shadow -->
                     <div class="relative p-2 rounded-3xl overflow-hidden transition-transform duration-300 hover:scale-[1.02]">
                         <img 
-                            src="{{ asset('images/profile/shahana-hero.png') }}" 
+                            src="{{ asset('images/profile/foto-profile.png') }}" 
                             alt="Shahana Maya Syabana" 
                             class="w-full h-auto object-cover rounded-2xl drop-shadow-xl"
                             loading="eager"
