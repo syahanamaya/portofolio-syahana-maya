@@ -1,4 +1,4 @@
-<footer class="bg-[#1c2a39] text-white py-10 md:py-12 border-t border-white/10">
+<footer class="bg-[#1F568A] text-white py-10 md:py-12 border-t border-white/10">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div class="flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">

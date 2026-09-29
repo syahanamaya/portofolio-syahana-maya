@@ -5,12 +5,12 @@
 @source '../views/**/*.blade.php';
 
 @theme {
-    --color-primary-blue: #e56b4e;
-    --color-dark-blue: #bd4c38;
-    --color-soft-blue: #b8d8d8;
-    --color-very-light-blue: #f7f3ee;
-    --color-dark-navy: #1c2a39;
-    --color-secondary-text: #68727a;
+    --color-primary-blue: #3379B7;
+    --color-dark-blue: #1F568A;
+    --color-soft-blue: #B9D8F5;
+    --color-very-light-blue: #F4F9FE;
+    --color-dark-navy: #173B5E;
+    --color-secondary-text: #6B849C;
 
     --font-sans: 'DM Sans', ui-sans-serif, system-ui, sans-serif;
     --font-display: 'Space Grotesk', 'DM Sans', ui-sans-serif, sans-serif;
@@ -19,14 +19,12 @@
 html {
     scroll-behavior: smooth;
     font-family: var(--font-sans);
-    color: #1c2a39;
-    background-color: #f7f3ee;
+    color: #173B5E;
+    background-color: #FFFFFF;
 }
 
 body {
-    background-color: #f7f3ee;
-    background-image: radial-gradient(#d9cfc4 0.7px, transparent 0.7px);
-    background-size: 18px 18px;
+    background-color: #FFFFFF;
 }
 
 h1,
@@ -43,8 +41,8 @@ section {
 }
 
 ::selection {
-    background: #f5c9a6;
-    color: #1c2a39;
+    background: #B9D8F5;
+    color: #173B5E;
 }
 
 /* Custom scrollbar */
@@ -52,14 +50,14 @@ section {
     width: 8px;
 }
 ::-webkit-scrollbar-track {
-    background: #f7f3ee;
+    background: #F4F9FE;
 }
 ::-webkit-scrollbar-thumb {
-    background: #b8d8d8;
+    background: #B9D8F5;
     border-radius: 9999px;
 }
 ::-webkit-scrollbar-thumb:hover {
-    background: #e56b4e;
+    background: #3379B7;
 }
 
 /* Subtle animations */
@@ -105,23 +103,23 @@ section {
 
 /* Shared portfolio surfaces and section rhythm */
 section:not(#home):not(#projects) {
-    background-color: #f7f3ee;
+    background-color: #F4F9FE;
 }
 
 #home {
-    background: linear-gradient(135deg, #f7f3ee 0%, #f7f3ee 56%, #dcebea 100%);
+    background: linear-gradient(135deg, #F4F9FE 0%, #F4F9FE 56%, #FFFFFF 100%);
 }
 
 #home::before {
     content: '';
     position: absolute;
     inset: 0;
-    background-image: linear-gradient(120deg, transparent 0 48%, rgba(229, 107, 78, 0.08) 48% 49%, transparent 49% 100%);
+    background-image: linear-gradient(120deg, transparent 0 48%, rgba(51, 121, 183, 0.08) 48% 49%, transparent 49% 100%);
     pointer-events: none;
 }
 
 #projects {
-    background: #1c2a39;
+    background: #1F568A;
     background-image: linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
     background-size: 32px 32px;
 }
@@ -142,48 +140,48 @@ section:not(#home):not(#projects) {
 }
 
 #home h1 span {
-    color: #e56b4e;
+    color: #3379B7;
 }
 
 #home img {
     border: 10px solid rgba(255, 255, 255, 0.78);
-    box-shadow: 18px 22px 0 rgba(229, 107, 78, 0.15), 0 24px 50px rgba(28, 42, 57, 0.16);
+    box-shadow: 18px 22px 0 rgba(51, 121, 183, 0.15), 0 24px 50px rgba(23, 59, 94, 0.16);
 }
 
 #about .rounded-2xl,
 #skills .rounded-3xl,
 #experience .rounded-2xl,
 #contact .rounded-2xl {
-    border-color: rgba(28, 42, 57, 0.1);
-    box-shadow: 0 12px 30px rgba(28, 42, 57, 0.05);
+    border-color: rgba(23, 59, 94, 0.1);
+    box-shadow: 0 12px 30px rgba(23, 59, 94, 0.05);
 }
 
 #about .rounded-2xl:hover,
 #skills .rounded-3xl:hover,
 #experience .rounded-2xl:hover,
 #contact .rounded-2xl:hover {
-    border-color: rgba(229, 107, 78, 0.55);
-    box-shadow: 0 18px 34px rgba(28, 42, 57, 0.1);
+    border-color: rgba(51, 121, 183, 0.55);
+    box-shadow: 0 18px 34px rgba(23, 59, 94, 0.1);
 }
 
 #projects .rounded-3xl {
     border-radius: 1rem;
-    box-shadow: 0 18px 0 rgba(229, 107, 78, 0.18), 0 24px 45px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 18px 0 rgba(51, 121, 183, 0.18), 0 24px 45px rgba(0, 0, 0, 0.2);
 }
 
 #projects .rounded-3xl:hover {
-    box-shadow: 0 22px 0 rgba(229, 107, 78, 0.25), 0 30px 50px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 22px 0 rgba(51, 121, 183, 0.25), 0 30px 50px rgba(0, 0, 0, 0.25);
 }
 
 #goals .rounded-3xl {
-    border-color: rgba(28, 42, 57, 0.1);
-    box-shadow: 10px 10px 0 rgba(184, 216, 216, 0.55), 0 18px 35px rgba(28, 42, 57, 0.08);
+    border-color: rgba(23, 59, 94, 0.1);
+    box-shadow: 10px 10px 0 rgba(185, 216, 245, 0.55), 0 18px 35px rgba(23, 59, 94, 0.08);
 }
 
 #contact > div > div {
-    background: #e7eeee;
-    border-color: rgba(28, 42, 57, 0.1);
-    box-shadow: 0 20px 50px rgba(28, 42, 57, 0.08);
+    background: #EAF3FC;
+    border-color: rgba(23, 59, 94, 0.1);
+    box-shadow: 0 20px 50px rgba(23, 59, 94, 0.08);
 }
 
 button,
@@ -200,10 +198,10 @@ button:focus-visible {
 @media (max-width: 640px) {
     #home img {
         border-width: 7px;
-        box-shadow: 10px 14px 0 rgba(229, 107, 78, 0.14), 0 18px 36px rgba(28, 42, 57, 0.14);
+        box-shadow: 10px 14px 0 rgba(51, 121, 183, 0.14), 0 18px 36px rgba(23, 59, 94, 0.14);
     }
 
     #goals .rounded-3xl {
-        box-shadow: 6px 6px 0 rgba(184, 216, 216, 0.55), 0 14px 28px rgba(28, 42, 57, 0.08);
+        box-shadow: 6px 6px 0 rgba(185, 216, 245, 0.55), 0 14px 28px rgba(23, 59, 94, 0.08);
     }
 }
