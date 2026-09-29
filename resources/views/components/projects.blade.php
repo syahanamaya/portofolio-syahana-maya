@@ -41,7 +41,7 @@
                 href="#projects" 
                 class="hidden sm:inline-flex items-center space-x-1.5 text-sm font-semibold text-[#B9D8F5] hover:text-white transition group"
             >
-                <span>Lihat Linimasa</span>
+                <span>Lihat Semua</span>
                 <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
                 </svg>
@@ -139,7 +139,7 @@
                 href="#projects" 
                 class="inline-flex items-center space-x-1.5 text-sm font-semibold text-[#B9D8F5] hover:text-white transition"
             >
-                <span>Lihat linimasa pengalaman</span>
+                <span>Lihat proyek lainnya</span>
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
                 </svg>

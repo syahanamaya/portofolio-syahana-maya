@@ -22,7 +22,7 @@ return [
         'title' => "Profil Profesional",
         'paragraphs' => [
             "Saya fresh graduate S1 Sistem Informasi Universitas Pamulang dengan IPK 3,68. Saya berpengalaman menganalisis kebutuhan pengguna, merancang proses bisnis, dan mengembangkan sistem informasi berbasis web menggunakan metode Agile.",
-            "Saya terbiasa menyusun dokumentasi sistem, activity diagram, dan use case diagram, serta merancang antarmuka menggunakan Figma. Pengalaman saya mencakup dukungan TI di Komnas HAM dan pengelolaan media sosial untuk UMKM.",
+            "Saya terbiasa menyusun dokumentasi sistem, activity diagram, dan use case diagram, serta merancang antarmuka menggunakan Figma. Saya tertarik mengembangkan solusi digital yang bermanfaat melalui analisis sistem dan pengembangan web.",
         ],
         'highlights' => [
             [
@@ -37,8 +37,8 @@ return [
             ],
             [
                 'icon' => 'briefcase',
-                'title' => 'Pengalaman Profesional',
-                'subtitle' => 'Dukungan TI dan Admin Media Sosial',
+                'title' => 'Fokus Keahlian',
+                'subtitle' => 'Analisis Sistem dan Pengembangan Web',
             ],
             [
                 'icon' => 'map-pin',
@@ -104,74 +104,75 @@ return [
     ],
 
     'projects' => [
-        'tag' => "Pengalaman Kerja",
-        'title' => "Peran & Kontribusi",
-        'description' => "Tanggung jawab kerja dan magang yang tercantum dalam CV saya.",
+        'tag' => "My Projects",
+        'title' => "Proyek Saya",
+        'description' => "Beberapa proyek sistem informasi dan web yang pernah saya kerjakan.",
         'items' => [
             [
-                'id' => 'social-media-admin',
-                'title' => 'Admin Media Sosial',
-                'category' => 'UMKM Warung Makan · Sep 2026–Sekarang',
-                'short_description' => 'Mengelola konten dan interaksi pada akun Instagram dan Threads.',
-                'full_description' => 'Menangani pengelolaan media sosial untuk UMKM warung makan, mulai dari perencanaan konten hingga interaksi dengan audiens.',
-                'technologies' => ['Content Calendar', 'Instagram', 'Threads', 'Desain Promosi'],
+                'id' => 'perpus',
+                'title' => 'Sistem Informasi Perpustakaan',
+                'category' => 'Web Application & Skripsi',
+                'short_description' => 'Perancangan dan implementasi sistem informasi perpustakaan berbasis web menggunakan metode Agile.',
+                'full_description' => 'Perancangan dan implementasi sistem informasi perpustakaan berbasis web yang dibangun sebagai topik skripsi akhir. Sistem ini mendigitalisasi pengelolaan sirkulasi buku, katalogisasi koleksi, pendaftaran anggota, pencatatan peminjaman, serta perhitungan denda otomatis. Dikembangkan menggunakan metode Agile untuk memastikan alur kerja fleksibel dan antarmuka yang user-friendly.',
+                'technologies' => ['Laravel', 'MySQL', 'Tailwind'],
+                'image' => '/images/projects/perpus.png',
+                'demo_url' => '#',
+                'repo_url' => 'https://github.com/syahanamaya/sistem-informasi-perpustakaan',
                 'features' => [
-                    'Menyusun content calendar',
-                    'Membuat caption Instagram dan Threads',
-                    'Membuat desain promosi',
-                    'Menjawab komentar dan direct message',
+                    'Katalog buku terstruktur dengan filter pencarian instan',
+                    'Sistem sirkulasi peminjaman & pengembalian otomatis',
+                    'Perhitungan denda keterlambatan buku secara presisi',
+                    'Dashboard ringkasan statistik untuk pustakawan',
+                    'Desain antarmuka bersih & responsif berbasis Tailwind CSS',
                 ],
             ],
             [
-                'id' => 'komnas-ham-it-support',
-                'title' => 'Staf Dukungan TI',
-                'category' => 'Komnas HAM · Jul 2024–Agu 2024',
-                'short_description' => 'Mendukung kebutuhan jaringan, perangkat kerja, dan perancangan website.',
-                'full_description' => 'Menjalani magang sebagai Staf Dukungan TI di Komnas HAM. Pekerjaan mencakup dukungan jaringan dan perangkat, desain serta perancangan website, dan pencatatan hasil rapat.',
-                'technologies' => ['LAN/Wi-Fi', 'Windows & Office', 'Desain Website', 'Dokumentasi'],
+                'id' => 'pengaduan',
+                'title' => 'Sistem Pengaduan Siswa',
+                'category' => 'Web Application',
+                'short_description' => 'Aplikasi pengaduan siswa di SMK Jakarta Pusat 1 dengan metode Agile.',
+                'full_description' => 'Aplikasi pengaduan siswa berbasis web untuk membantu proses penyampaian dan pengelolaan aspirasi maupun keluhan di lingkungan sekolah secara transparan dan terorganisir. Dilengkapi alur verifikasi pengaduan, notifikasi status tiket, dan opsi laporan anonim untuk melindungi privasi siswa.',
+                'technologies' => ['Laravel', 'MySQL', 'HTML/CSS/JS'],
+                'image' => '/images/projects/pengaduan.png',
+                'demo_url' => '#',
+                'repo_url' => 'https://github.com/syahanamaya/sistem-pengaduan-siswa',
                 'features' => [
-                    'Membantu pengaturan jaringan LAN dan Wi-Fi',
-                    'Melakukan instalasi Windows dan Microsoft Office',
-                    'Membuat desain dan perancangan website',
-                    'Membantu mencatat hasil rapat',
+                    'Formulir pelaporan pengaduan dilengkapi kategori masalah',
+                    'Pelacakan status tiket (Pending, Diproses, Selesai)',
+                    'Tanggapan resmi langsung dari pihak kesiswaan/guru',
+                    'Rekapitulasi dan pelaporan berkala bagi kepala sekolah',
+                    'Antarmuka ramah pengguna bagi siswa melalui smartphone',
+                ],
+            ],
+            [
+                'id' => 'komnas',
+                'title' => 'Web Form Komnas HAM',
+                'category' => 'Web Form & Portal',
+                'short_description' => 'Pengembangan website form pengaduan pelanggaran HAM sebagai project perkuliahan.',
+                'full_description' => 'Pengembangan formulir digital interaktif untuk intake pengaduan dugaan pelanggaran HAM yang dibuat sebagai tugas besar perkuliahan. Mengutamakan kemudahan navigasi multi-step form dan validasi berkas lampiran.',
+                'technologies' => ['PHP', 'MySQL', 'HTML/CSS/JS'],
+                'image' => '/images/projects/komnas.png',
+                'demo_url' => '#',
+                'repo_url' => 'https://github.com/syahanamaya/web-form-komnas-ham',
+                'features' => [
+                    'Multi-step form terstruktur dengan panduan pengisian',
+                    'Unggah bukti berkas dan verifikasi format dokumen',
+                    'Validasi data sisi klien dan server',
+                    'Konfirmasi bukti tanda terima pengaduan digital',
                 ],
             ],
         ],
     ],
 
     'timeline' => [
-        'tag' => "Experience & Education",
-        'title' => "Pengalaman & Pendidikan",
+        'tag' => "Education",
+        'title' => "Pendidikan",
         'education' => [
             [
                 'period' => 'Sep 2022 – Sep 2026',
                 'institution' => 'Universitas Pamulang',
                 'role' => 'S1 Sistem Informasi · IPK 3,68',
                 'description' => 'Lulus sebagai fresh graduate Sistem Informasi.',
-            ],
-        ],
-        'experience' => [
-            [
-                'period' => 'Sep 2026 – Sekarang',
-                'institution' => 'UMKM Warung Makan',
-                'role' => 'Admin Media Sosial',
-                'bullets' => [
-                    'Menyusun content calendar.',
-                    'Membuat caption Instagram dan Threads.',
-                    'Membuat desain promosi.',
-                    'Menjawab komentar dan direct message.',
-                ],
-            ],
-            [
-                'period' => 'Jul 2024 – Agu 2024',
-                'institution' => 'Komnas HAM',
-                'role' => 'Staf Dukungan TI · Magang',
-                'bullets' => [
-                    'Membantu pengaturan jaringan LAN dan Wi-Fi.',
-                    'Melakukan instalasi Windows dan Microsoft Office.',
-                    'Membuat desain dan perancangan website.',
-                    'Membantu mencatat hasil rapat.',
-                ],
             ],
         ],
     ],
@@ -191,7 +192,7 @@ return [
     'contact' => [
         'tag' => "Get In Touch",
         'title' => "Hubungi Saya",
-        'description' => "Untuk informasi lebih lanjut mengenai pengalaman dan keahlian saya, silakan hubungi melalui kontak berikut.",
+        'description' => "Untuk informasi lebih lanjut mengenai proyek dan keahlian saya, silakan hubungi melalui kontak berikut.",
         'cta_text' => "Let's Connect!",
         'info' => [
             [

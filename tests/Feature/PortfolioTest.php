@@ -39,17 +39,16 @@ class PortfolioTest extends TestCase
         $response->assertSeeText('Teamwork');
 
         // Section Projects
-        $response->assertSeeText('Peran & Kontribusi');
-        $response->assertSeeText('Admin Media Sosial');
-        $response->assertSeeText('UMKM Warung Makan');
-        $response->assertSeeText('Staf Dukungan TI');
-        $response->assertDontSeeText('Sistem Informasi Perpustakaan');
-        $response->assertDontSeeText('Sistem Pengaduan Siswa');
+        $response->assertSeeText('Proyek Saya');
+        $response->assertSeeText('Sistem Informasi Perpustakaan');
+        $response->assertSeeText('Sistem Pengaduan Siswa');
+        $response->assertSeeText('Web Form Komnas HAM');
 
-        // Section Experience & Education
-        $response->assertSeeText('Pengalaman & Pendidikan');
+        // Section Education
         $response->assertSeeText('Pendidikan');
-        $response->assertSeeText('Pengalaman');
+        $response->assertSeeText('Pendidikan');
+        $response->assertDontSeeText('Admin Media Sosial');
+        $response->assertDontSeeText('Staf Dukungan TI');
 
         // Section Personal Goals
         $response->assertSeeText('Sertifikasi');

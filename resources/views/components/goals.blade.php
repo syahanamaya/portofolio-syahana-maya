@@ -91,7 +91,7 @@
                     <!-- Quote Content -->
                     <div class="pt-3 text-center space-y-4">
                         <p class="font-doodle text-xl sm:text-2xl font-bold leading-relaxed text-white">
-                            Pengalaman magang sebagai Staf Dukungan TI
+                            Mengubah kebutuhan menjadi rancangan sistem yang terstruktur
                         </p>
                         <div class="text-[#B9D8F5] flex justify-center">
                             <svg class="w-6 h-6 animate-pulse-soft" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
