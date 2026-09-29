@@ -124,13 +124,13 @@ section:not(#home):not(#projects) {
     background-size: 32px 32px;
 }
 
-#projects > div,
-#home > div,
-#about > div,
-#skills > div,
-#experience > div,
-#goals > div,
-#contact > div {
+#projects > div:last-child,
+#home > div:last-child,
+#about > div:last-child,
+#skills > div:last-child,
+#experience > div:last-child,
+#goals > div:last-child,
+#contact > div:last-child {
     position: relative;
     z-index: 1;
 }
