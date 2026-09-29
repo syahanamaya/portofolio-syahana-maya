@@ -43,7 +43,9 @@ class ExportStaticPortfolio extends Command
 
         // 3. Konversi path aset absolut menjadi relatif (./) agar kompatibel dengan sub-path GitHub Pages
         // Contoh: /build/assets/... -> ./build/assets/..., /images/... -> ./images/..., /cv.pdf -> ./cv.pdf
+        $localAssetBaseUrl = rtrim(config('app.url'), '/') . '/';
         $replacements = [
+            $localAssetBaseUrl => './',
             'src="/' => 'src="./',
             'href="/' => 'href="./',
             'url(\'/' => 'url(\'./',

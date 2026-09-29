@@ -93,7 +93,7 @@
             <div class="md:col-span-5 flex flex-col items-center justify-center space-y-6">
                 
                 <!-- Quote Sticky Card (Dark Blue / Cyan Tone) -->
-                <div class="relative w-full max-w-xs p-7 rounded-2xl bg-gradient-to-br from-[#2D6898] to-[#1F568A] text-white shadow-xl transform rotate-2 hover:rotate-0 transition-transform duration-300">
+                <div class="relative w-full max-w-xs p-7 rounded-2xl bg-gradient-to-br from-[#e56b4e] to-[#1c2a39] text-white shadow-xl transform rotate-2 hover:rotate-0 transition-transform duration-300">
                     
                     <!-- Washi Tape on Top Center -->
                     <div class="absolute -top-3 left-1/2 -translate-x-1/2 w-28 h-6 bg-white/20 backdrop-blur-xs rounded-sm border border-white/30 transform rotate-1"></div>

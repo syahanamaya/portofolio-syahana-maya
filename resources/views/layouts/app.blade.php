@@ -14,17 +14,17 @@
     <link rel="icon" type="image/png" href="{{ asset('favicon.png') }}">
     <link rel="apple-touch-icon" href="{{ asset('favicon.png') }}">
 
-    <!-- Google Fonts: Inter & Patrick Hand (for doodles/handwriting notes) -->
+    <!-- Google Fonts: expressive display type and handwritten accents -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Patrick+Hand&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
 
     <!-- Styles & Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
     <style>
         .font-doodle {
-            font-family: 'Patrick Hand', 'Caveat', cursive;
+            font-family: 'Caveat', cursive;
         }
         .font-hand {
             font-family: 'Caveat', cursive;

@@ -5,21 +5,46 @@
 @source '../views/**/*.blade.php';
 
 @theme {
-    --color-primary-blue: #3379B7;
-    --color-dark-blue: #1F568A;
-    --color-soft-blue: #B9D8F5;
-    --color-very-light-blue: #F4F9FE;
-    --color-dark-navy: #173B5E;
-    --color-secondary-text: #6B849C;
+    --color-primary-blue: #e56b4e;
+    --color-dark-blue: #bd4c38;
+    --color-soft-blue: #b8d8d8;
+    --color-very-light-blue: #f7f3ee;
+    --color-dark-navy: #1c2a39;
+    --color-secondary-text: #68727a;
 
-    --font-sans: 'Inter', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    --font-sans: 'DM Sans', ui-sans-serif, system-ui, sans-serif;
+    --font-display: 'Space Grotesk', 'DM Sans', ui-sans-serif, sans-serif;
 }
 
 html {
     scroll-behavior: smooth;
     font-family: var(--font-sans);
-    color: #173B5E;
-    background-color: #FFFFFF;
+    color: #1c2a39;
+    background-color: #f7f3ee;
+}
+
+body {
+    background-color: #f7f3ee;
+    background-image: radial-gradient(#d9cfc4 0.7px, transparent 0.7px);
+    background-size: 18px 18px;
+}
+
+h1,
+h2,
+h3,
+h4,
+.font-bold,
+.font-extrabold {
+    font-family: var(--font-display);
+}
+
+section {
+    scroll-margin-top: 5rem;
+}
+
+::selection {
+    background: #f5c9a6;
+    color: #1c2a39;
 }
 
 /* Custom scrollbar */
@@ -27,14 +52,14 @@ html {
     width: 8px;
 }
 ::-webkit-scrollbar-track {
-    background: #F4F9FE;
+    background: #f7f3ee;
 }
 ::-webkit-scrollbar-thumb {
-    background: #B9D8F5;
+    background: #b8d8d8;
     border-radius: 9999px;
 }
 ::-webkit-scrollbar-thumb:hover {
-    background: #3379B7;
+    background: #e56b4e;
 }
 
 /* Subtle animations */
@@ -76,4 +101,109 @@ html {
 .border-doodle {
     border-style: dashed;
     border-width: 1.5px;
+}
+
+/* Shared portfolio surfaces and section rhythm */
+section:not(#home):not(#projects) {
+    background-color: #f7f3ee;
+}
+
+#home {
+    background: linear-gradient(135deg, #f7f3ee 0%, #f7f3ee 56%, #dcebea 100%);
+}
+
+#home::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: linear-gradient(120deg, transparent 0 48%, rgba(229, 107, 78, 0.08) 48% 49%, transparent 49% 100%);
+    pointer-events: none;
+}
+
+#projects {
+    background: #1c2a39;
+    background-image: linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+    background-size: 32px 32px;
+}
+
+#projects > div,
+#home > div,
+#about > div,
+#skills > div,
+#experience > div,
+#goals > div,
+#contact > div {
+    position: relative;
+    z-index: 1;
+}
+
+#home h1 {
+    letter-spacing: -0.04em;
+}
+
+#home h1 span {
+    color: #e56b4e;
+}
+
+#home img {
+    border: 10px solid rgba(255, 255, 255, 0.78);
+    box-shadow: 18px 22px 0 rgba(229, 107, 78, 0.15), 0 24px 50px rgba(28, 42, 57, 0.16);
+}
+
+#about .rounded-2xl,
+#skills .rounded-3xl,
+#experience .rounded-2xl,
+#contact .rounded-2xl {
+    border-color: rgba(28, 42, 57, 0.1);
+    box-shadow: 0 12px 30px rgba(28, 42, 57, 0.05);
+}
+
+#about .rounded-2xl:hover,
+#skills .rounded-3xl:hover,
+#experience .rounded-2xl:hover,
+#contact .rounded-2xl:hover {
+    border-color: rgba(229, 107, 78, 0.55);
+    box-shadow: 0 18px 34px rgba(28, 42, 57, 0.1);
+}
+
+#projects .rounded-3xl {
+    border-radius: 1rem;
+    box-shadow: 0 18px 0 rgba(229, 107, 78, 0.18), 0 24px 45px rgba(0, 0, 0, 0.2);
+}
+
+#projects .rounded-3xl:hover {
+    box-shadow: 0 22px 0 rgba(229, 107, 78, 0.25), 0 30px 50px rgba(0, 0, 0, 0.25);
+}
+
+#goals .rounded-3xl {
+    border-color: rgba(28, 42, 57, 0.1);
+    box-shadow: 10px 10px 0 rgba(184, 216, 216, 0.55), 0 18px 35px rgba(28, 42, 57, 0.08);
+}
+
+#contact > div > div {
+    background: #e7eeee;
+    border-color: rgba(28, 42, 57, 0.1);
+    box-shadow: 0 20px 50px rgba(28, 42, 57, 0.08);
+}
+
+button,
+a {
+    transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+a:focus-visible,
+button:focus-visible {
+    outline: 3px solid #f0a77d;
+    outline-offset: 3px;
+}
+
+@media (max-width: 640px) {
+    #home img {
+        border-width: 7px;
+        box-shadow: 10px 14px 0 rgba(229, 107, 78, 0.14), 0 18px 36px rgba(28, 42, 57, 0.14);
+    }
+
+    #goals .rounded-3xl {
+        box-shadow: 6px 6px 0 rgba(184, 216, 216, 0.55), 0 14px 28px rgba(28, 42, 57, 0.08);
+    }
 }
