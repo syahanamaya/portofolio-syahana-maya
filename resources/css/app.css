@@ -128,7 +128,7 @@ section:not(#home):not(#projects) {
 #home > div:last-child,
 #about > div:last-child,
 #skills > div:last-child,
-#education > div:last-child,
+#experience > div:last-child,
 #goals > div:last-child,
 #contact > div:last-child {
     position: relative;
@@ -154,7 +154,7 @@ section:not(#home):not(#projects) {
 
 #about .rounded-2xl,
 #skills .rounded-3xl,
-#education .rounded-2xl,
+#experience .rounded-2xl,
 #contact .rounded-2xl {
     border-color: rgba(23, 59, 94, 0.1);
     box-shadow: 0 12px 30px rgba(23, 59, 94, 0.05);
@@ -162,7 +162,7 @@ section:not(#home):not(#projects) {
 
 #about .rounded-2xl:hover,
 #skills .rounded-3xl:hover,
-#education .rounded-2xl:hover,
+#experience .rounded-2xl:hover,
 #contact .rounded-2xl:hover {
     border-color: rgba(51, 121, 183, 0.55);
     box-shadow: 0 18px 34px rgba(23, 59, 94, 0.1);

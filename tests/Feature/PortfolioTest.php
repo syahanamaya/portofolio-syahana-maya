@@ -44,11 +44,12 @@ class PortfolioTest extends TestCase
         $response->assertSeeText('Sistem Pengaduan Siswa');
         $response->assertSeeText('Web Form Komnas HAM');
 
-        // Section Education
+        // Section Experience & Education
+        $response->assertSeeText('Pengalaman & Pendidikan');
         $response->assertSeeText('Pendidikan');
-        $response->assertSeeText('Pendidikan');
-        $response->assertDontSeeText('Admin Media Sosial');
-        $response->assertDontSeeText('Staf Dukungan TI');
+        $response->assertSeeText('Pengalaman');
+        $response->assertSeeText('Admin Media Sosial');
+        $response->assertSeeText('Staf Dukungan TI');
 
         // Section Personal Goals
         $response->assertSeeText('Sertifikasi');

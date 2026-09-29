@@ -165,14 +165,38 @@ return [
     ],
 
     'timeline' => [
-        'tag' => "Education",
-        'title' => "Pendidikan",
+        'tag' => "Experience & Education",
+        'title' => "Pengalaman & Pendidikan",
         'education' => [
             [
                 'period' => 'Sep 2022 – Sep 2026',
                 'institution' => 'Universitas Pamulang',
                 'role' => 'S1 Sistem Informasi · IPK 3,68',
                 'description' => 'Lulus sebagai fresh graduate Sistem Informasi.',
+            ],
+        ],
+        'experience' => [
+            [
+                'period' => 'Sep 2026 – Sekarang',
+                'institution' => 'UMKM Warung Makan',
+                'role' => 'Admin Media Sosial',
+                'bullets' => [
+                    'Menyusun content calendar.',
+                    'Membuat caption Instagram dan Threads.',
+                    'Membuat desain promosi.',
+                    'Menjawab komentar dan direct message.',
+                ],
+            ],
+            [
+                'period' => 'Jul 2024 – Agu 2024',
+                'institution' => 'Komnas HAM',
+                'role' => 'Staf Dukungan TI · Magang',
+                'bullets' => [
+                    'Membantu pengaturan jaringan LAN dan Wi-Fi.',
+                    'Melakukan instalasi Windows dan Microsoft Office.',
+                    'Membuat desain dan perancangan website.',
+                    'Membantu mencatat hasil rapat.',
+                ],
             ],
         ],
     ],

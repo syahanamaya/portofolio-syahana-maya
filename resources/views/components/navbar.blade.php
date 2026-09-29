@@ -53,11 +53,11 @@
                 Projects
             </a>
             <a 
-                href="#education" 
+                href="#experience" 
                 class="hover:text-primary-blue transition-colors relative py-1"
-                :class="activeSection === 'education' ? 'text-primary-blue font-semibold' : 'text-dark-navy'"
+                :class="activeSection === 'experience' ? 'text-primary-blue font-semibold' : 'text-dark-navy'"
             >
-                Education
+                Experience & Education
             </a>
             <a 
                 href="#certifications" 
@@ -149,11 +149,11 @@
                 Projects
             </a>
             <a 
-                href="#education" 
+                href="#experience" 
                 @click="mobileMenuOpen = false"
                 class="px-3 py-2 rounded-xl text-base font-medium text-dark-navy hover:bg-very-light-blue hover:text-primary-blue transition"
             >
-                Education
+                Experience & Education
             </a>
             <a 
                 href="#certifications" 

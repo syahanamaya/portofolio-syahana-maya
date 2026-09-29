@@ -13,7 +13,7 @@
     <!-- 4. Projects (Dark Blue visual break) -->
     @include('components.projects')
 
-    <!-- 5. Education -->
+    <!-- 5. Experience & Education -->
     @include('components.experience')
 
     <!-- 6. Goals / Personal Statement -->
