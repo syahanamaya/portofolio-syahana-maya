@@ -42,7 +42,7 @@
                             </svg>
                         </div>
                         <div>
-                            <h4 class="font-semibold text-sm text-dark-navy">Mahasiswa Sistem Informasi</h4>
+                            <h4 class="font-semibold text-sm text-dark-navy">Fresh Graduate Sistem Informasi</h4>
                             <p class="text-xs text-secondary-text mt-0.5">Universitas Pamulang</p>
                         </div>
                     </div>
@@ -57,8 +57,8 @@
                             </svg>
                         </div>
                         <div>
-                            <h4 class="font-semibold text-sm text-dark-navy">Tinggal di Tangerang</h4>
-                            <p class="text-xs text-secondary-text mt-0.5">Tangerang Selatan, Banten</p>
+                            <h4 class="font-semibold text-sm text-dark-navy">Tangerang Selatan</h4>
+                            <p class="text-xs text-secondary-text mt-0.5">Banten, Indonesia</p>
                         </div>
                     </div>
 
@@ -74,8 +74,8 @@
                             </svg>
                         </div>
                         <div>
-                            <h4 class="font-semibold text-sm text-dark-navy">Semester Akhir</h4>
-                            <p class="text-xs text-secondary-text mt-0.5">Fokus Skripsi & Tugas Akhir (IPK 3,68)</p>
+                            <h4 class="font-semibold text-sm text-dark-navy">IPK 3,68</h4>
+                            <p class="text-xs text-secondary-text mt-0.5">Lulus September 2026</p>
                         </div>
                     </div>
 
@@ -83,13 +83,14 @@
                     <div class="p-4 rounded-2xl bg-very-light-blue/70 border border-soft-blue/50 flex items-start space-x-3.5 hover:border-primary-blue/50 hover:bg-very-light-blue transition duration-200">
                         <div class="w-10 h-10 rounded-xl bg-white text-primary-blue flex items-center justify-center shadow-sm flex-shrink-0 border border-soft-blue/40">
                             <!-- Heart / Star Icon -->
-                            <svg class="w-5 h-5 text-primary-blue" fill="currentColor" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd"/>
+                            <svg class="w-5 h-5 text-primary-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                                <rect x="3" y="7" width="18" height="14" rx="2"/>
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M8 7V5a2 2 0 012-2h4a2 2 0 012 2v2M3 12h18"/>
                             </svg>
                         </div>
                         <div>
-                            <h4 class="font-semibold text-sm text-dark-navy">Hobi & Ketertarikan</h4>
-                            <p class="text-xs text-secondary-text mt-0.5">Membaca, dengar musik, nonton, & desain</p>
+                            <h4 class="font-semibold text-sm text-dark-navy">Pengalaman Kerja</h4>
+                            <p class="text-xs text-secondary-text mt-0.5">Komnas HAM & UMKM Warung Makan</p>
                         </div>
                     </div>
 
@@ -108,7 +109,7 @@
                     <!-- Post-it Content -->
                     <div class="pt-3 pb-2 text-center space-y-3">
                         <div class="font-doodle text-xl sm:text-2xl font-bold text-dark-blue leading-snug">
-                            Good<br>Things<br>Take<br>Time
+                            System<br>Analysis<br>& Design
                         </div>
                         <div class="text-primary-blue flex justify-center">
                             <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">

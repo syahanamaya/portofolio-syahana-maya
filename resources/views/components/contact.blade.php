@@ -94,7 +94,7 @@
                         <div class="flex-grow min-w-0">
                             <div class="text-[11px] font-semibold text-secondary-text uppercase">Domisili</div>
                             <div class="text-sm sm:text-base font-bold text-dark-navy truncate">
-                                Tangerang, Indonesia
+                                Tangerang Selatan, Banten
                             </div>
                         </div>
                     </div>

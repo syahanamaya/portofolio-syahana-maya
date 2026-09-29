@@ -50,14 +50,21 @@
                 class="hover:text-primary-blue transition-colors relative py-1"
                 :class="activeSection === 'projects' ? 'text-primary-blue font-semibold' : 'text-dark-navy'"
             >
-                Projects
+                Pengalaman Kerja
             </a>
             <a 
                 href="#experience" 
                 class="hover:text-primary-blue transition-colors relative py-1"
                 :class="activeSection === 'experience' ? 'text-primary-blue font-semibold' : 'text-dark-navy'"
             >
-                Experience
+                Pendidikan
+            </a>
+            <a 
+                href="#certifications" 
+                class="hover:text-primary-blue transition-colors relative py-1"
+                :class="activeSection === 'certifications' ? 'text-primary-blue font-semibold' : 'text-dark-navy'"
+            >
+                Sertifikat
             </a>
             <a 
                 href="#contact" 
@@ -139,14 +146,21 @@
                 @click="mobileMenuOpen = false"
                 class="px-3 py-2 rounded-xl text-base font-medium text-dark-navy hover:bg-very-light-blue hover:text-primary-blue transition"
             >
-                Projects
+                Pengalaman Kerja
             </a>
             <a 
                 href="#experience" 
                 @click="mobileMenuOpen = false"
                 class="px-3 py-2 rounded-xl text-base font-medium text-dark-navy hover:bg-very-light-blue hover:text-primary-blue transition"
             >
-                Experience
+                Pendidikan
+            </a>
+            <a 
+                href="#certifications" 
+                @click="mobileMenuOpen = false"
+                class="px-3 py-2 rounded-xl text-base font-medium text-dark-navy hover:bg-very-light-blue hover:text-primary-blue transition"
+            >
+                Sertifikat
             </a>
             <a 
                 href="#contact" 

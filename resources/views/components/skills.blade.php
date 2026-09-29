@@ -23,7 +23,7 @@
             <!-- "Still Learning" Doodle on Desktop -->
             <div class="mt-4 md:mt-0 flex items-center space-x-2 text-primary-blue">
                 <div class="text-right">
-                    <span class="font-doodle text-lg sm:text-xl font-bold block transform -rotate-3">Still Learning . . .</span>
+                    <span class="font-doodle text-lg sm:text-xl font-bold block transform -rotate-3">Skills in Practice</span>
                 </div>
                 <!-- Cute Smiley Face Doodle -->
                 <svg class="w-7 h-7 transform rotate-6 animate-pulse-soft" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">

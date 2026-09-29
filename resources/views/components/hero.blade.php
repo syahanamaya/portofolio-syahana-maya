@@ -160,7 +160,7 @@
                     <div class="relative p-2 rounded-3xl overflow-hidden transition-transform duration-300 hover:scale-[1.02]">
                         <img 
                             src="{{ asset('images/profile/foto-profile.png') }}" 
-                            alt="Shahana Maya Syabana" 
+                            alt="Syahana Maya Syabana" 
                             class="w-full h-auto object-cover rounded-2xl drop-shadow-xl"
                             loading="eager"
                         >

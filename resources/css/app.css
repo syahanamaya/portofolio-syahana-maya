@@ -177,7 +177,7 @@ section:not(#home):not(#projects) {
     box-shadow: 0 22px 0 rgba(51, 121, 183, 0.25), 0 30px 50px rgba(0, 0, 0, 0.25);
 }
 
-#goals .rounded-3xl {
+#certifications .rounded-3xl {
     border-color: rgba(23, 59, 94, 0.1);
     box-shadow: 10px 10px 0 rgba(185, 216, 245, 0.55), 0 18px 35px rgba(23, 59, 94, 0.08);
 }
@@ -205,7 +205,7 @@ button:focus-visible {
         box-shadow: 10px 14px 0 rgba(51, 121, 183, 0.14), 0 18px 36px rgba(23, 59, 94, 0.14);
     }
 
-    #goals .rounded-3xl {
+    #certifications .rounded-3xl {
         box-shadow: 6px 6px 0 rgba(185, 216, 245, 0.55), 0 14px 28px rgba(23, 59, 94, 0.08);
     }
 }

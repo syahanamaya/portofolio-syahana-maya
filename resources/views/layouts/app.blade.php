@@ -6,9 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     
     <title>{{ $portfolio['personal']['name'] }} | Portfolio Pribadi</title>
-    <meta name="description" content="Portfolio pribadi Shahana Maya Syabana - Mahasiswa Sistem Informasi Universitas Pamulang, Web Developer, dan UI/UX Enthusiast.">
+    <meta name="description" content="Portfolio Syahana Maya Syabana, fresh graduate Sistem Informasi Universitas Pamulang dengan pengalaman dukungan TI dan administrasi media sosial.">
     <meta name="keywords" content="Shahana Maya, Portfolio, Web Developer, Laravel, Tailwind CSS, Sistem Informasi, Universitas Pamulang">
-    <meta name="author" content="Shahana Maya Syabana">
+    <meta name="author" content="Syahana Maya Syabana">
     
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="{{ asset('favicon.png') }}">
@@ -112,11 +112,19 @@
                         <span class="text-[10px] text-secondary-text ml-2 font-mono truncate" x-text="activeProject?.title"></span>
                     </div>
                     <div class="p-3 bg-white flex items-center justify-center min-h-[140px]">
-                        <img 
-                            :src="activeProject?.image" 
-                            :alt="activeProject?.title" 
-                            class="max-h-48 w-auto rounded object-contain shadow-sm"
-                        >
+                        <template x-if="activeProject?.image">
+                            <img 
+                                :src="activeProject.image" 
+                                :alt="activeProject.title" 
+                                class="max-h-48 w-auto rounded object-contain shadow-sm"
+                            >
+                        </template>
+                        <template x-if="!activeProject?.image">
+                            <div class="w-full min-h-[140px] rounded-lg bg-gradient-to-br from-very-light-blue to-white flex flex-col items-center justify-center text-center p-5">
+                                <span class="text-xs font-semibold uppercase text-primary-blue" x-text="activeProject?.category"></span>
+                                <span class="mt-2 font-display text-lg font-bold text-dark-navy" x-text="activeProject?.title"></span>
+                            </div>
+                        </template>
                     </div>
                 </div>
             </div>
@@ -133,7 +141,7 @@
 
                 <!-- Technologies -->
                 <div>
-                    <h4 class="text-xs font-semibold text-secondary-text uppercase tracking-wider mb-2">Teknologi yang Digunakan</h4>
+                    <h4 class="text-xs font-semibold text-secondary-text uppercase tracking-wider mb-2">Keahlian Terkait</h4>
                     <div class="flex flex-wrap gap-2">
                         <template x-for="tech in activeProject?.technologies" :key="tech">
                             <span class="px-3 py-1 rounded-full text-xs font-medium bg-very-light-blue text-primary-blue border border-soft-blue/70" x-text="tech"></span>
@@ -143,14 +151,14 @@
 
                 <!-- Description -->
                 <div>
-                    <h4 class="text-xs font-semibold text-secondary-text uppercase tracking-wider mb-2">Deskripsi Proyek</h4>
+                    <h4 class="text-xs font-semibold text-secondary-text uppercase tracking-wider mb-2">Ringkasan Peran</h4>
                     <p class="text-secondary-text text-sm sm:text-base leading-relaxed" x-text="activeProject?.full_description || activeProject?.short_description"></p>
                 </div>
 
                 <!-- Key Features -->
                 <template x-if="activeProject?.features && activeProject?.features.length > 0">
                     <div>
-                        <h4 class="text-xs font-semibold text-secondary-text uppercase tracking-wider mb-2.5">Fitur Utama</h4>
+                        <h4 class="text-xs font-semibold text-secondary-text uppercase tracking-wider mb-2.5">Tanggung Jawab</h4>
                         <ul class="space-y-2 text-sm text-dark-navy">
                             <template x-for="feature in activeProject?.features" :key="feature">
                                 <li class="flex items-start space-x-2">
@@ -174,10 +182,9 @@
                     </button>
                     <a 
                         :href="activeProject?.repo_url || '#contact'" 
-                        target="_blank" 
                         class="inline-flex items-center space-x-2 px-6 py-2.5 rounded-full bg-primary-blue hover:bg-dark-blue text-white text-sm font-semibold shadow-md transition"
                     >
-                        <span>Hubungi untuk Demo</span>
+                        <span>Hubungi Saya</span>
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
                         </svg>

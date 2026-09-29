@@ -16,32 +16,35 @@ class PortfolioTest extends TestCase
         $response->assertStatus(200);
 
         // Identitas & Hero
-        $response->assertSeeText('Shahana Maya Syabana');
+        $response->assertSeeText('Syahana Maya Syabana');
         $response->assertSeeText('Web Developer');
         $response->assertSeeText('Lifelong Learner');
         $response->assertSeeText('Lihat Portfolio Saya');
         $response->assertSeeText('Tentang Saya');
 
         // Section About Me
-        $response->assertSeeText('Kenalan Yuk!');
+        $response->assertSeeText('Profil Profesional');
+        $response->assertSeeText('fresh graduate S1 Sistem Informasi');
+        $response->assertSeeText('IPK 3,68');
         $response->assertSeeText('Universitas Pamulang');
-        $response->assertSeeText('Tangerang');
+        $response->assertSeeText('Tangerang Selatan');
 
         // Section Keahlian Saya
         $response->assertSeeText('Keahlian Saya');
-        $response->assertSeeText('Programming & Web');
-        $response->assertSeeText('Tools & Software');
-        $response->assertSeeText('Design');
-        $response->assertSeeText('Soft Skills');
-        $response->assertSeeText('Laravel');
-        $response->assertSeeText('Tailwind CSS');
-        $response->assertSeeText('MySQL');
+        $response->assertSeeText('Sistem Informasi');
+        $response->assertSeeText('Desain & Kreatif');
+        $response->assertSeeText('Microsoft Office');
+        $response->assertSeeText('Adobe Illustrator');
+        $response->assertSeeText('Microsoft PowerPoint');
+        $response->assertSeeText('Teamwork');
 
         // Section Projects
-        $response->assertSeeText('Proyek Saya');
-        $response->assertSeeText('Sistem Informasi Perpustakaan');
-        $response->assertSeeText('Sistem Pengaduan Siswa');
-        $response->assertSeeText('Web Form Komnas HAM');
+        $response->assertSeeText('Peran & Kontribusi');
+        $response->assertSeeText('Admin Media Sosial');
+        $response->assertSeeText('UMKM Warung Makan');
+        $response->assertSeeText('Staf Dukungan TI');
+        $response->assertDontSeeText('Sistem Informasi Perpustakaan');
+        $response->assertDontSeeText('Sistem Pengaduan Siswa');
 
         // Section Experience & Education
         $response->assertSeeText('Pengalaman & Pendidikan');
@@ -49,8 +52,9 @@ class PortfolioTest extends TestCase
         $response->assertSeeText('Pengalaman');
 
         // Section Personal Goals
-        $response->assertSeeText('Small Steps, Big Dreams');
-        $response->assertSeeText('Lulus tepat waktu');
+        $response->assertSeeText('Sertifikasi');
+        $response->assertSeeText('Sertifikat Magang');
+        $response->assertSeeText('Komnas HAM');
 
         // Section Contact
         $response->assertSeeText('Hubungi Saya');
@@ -68,7 +72,7 @@ class PortfolioTest extends TestCase
     {
         $this->assertFileExists(public_path('cv.pdf'));
         $this->assertFileExists(public_path('favicon.png'));
-        $this->assertFileExists(public_path('images/profile/shahana-hero.png'));
+        $this->assertFileExists(public_path('images/profile/foto-profile.png'));
         $this->assertFileExists(public_path('images/projects/perpus.png'));
         $this->assertFileExists(public_path('images/projects/pengaduan.png'));
         $this->assertFileExists(public_path('images/projects/komnas.png'));

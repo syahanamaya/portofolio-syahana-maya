@@ -1,7 +1,7 @@
 <section 
-    id="goals" 
+    id="certifications" 
     class="py-16 md:py-24 bg-very-light-blue/40 relative overflow-hidden"
-    x-intersect.threshold.0.3="activeSection = 'goals'"
+    x-intersect.threshold.0.3="activeSection = 'certifications'"
 >
     <!-- Background Sparkles -->
     <div class="absolute top-10 right-10 text-soft-blue pointer-events-none">
@@ -15,13 +15,13 @@
         <!-- Section Title -->
         <div class="text-center max-w-xl mx-auto mb-12 md:mb-16">
             <span class="inline-block text-xs sm:text-sm font-semibold tracking-wider text-primary-blue uppercase mb-1">
-                &lsquo;{{ $portfolio['goals']['tag'] }}
+                &lsquo;{{ $portfolio['certifications']['tag'] }}
             </span>
             <h2 class="text-3xl sm:text-4xl font-extrabold text-dark-navy tracking-tight">
-                {{ $portfolio['goals']['title'] }}
+                {{ $portfolio['certifications']['title'] }}
             </h2>
             <p class="text-secondary-text text-sm sm:text-base mt-2">
-                Langkah-langkah kecil dan mimpi besar yang menjadi motivasi belajar setiap hari.
+                Sertifikasi yang tercantum dalam CV.
             </p>
         </div>
 
@@ -42,42 +42,32 @@
                 <div class="pl-6 notebook-lines space-y-4">
                     <div class="flex items-center justify-between border-b-2 border-primary-blue/30 pb-2">
                         <span class="font-doodle text-2xl font-bold text-dark-navy tracking-wide">
-                            &ldquo; My Goals:
+                            Sertifikat Profesional
                         </span>
                         <!-- Cute Doodle Sparkle -->
-                        <span class="font-doodle text-primary-blue text-sm">✨ Dream Big</span>
+                        <span class="font-doodle text-primary-blue text-sm">Pengembangan Profesional</span>
                     </div>
 
-                    <!-- Interactive Checklist -->
-                    <ul class="space-y-3.5 pt-1">
-                        @foreach($portfolio['goals']['items'] as $index => $goal)
-                            <li 
-                                x-data="{ checked: {{ $goal['checked'] ? 'true' : 'false' }} }"
-                                @click="checked = !checked"
-                                class="flex items-center space-x-3 cursor-pointer group select-none"
-                            >
-                                <!-- Custom Checkbox Box -->
-                                <div 
-                                    class="w-5 h-5 rounded-md border-2 border-primary-blue flex items-center justify-center transition-colors group-hover:bg-soft-blue/30"
-                                    :class="checked ? 'bg-primary-blue text-white' : 'bg-white'"
-                                >
-                                    <svg x-show="checked" class="w-3.5 h-3.5 stroke-current stroke-3" fill="none" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+                    <div class="space-y-5 pt-4">
+                        @foreach($portfolio['certifications']['items'] as $certificate)
+                            <div class="flex items-start gap-4">
+                                <div class="w-10 h-10 rounded-xl bg-very-light-blue text-primary-blue flex items-center justify-center flex-shrink-0 border border-soft-blue/50">
+                                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M12 2 2 7l10 5 8-4v6h2V7L12 2zm-6 9.18v4.64L12 19l6-3.18v-4.64l-6 3-6-3z"/>
                                     </svg>
                                 </div>
-                                <span 
-                                    class="text-base sm:text-lg font-medium transition-all"
-                                    :class="checked ? 'text-dark-navy font-semibold' : 'text-secondary-text line-through opacity-70'"
-                                >
-                                    {{ $goal['text'] }}
-                                </span>
-                            </li>
+                                <div>
+                                    <h3 class="text-lg font-bold text-dark-navy">{{ $certificate['name'] }}</h3>
+                                    <p class="text-sm text-secondary-text">{{ $certificate['issuer'] }}</p>
+                                    <span class="inline-block mt-2 px-3 py-1 rounded-full text-xs font-semibold bg-white text-primary-blue border border-soft-blue/60">{{ $certificate['period'] }}</span>
+                                </div>
+                            </div>
                         @endforeach
-                    </ul>
+                    </div>
 
                     <!-- Cute Doodle Smiley at Bottom of Page -->
                     <div class="pt-3 flex items-center justify-end space-x-2 text-primary-blue">
-                        <span class="font-doodle text-sm font-semibold">Semangat berproses</span>
+                        <span class="font-doodle text-sm font-semibold">Komnas HAM</span>
                         <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <circle cx="12" cy="12" r="10"></circle>
                             <path d="M8 14s1.5 2 4 2 4-2 4-2"></path>
@@ -101,7 +91,7 @@
                     <!-- Quote Content -->
                     <div class="pt-3 text-center space-y-4">
                         <p class="font-doodle text-xl sm:text-2xl font-bold leading-relaxed text-white">
-                            {{ $portfolio['goals']['quote'] }}
+                            Pengalaman magang sebagai Staf Dukungan TI
                         </p>
                         <div class="text-[#B9D8F5] flex justify-center">
                             <svg class="w-6 h-6 animate-pulse-soft" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
@@ -120,7 +110,7 @@
 
                 <!-- Hand-drawn Doodle Note: "Learning from Everything" -->
                 <div class="flex items-center space-x-2 text-primary-blue font-doodle text-lg font-bold">
-                    <span>Learning from Everything</span>
+                        <span>Sep 2022 – Sep 2026</span>
                     <svg class="w-5 h-5 text-primary-blue animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
                     </svg>

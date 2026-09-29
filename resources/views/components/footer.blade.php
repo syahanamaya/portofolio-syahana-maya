@@ -21,7 +21,7 @@
 
             <!-- Right: Campus Affiliation -->
             <div class="text-xs sm:text-sm text-soft-blue/90">
-                Sistem Informasi | Universitas Pamulang
+                Fresh Graduate Sistem Informasi | Universitas Pamulang
             </div>
 
         </div>

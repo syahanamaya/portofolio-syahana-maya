@@ -41,7 +41,7 @@
                 href="#projects" 
                 class="hidden sm:inline-flex items-center space-x-1.5 text-sm font-semibold text-[#B9D8F5] hover:text-white transition group"
             >
-                <span>Lihat Semua</span>
+                <span>Lihat Linimasa</span>
                 <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
                 </svg>
@@ -68,15 +68,22 @@
                             
                             <!-- Screenshot Image -->
                             <div class="relative overflow-hidden aspect-[16/9] bg-slate-50 flex items-center justify-center">
-                                <img 
-                                    src="{{ asset($project['image']) }}" 
-                                    alt="{{ $project['title'] }}" 
-                                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                                    loading="lazy"
-                                >
+                                @if(isset($project['image']))
+                                    <img 
+                                        src="{{ asset($project['image']) }}" 
+                                        alt="{{ $project['title'] }}" 
+                                        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                        loading="lazy"
+                                    >
+                                @else
+                                    <div class="absolute inset-0 bg-gradient-to-br from-very-light-blue via-white to-soft-blue/50"></div>
+                                    <div class="relative px-5 text-center">
+                                        <span class="font-doodle text-2xl sm:text-3xl font-bold text-primary-blue">{{ $project['category'] }}</span>
+                                    </div>
+                                @endif
                                 <div class="absolute inset-0 bg-primary-blue/10 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
                                     <span class="px-3 py-1 rounded-full bg-white/95 text-xs font-semibold text-primary-blue shadow-sm">
-                                        Klik untuk detail
+                                        Lihat detail
                                     </span>
                                 </div>
                             </div>
@@ -132,7 +139,7 @@
                 href="#projects" 
                 class="inline-flex items-center space-x-1.5 text-sm font-semibold text-[#B9D8F5] hover:text-white transition"
             >
-                <span>Lihat proyek lainnya</span>
+                <span>Lihat linimasa pengalaman</span>
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
                 </svg>
