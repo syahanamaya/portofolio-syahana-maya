@@ -102,7 +102,7 @@ section {
 }
 
 /* Shared portfolio surfaces and section rhythm */
-section:not(#home):not(#projects) {
+main > section:not(#home):not(#projects) {
     background-color: #F4F9FE;
 }
 
