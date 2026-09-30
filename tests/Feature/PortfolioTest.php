@@ -9,60 +9,40 @@ class PortfolioTest extends TestCase
     /**
      * Test that the homepage loads successfully and renders all key sections.
      */
-    public function test_portfolio_page_loads_with_all_sections(): void
+    public function test_homepage_loads_with_the_hero_section(): void
     {
         $response = $this->get('/');
 
         $response->assertStatus(200);
-
-        // Identitas & Hero
         $response->assertSeeText('Syahana Maya Syabana');
         $response->assertSeeText('Web Developer');
         $response->assertSeeText('Lifelong Learner');
         $response->assertSeeText('Lihat Portfolio Saya');
         $response->assertSeeText('Tentang Saya');
+        $response->assertDontSeeText('Profil Profesional');
+        $response->assertDontSeeText('Proyek Saya');
+    }
 
-        // Section About Me
-        $response->assertSeeText('Profil Profesional');
-        $response->assertSeeText('fresh graduate S1 Sistem Informasi');
-        $response->assertSeeText('IPK 3,68');
-        $response->assertSeeText('Universitas Pamulang');
-        $response->assertSeeText('Tangerang Selatan');
+    public function test_each_navigation_destination_loads_its_own_section(): void
+    {
+        $pages = [
+            '/about' => ['about', 'Profil Profesional'],
+            '/skills' => ['skills', 'Keahlian Saya'],
+            '/projects' => ['projects', 'Proyek Saya'],
+            '/experience' => ['experience', 'Pengalaman & Pendidikan'],
+            '/certifications' => ['certifications', 'Sertifikasi'],
+            '/contact' => ['contact', 'Hubungi Saya'],
+        ];
 
-        // Section Keahlian Saya
-        $response->assertSeeText('Keahlian Saya');
-        $response->assertSeeText('Sistem Informasi');
-        $response->assertSeeText('Desain & Kreatif');
-        $response->assertSeeText('Microsoft Office');
-        $response->assertSeeText('Adobe Illustrator');
-        $response->assertSeeText('Microsoft PowerPoint');
-        $response->assertSeeText('Teamwork');
+        foreach ($pages as $path => [$routeName, $heading]) {
+            $response = $this->get($path)
+                ->assertOk()
+                ->assertSeeText($heading);
 
-        // Section Projects
-        $response->assertSeeText('Proyek Saya');
-        $response->assertSeeText('Sistem Informasi Perpustakaan');
-        $response->assertSeeText('Sistem Pengaduan Siswa');
-        $response->assertSeeText('Web Form Komnas HAM');
+            $activeLinkPattern = '/<a(?=[^>]*href="' . preg_quote(route($routeName), '/') . '")(?=[^>]*aria-current="page")(?=[^>]*text-primary-blue font-semibold)[^>]*>/';
 
-        // Section Experience & Education
-        $response->assertSeeText('Pengalaman & Pendidikan');
-        $response->assertSeeText('Pendidikan');
-        $response->assertSeeText('Pengalaman');
-        $response->assertSeeText('Admin Media Sosial');
-        $response->assertSeeText('Staf Dukungan TI');
-
-        // Section Personal Goals
-        $response->assertSeeText('Sertifikasi');
-        $response->assertSeeText('Sertifikat Magang');
-        $response->assertSeeText('Komnas HAM');
-
-        // Section Contact
-        $response->assertSeeText('Hubungi Saya');
-        $response->assertSeeText('syahanamaya@gmail.com');
-        $response->assertSeeText("Let's Connect!");
-
-        // Section Footer
-        $response->assertSeeText('Thank you for visiting my portfolio');
+            $this->assertMatchesRegularExpression($activeLinkPattern, $response->getContent());
+        }
     }
 
     /**

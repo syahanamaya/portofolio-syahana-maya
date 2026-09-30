@@ -1,3 +1,15 @@
+@php
+    $navigationItems = [
+        ['label' => 'Home', 'route' => 'home'],
+        ['label' => 'About', 'route' => 'about'],
+        ['label' => 'Skills', 'route' => 'skills'],
+        ['label' => 'Projects', 'route' => 'projects'],
+        ['label' => 'Experience & Education', 'route' => 'experience'],
+        ['label' => 'Sertifikat', 'route' => 'certifications'],
+        ['label' => 'Contact', 'route' => 'contact'],
+    ];
+@endphp
+
 <header 
     x-data="{ 
         scrolled: false,
@@ -12,7 +24,7 @@
 >
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
         <!-- Logo / Name -->
-        <a href="#home" class="flex items-center space-x-2 group focus:outline-none">
+        <a href="{{ route('home') }}" class="flex items-center space-x-2 group focus:outline-none">
             <!-- Cute Hand-drawn Star Icon -->
             <svg class="w-6 h-6 text-primary-blue group-hover:rotate-12 transition-transform duration-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
@@ -23,56 +35,16 @@
         </a>
 
         <!-- Desktop Navigation Links -->
-        <nav class="hidden md:flex items-center space-x-7 text-sm font-medium text-dark-navy">
-            <a 
-                href="#home" 
-                class="hover:text-primary-blue transition-colors relative py-1"
-                :class="activeSection === 'home' ? 'text-primary-blue font-semibold' : 'text-dark-navy'"
-            >
-                Home
-            </a>
-            <a 
-                href="#about" 
-                class="hover:text-primary-blue transition-colors relative py-1"
-                :class="activeSection === 'about' ? 'text-primary-blue font-semibold' : 'text-dark-navy'"
-            >
-                About
-            </a>
-            <a 
-                href="#skills" 
-                class="hover:text-primary-blue transition-colors relative py-1"
-                :class="activeSection === 'skills' ? 'text-primary-blue font-semibold' : 'text-dark-navy'"
-            >
-                Skills
-            </a>
-            <a 
-                href="#projects" 
-                class="hover:text-primary-blue transition-colors relative py-1"
-                :class="activeSection === 'projects' ? 'text-primary-blue font-semibold' : 'text-dark-navy'"
-            >
-                Projects
-            </a>
-            <a 
-                href="#experience" 
-                class="hover:text-primary-blue transition-colors relative py-1"
-                :class="activeSection === 'experience' ? 'text-primary-blue font-semibold' : 'text-dark-navy'"
-            >
-                Experience & Education
-            </a>
-            <a 
-                href="#certifications" 
-                class="hover:text-primary-blue transition-colors relative py-1"
-                :class="activeSection === 'certifications' ? 'text-primary-blue font-semibold' : 'text-dark-navy'"
-            >
-                Sertifikat
-            </a>
-            <a 
-                href="#contact" 
-                class="hover:text-primary-blue transition-colors relative py-1"
-                :class="activeSection === 'contact' ? 'text-primary-blue font-semibold' : 'text-dark-navy'"
-            >
-                Contact
-            </a>
+        <nav class="hidden md:flex items-center space-x-7 text-sm font-medium">
+            @foreach($navigationItems as $item)
+                <a
+                    href="{{ route($item['route']) }}"
+                    class="transition-colors relative py-1 {{ $currentPage === $item['route'] ? 'text-primary-blue font-semibold' : 'text-dark-navy hover:text-primary-blue' }}"
+                    @if($currentPage === $item['route']) aria-current="page" @endif
+                >
+                    {{ $item['label'] }}
+                </a>
+            @endforeach
         </nav>
 
         <!-- Desktop Download CV Button -->
@@ -120,55 +92,16 @@
         style="display: none;"
     >
         <div class="flex flex-col space-y-3.5 pt-2">
-            <a 
-                href="#home" 
-                @click="mobileMenuOpen = false"
-                class="px-3 py-2 rounded-xl text-base font-medium text-dark-navy hover:bg-very-light-blue hover:text-primary-blue transition"
-            >
-                Home
-            </a>
-            <a 
-                href="#about" 
-                @click="mobileMenuOpen = false"
-                class="px-3 py-2 rounded-xl text-base font-medium text-dark-navy hover:bg-very-light-blue hover:text-primary-blue transition"
-            >
-                About
-            </a>
-            <a 
-                href="#skills" 
-                @click="mobileMenuOpen = false"
-                class="px-3 py-2 rounded-xl text-base font-medium text-dark-navy hover:bg-very-light-blue hover:text-primary-blue transition"
-            >
-                Skills
-            </a>
-            <a 
-                href="#projects" 
-                @click="mobileMenuOpen = false"
-                class="px-3 py-2 rounded-xl text-base font-medium text-dark-navy hover:bg-very-light-blue hover:text-primary-blue transition"
-            >
-                Projects
-            </a>
-            <a 
-                href="#experience" 
-                @click="mobileMenuOpen = false"
-                class="px-3 py-2 rounded-xl text-base font-medium text-dark-navy hover:bg-very-light-blue hover:text-primary-blue transition"
-            >
-                Experience & Education
-            </a>
-            <a 
-                href="#certifications" 
-                @click="mobileMenuOpen = false"
-                class="px-3 py-2 rounded-xl text-base font-medium text-dark-navy hover:bg-very-light-blue hover:text-primary-blue transition"
-            >
-                Sertifikat
-            </a>
-            <a 
-                href="#contact" 
-                @click="mobileMenuOpen = false"
-                class="px-3 py-2 rounded-xl text-base font-medium text-dark-navy hover:bg-very-light-blue hover:text-primary-blue transition"
-            >
-                Contact
-            </a>
+            @foreach($navigationItems as $item)
+                <a
+                    href="{{ route($item['route']) }}"
+                    @click="mobileMenuOpen = false"
+                    class="px-3 py-2 rounded-xl text-base font-medium transition {{ $currentPage === $item['route'] ? 'bg-very-light-blue text-primary-blue' : 'text-dark-navy hover:bg-very-light-blue hover:text-primary-blue' }}"
+                    @if($currentPage === $item['route']) aria-current="page" @endif
+                >
+                    {{ $item['label'] }}
+                </a>
+            @endforeach
 
             <div class="pt-3 border-t border-soft-blue/30">
                 <a 

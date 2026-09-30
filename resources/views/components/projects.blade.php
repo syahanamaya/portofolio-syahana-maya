@@ -38,7 +38,7 @@
 
             <!-- "Lihat Semua" button -->
             <a 
-                href="#projects" 
+                href="{{ route('projects') }}" 
                 class="hidden sm:inline-flex items-center space-x-1.5 text-sm font-semibold text-[#B9D8F5] hover:text-white transition group"
             >
                 <span>Lihat Semua</span>
@@ -136,7 +136,7 @@
         <!-- Mobile "Lihat Semua" Link at bottom -->
         <div class="mt-8 text-center sm:hidden">
             <a 
-                href="#projects" 
+                href="{{ route('projects') }}" 
                 class="inline-flex items-center space-x-1.5 text-sm font-semibold text-[#B9D8F5] hover:text-white transition"
             >
                 <span>Lihat proyek lainnya</span>

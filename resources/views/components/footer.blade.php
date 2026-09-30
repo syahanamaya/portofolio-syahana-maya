@@ -45,7 +45,7 @@
                         {{ $soc['name'] }}
                     </a>
                 @endforeach
-                <a href="#home" class="hover:text-white transition-colors flex items-center space-x-1 ml-2 pl-2 border-l border-white/20">
+                <a href="{{ route('home') }}" class="hover:text-white transition-colors flex items-center space-x-1 ml-2 pl-2 border-l border-white/20">
                     <span>Back to top</span>
                     <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"/>

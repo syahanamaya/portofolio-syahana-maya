@@ -48,7 +48,7 @@
                 <!-- Action Buttons -->
                 <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
                     <a 
-                        href="#projects" 
+                        href="{{ route('projects') }}" 
                         class="w-full sm:w-auto inline-flex items-center justify-center space-x-2 px-7 py-3.5 rounded-full bg-primary-blue hover:bg-dark-blue text-white font-semibold shadow-md hover:shadow-lg transition-all duration-200 transform hover:-translate-y-0.5 group"
                     >
                         <span>Lihat Portfolio Saya</span>
@@ -57,7 +57,7 @@
                         </svg>
                     </a>
                     <a 
-                        href="#about" 
+                        href="{{ route('about') }}" 
                         class="w-full sm:w-auto inline-flex items-center justify-center px-7 py-3.5 rounded-full bg-white hover:bg-very-light-blue text-primary-blue border-2 border-primary-blue/70 font-semibold shadow-sm hover:shadow transition-all duration-200"
                     >
                         <span>Tentang Saya</span>

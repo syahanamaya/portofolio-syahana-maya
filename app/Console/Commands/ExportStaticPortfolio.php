@@ -37,30 +37,57 @@ class ExportStaticPortfolio extends Command
         }
         File::makeDirectory($outputPath, 0755, true);
 
-        // 2. Render view Laravel ke string HTML
+        // 2. Render setiap halaman Laravel ke file HTML
         $portfolio = config('portfolio');
-        $html = view('home', compact('portfolio'))->render();
-
-        // 3. Konversi path aset absolut menjadi relatif (./) agar kompatibel dengan sub-path GitHub Pages
-        // Contoh: /build/assets/... -> ./build/assets/..., /images/... -> ./images/..., /cv.pdf -> ./cv.pdf
-        $localAssetBaseUrl = rtrim(config('app.url'), '/') . '/';
-        $replacements = [
-            $localAssetBaseUrl => './',
-            'src="/' => 'src="./',
-            'href="/' => 'href="./',
-            'url(\'/' => 'url(\'./',
-            'url("/' => 'url("./',
-            'url(/images/' => 'url(./images/',
-            ':src="activeProject?.image"' => ':src="activeProject ? \'.\' + activeProject.image : \'\'"',
+        $pages = [
+            'home' => ['view' => 'home', 'component' => null, 'file' => 'index.html'],
+            'about' => ['view' => 'pages.section', 'component' => 'about', 'file' => 'about.html'],
+            'skills' => ['view' => 'pages.section', 'component' => 'skills', 'file' => 'skills.html'],
+            'projects' => ['view' => 'pages.section', 'component' => 'projects', 'file' => 'projects.html'],
+            'experience' => ['view' => 'pages.section', 'component' => 'experience', 'file' => 'experience.html'],
+            'certifications' => ['view' => 'pages.section', 'component' => 'goals', 'file' => 'certifications.html'],
+            'contact' => ['view' => 'pages.section', 'component' => 'contact', 'file' => 'contact.html'],
         ];
 
-        foreach ($replacements as $search => $replace) {
-            $html = str_replace($search, $replace, $html);
-        }
+        foreach ($pages as $currentPage => $page) {
+            $viewData = [
+                'portfolio' => $portfolio,
+                'currentPage' => $currentPage,
+            ];
 
-        // Simpan index.html
-        File::put("{$outputPath}/index.html", $html);
-        $this->info("✓ index.html berhasil dibuat.");
+            if ($page['component'] !== null) {
+                $viewData['component'] = $page['component'];
+            }
+
+            $html = view($page['view'], $viewData)->render();
+
+            foreach ($pages as $routeName => $targetPage) {
+                if ($routeName !== 'home') {
+                    $html = str_replace(route($routeName), './' . $targetPage['file'], $html);
+                }
+            }
+
+            // 3. Konversi aset dan route ke path relatif untuk GitHub Pages.
+            $localAssetBaseUrl = rtrim(config('app.url'), '/') . '/';
+            $replacements = [
+                $localAssetBaseUrl => './',
+                'src="/' => 'src="./',
+                'href="/' => 'href="./',
+                'url(\'/' => 'url(\'./',
+                'url("/' => 'url("./',
+                'url(/images/' => 'url(./images/',
+                ':src="activeProject?.image"' => ':src="activeProject ? \'.\' + activeProject.image : \'\'"',
+            ];
+
+            foreach ($replacements as $search => $replace) {
+                $html = str_replace($search, $replace, $html);
+            }
+
+            $html = str_replace(route('home'), './index.html', $html);
+
+            File::put("{$outputPath}/{$page['file']}", $html);
+            $this->info("✓ {$page['file']} berhasil dibuat.");
+        }
 
         // 4. Salin asset public ke direktori output
         if (File::exists(public_path('build'))) {

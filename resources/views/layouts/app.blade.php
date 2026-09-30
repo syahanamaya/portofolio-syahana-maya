@@ -59,7 +59,7 @@
     @include('components.navbar')
 
     <!-- Main Content -->
-    <main class="flex-grow">
+    <main class="flex-grow {{ $currentPage === 'home' ? '' : 'pt-6 md:pt-8' }}">
         @yield('content')
     </main>
 
@@ -181,7 +181,7 @@
                         Tutup
                     </button>
                     <a 
-                        :href="activeProject?.repo_url || '#contact'" 
+                        :href="activeProject?.repo_url || '{{ route('contact') }}'" 
                         class="inline-flex items-center space-x-2 px-6 py-2.5 rounded-full bg-primary-blue hover:bg-dark-blue text-white text-sm font-semibold shadow-md transition"
                     >
                         <span>Hubungi Saya</span>

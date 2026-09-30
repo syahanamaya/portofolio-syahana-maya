@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <title>Syahana Maya Syabana | Portfolio Pribadi</title>
+    <meta name="description" content="Portfolio Syahana Maya Syabana, fresh graduate Sistem Informasi Universitas Pamulang dengan pengalaman dukungan TI dan administrasi media sosial.">
+    <meta name="keywords" content="Shahana Maya, Portfolio, Web Developer, Laravel, Tailwind CSS, Sistem Informasi, Universitas Pamulang">
+    <meta name="author" content="Syahana Maya Syabana">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="./favicon.png">
+    <link rel="apple-touch-icon" href="./favicon.png">
+
+    <!-- Google Fonts: expressive display type and handwritten accents -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Styles & Scripts -->
+    <link rel="preload" as="style" href="./build/assets/app-DTDWn6x_.css" /><link rel="modulepreload" as="script" href="./build/assets/app-DIZEten-.js" /><link rel="stylesheet" href="./build/assets/app-DTDWn6x_.css" /><script type="module" src="./build/assets/app-DIZEten-.js"></script>
+    <style>
+        .font-doodle {
+            font-family: 'Caveat', cursive;
+        }
+        .font-hand {
+            font-family: 'Caveat', cursive;
+        }
+    </style>
+</head>
+<body 
+    x-data="{
+        mobileMenuOpen: false,
+        activeSection: 'home',
+        projectModalOpen: false,
+        activeProject: null,
+        copiedText: false,
+        copyToast(text) {
+            navigator.clipboard.writeText(text);
+            this.copiedText = true;
+            setTimeout(() => this.copiedText = false, 2500);
+        },
+        openProject(project) {
+            this.activeProject = project;
+            this.projectModalOpen = true;
+            document.body.style.overflow = 'hidden';
+        },
+        closeProject() {
+            this.projectModalOpen = false;
+            document.body.style.overflow = 'auto';
+        }
+    }"
+    class="bg-white text-dark-navy antialiased selection:bg-soft-blue selection:text-dark-navy flex flex-col min-h-screen relative"
+>
+    <!-- Navbar -->
+    <header 
+    x-data="{ 
+        scrolled: false,
+        updateScroll() {
+            this.scrolled = window.scrollY > 20;
+        }
+    }"
+    x-init="updateScroll()"
+    @scroll.window="updateScroll()"
+    :class="scrolled ? 'bg-white/95 backdrop-blur-md shadow-sm border-b border-soft-blue/30 py-3' : 'bg-white/80 backdrop-blur-sm py-4 md:py-5 border-b border-transparent'"
+    class="fixed top-0 left-0 right-0 z-40 transition-all duration-300"
+>
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
+        <!-- Logo / Name -->
+        <a href="./index.html" class="flex items-center space-x-2 group focus:outline-none">
+            <!-- Cute Hand-drawn Star Icon -->
+            <svg class="w-6 h-6 text-primary-blue group-hover:rotate-12 transition-transform duration-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+            </svg>
+            <span class="font-bold text-lg sm:text-xl text-dark-navy tracking-tight group-hover:text-primary-blue transition-colors">
+                Syahana Maya
+            </span>
+        </a>
+
+        <!-- Desktop Navigation Links -->
+        <nav class="hidden md:flex items-center space-x-7 text-sm font-medium">
+                            <a
+                    href="./index.html"
+                    class="transition-colors relative py-1 text-dark-navy hover:text-primary-blue"
+                                    >
+                    Home
+                </a>
+                            <a
+                    href="./about.html"
+                    class="transition-colors relative py-1 text-dark-navy hover:text-primary-blue"
+                                    >
+                    About
+                </a>
+                            <a
+                    href="./skills.html"
+                    class="transition-colors relative py-1 text-dark-navy hover:text-primary-blue"
+                                    >
+                    Skills
+                </a>
+                            <a
+                    href="./projects.html"
+                    class="transition-colors relative py-1 text-primary-blue font-semibold"
+                     aria-current="page"                 >
+                    Projects
+                </a>
+                            <a
+                    href="./experience.html"
+                    class="transition-colors relative py-1 text-dark-navy hover:text-primary-blue"
+                                    >
+                    Experience &amp; Education
+                </a>
+                            <a
+                    href="./certifications.html"
+                    class="transition-colors relative py-1 text-dark-navy hover:text-primary-blue"
+                                    >
+                    Sertifikat
+                </a>
+                            <a
+                    href="./contact.html"
+                    class="transition-colors relative py-1 text-dark-navy hover:text-primary-blue"
+                                    >
+                    Contact
+                </a>
+                    </nav>
+
+        <!-- Desktop Download CV Button -->
+        <div class="hidden md:block">
+            <a 
+                href="./cv.pdf" 
+                download="CV-Shahana-Maya-Syabana.pdf"
+                class="inline-flex items-center space-x-2 px-5 py-2.5 rounded-full bg-primary-blue hover:bg-dark-blue text-white text-sm font-semibold shadow-sm hover:shadow-md transition-all duration-200 transform hover:-translate-y-0.5"
+            >
+                <span>Download CV</span>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+                </svg>
+            </a>
+        </div>
+
+        <!-- Mobile Hamburger Button -->
+        <div class="flex items-center md:hidden">
+            <button 
+                @click="mobileMenuOpen = !mobileMenuOpen"
+                type="button" 
+                class="p-2 rounded-xl text-dark-navy hover:text-primary-blue hover:bg-very-light-blue focus:outline-none transition"
+                aria-label="Menu Navigasi"
+            >
+                <svg x-show="!mobileMenuOpen" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                </svg>
+                <svg x-show="mobileMenuOpen" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="display: none;">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <!-- Mobile Drawer Menu -->
+    <div 
+        x-show="mobileMenuOpen" 
+        x-transition:enter="transition ease-out duration-200"
+        x-transition:enter-start="opacity-0 -translate-y-2"
+        x-transition:enter-end="opacity-100 translate-y-0"
+        x-transition:leave="transition ease-in duration-150"
+        x-transition:leave-start="opacity-100 translate-y-0"
+        x-transition:leave-end="opacity-0 -translate-y-2"
+        class="md:hidden bg-white/98 backdrop-blur-md border-b border-soft-blue/30 px-5 pt-3 pb-6 shadow-xl"
+        style="display: none;"
+    >
+        <div class="flex flex-col space-y-3.5 pt-2">
+                            <a
+                    href="./index.html"
+                    @click="mobileMenuOpen = false"
+                    class="px-3 py-2 rounded-xl text-base font-medium transition text-dark-navy hover:bg-very-light-blue hover:text-primary-blue"
+                                    >
+                    Home
+                </a>
+                            <a
+                    href="./about.html"
+                    @click="mobileMenuOpen = false"
+                    class="px-3 py-2 rounded-xl text-base font-medium transition text-dark-navy hover:bg-very-light-blue hover:text-primary-blue"
+                                    >
+                    About
+                </a>
+                            <a
+                    href="./skills.html"
+                    @click="mobileMenuOpen = false"
+                    class="px-3 py-2 rounded-xl text-base font-medium transition text-dark-navy hover:bg-very-light-blue hover:text-primary-blue"
+                                    >
+                    Skills
+                </a>
+                            <a
+                    href="./projects.html"
+                    @click="mobileMenuOpen = false"
+                    class="px-3 py-2 rounded-xl text-base font-medium transition bg-very-light-blue text-primary-blue"
+                     aria-current="page"                 >
+                    Projects
+                </a>
+                            <a
+                    href="./experience.html"
+                    @click="mobileMenuOpen = false"
+                    class="px-3 py-2 rounded-xl text-base font-medium transition text-dark-navy hover:bg-very-light-blue hover:text-primary-blue"
+                                    >
+                    Experience &amp; Education
+                </a>
+                            <a
+                    href="./certifications.html"
+                    @click="mobileMenuOpen = false"
+                    class="px-3 py-2 rounded-xl text-base font-medium transition text-dark-navy hover:bg-very-light-blue hover:text-primary-blue"
+                                    >
+                    Sertifikat
+                </a>
+                            <a
+                    href="./contact.html"
+                    @click="mobileMenuOpen = false"
+                    class="px-3 py-2 rounded-xl text-base font-medium transition text-dark-navy hover:bg-very-light-blue hover:text-primary-blue"
+                                    >
+                    Contact
+                </a>
+            
+            <div class="pt-3 border-t border-soft-blue/30">
+                <a 
+                    href="./cv.pdf" 
+                    download="CV-Shahana-Maya-Syabana.pdf"
+                    @click="mobileMenuOpen = false"
+                    class="w-full flex items-center justify-center space-x-2 px-5 py-3 rounded-xl bg-primary-blue hover:bg-dark-blue text-white text-base font-semibold shadow-md transition"
+                >
+                    <span>Download CV</span>
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </div>
+</header>
+
+    <!-- Main Content -->
+    <main class="flex-grow pt-6 md:pt-8">
+            <section 
+    id="projects" 
+    class="py-20 md:py-28 bg-[#1F568A] text-white relative overflow-hidden"
+    x-intersect.threshold.0.3="activeSection = 'projects'"
+>
+    <!-- Background Sparkle / Star Doodles for visual charm -->
+    <div class="absolute top-10 left-12 text-white/20 pointer-events-none">
+        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 2l2.4 7.2h7.6l-6.1 4.5 2.3 7.3-6.2-4.6-6.2 4.6 2.3-7.3-6.1-4.5h7.6z"/>
+        </svg>
+    </div>
+    <div class="absolute bottom-12 right-16 text-white/15 pointer-events-none">
+        <svg class="w-10 h-10" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 2l2.4 7.2h7.6l-6.1 4.5 2.3 7.3-6.2-4.6-6.2 4.6 2.3-7.3-6.1-4.5h7.6z"/>
+        </svg>
+    </div>
+    <div class="absolute top-1/3 right-10 text-white/10 pointer-events-none">
+        <svg class="w-6 h-6 animate-pulse-soft" fill="currentColor" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="6"/>
+        </svg>
+    </div>
+
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        
+        <!-- Header with "Lihat Semua" Link -->
+        <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-12 md:mb-16 gap-4">
+            <div>
+                <span class="inline-block text-xs sm:text-sm font-semibold tracking-wider text-[#B9D8F5] uppercase mb-1">
+                    &lsquo;My Projects
+                </span>
+                <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight">
+                    Proyek Saya
+                </h2>
+                <p class="text-[#B9D8F5]/90 text-sm sm:text-base mt-2 max-w-xl">
+                    Beberapa proyek sistem informasi dan web yang pernah saya kerjakan.
+                </p>
+            </div>
+
+            <!-- "Lihat Semua" button -->
+            <a 
+                href="./projects.html" 
+                class="hidden sm:inline-flex items-center space-x-1.5 text-sm font-semibold text-[#B9D8F5] hover:text-white transition group"
+            >
+                <span>Lihat Semua</span>
+                <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+                </svg>
+            </a>
+        </div>
+
+        <!-- Projects Grid: 3 Columns Desktop, 2 Columns Tablet, 1 Column Mobile -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+                            <div 
+                    class="bg-white text-dark-navy rounded-3xl overflow-hidden shadow-xl border border-white/20 transition-all duration-300 transform hover:-translate-y-2 hover:shadow-2xl flex flex-col group cursor-pointer"
+                    @click="openProject({&quot;id&quot;:&quot;perpus&quot;,&quot;title&quot;:&quot;Sistem Informasi Perpustakaan&quot;,&quot;category&quot;:&quot;Web Application &amp; Skripsi&quot;,&quot;short_description&quot;:&quot;Perancangan dan implementasi sistem informasi perpustakaan berbasis web menggunakan metode Agile.&quot;,&quot;full_description&quot;:&quot;Perancangan dan implementasi sistem informasi perpustakaan berbasis web yang dibangun sebagai topik skripsi akhir. Sistem ini mendigitalisasi pengelolaan sirkulasi buku, katalogisasi koleksi, pendaftaran anggota, pencatatan peminjaman, serta perhitungan denda otomatis. Dikembangkan menggunakan metode Agile untuk memastikan alur kerja fleksibel dan antarmuka yang user-friendly.&quot;,&quot;technologies&quot;:[&quot;Laravel&quot;,&quot;MySQL&quot;,&quot;Tailwind&quot;],&quot;image&quot;:&quot;\/images\/projects\/perpus.png&quot;,&quot;demo_url&quot;:&quot;#&quot;,&quot;repo_url&quot;:&quot;https:\/\/github.com\/syahanamaya\/sistem-informasi-perpustakaan&quot;,&quot;features&quot;:[&quot;Katalog buku terstruktur dengan filter pencarian instan&quot;,&quot;Sistem sirkulasi peminjaman &amp; pengembalian otomatis&quot;,&quot;Perhitungan denda keterlambatan buku secara presisi&quot;,&quot;Dashboard ringkasan statistik untuk pustakawan&quot;,&quot;Desain antarmuka bersih &amp; responsif berbasis Tailwind CSS&quot;]})"
+                >
+                    <!-- Project Preview in Device Mockup Container -->
+                    <div class="bg-gray-100 p-4 border-b border-gray-100 relative overflow-hidden flex items-center justify-center">
+                        <div class="w-full bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
+                            <!-- Browser Mockup Bar -->
+                            <div class="bg-gray-50 px-3 py-1.5 border-b border-gray-200 flex items-center space-x-1.5">
+                                <span class="w-2 h-2 rounded-full bg-red-400 inline-block"></span>
+                                <span class="w-2 h-2 rounded-full bg-yellow-400 inline-block"></span>
+                                <span class="w-2 h-2 rounded-full bg-green-400 inline-block"></span>
+                                <span class="text-[9px] text-gray-400 font-mono ml-1.5 truncate">Sistem Informasi Perpustakaan</span>
+                            </div>
+                            
+                            <!-- Screenshot Image -->
+                            <div class="relative overflow-hidden aspect-[16/9] bg-slate-50 flex items-center justify-center">
+                                                                    <img 
+                                        src="./images/projects/perpus.png" 
+                                        alt="Sistem Informasi Perpustakaan" 
+                                        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                        loading="lazy"
+                                    >
+                                                                <div class="absolute inset-0 bg-primary-blue/10 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                                    <span class="px-3 py-1 rounded-full bg-white/95 text-xs font-semibold text-primary-blue shadow-sm">
+                                        Lihat detail
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card Body -->
+                    <div class="p-6 flex-grow flex flex-col justify-between space-y-4">
+                        <div class="space-y-2">
+                            <span class="text-[11px] font-semibold text-primary-blue uppercase tracking-wider block">
+                                Web Application &amp; Skripsi
+                            </span>
+                            <h3 class="text-xl font-bold text-dark-navy group-hover:text-primary-blue transition-colors">
+                                Sistem Informasi Perpustakaan
+                            </h3>
+                            <p class="text-secondary-text text-sm leading-relaxed line-clamp-3">
+                                Perancangan dan implementasi sistem informasi perpustakaan berbasis web menggunakan metode Agile.
+                            </p>
+                        </div>
+
+                        <!-- Card Footer: Badges & Arrow Action -->
+                        <div class="pt-3 border-t border-soft-blue/30 flex items-center justify-between">
+                            <!-- Technology Badges -->
+                            <div class="flex flex-wrap gap-1.5">
+                                                                    <span class="px-2.5 py-0.5 rounded-full text-xs font-medium bg-very-light-blue text-primary-blue border border-soft-blue/60">
+                                        Laravel
+                                    </span>
+                                                                    <span class="px-2.5 py-0.5 rounded-full text-xs font-medium bg-very-light-blue text-primary-blue border border-soft-blue/60">
+                                        MySQL
+                                    </span>
+                                                                    <span class="px-2.5 py-0.5 rounded-full text-xs font-medium bg-very-light-blue text-primary-blue border border-soft-blue/60">
+                                        Tailwind
+                                    </span>
+                                                            </div>
+
+                            <!-- Circular Detail Button -->
+                            <button 
+                                type="button"
+                                @click.stop="openProject({&quot;id&quot;:&quot;perpus&quot;,&quot;title&quot;:&quot;Sistem Informasi Perpustakaan&quot;,&quot;category&quot;:&quot;Web Application &amp; Skripsi&quot;,&quot;short_description&quot;:&quot;Perancangan dan implementasi sistem informasi perpustakaan berbasis web menggunakan metode Agile.&quot;,&quot;full_description&quot;:&quot;Perancangan dan implementasi sistem informasi perpustakaan berbasis web yang dibangun sebagai topik skripsi akhir. Sistem ini mendigitalisasi pengelolaan sirkulasi buku, katalogisasi koleksi, pendaftaran anggota, pencatatan peminjaman, serta perhitungan denda otomatis. Dikembangkan menggunakan metode Agile untuk memastikan alur kerja fleksibel dan antarmuka yang user-friendly.&quot;,&quot;technologies&quot;:[&quot;Laravel&quot;,&quot;MySQL&quot;,&quot;Tailwind&quot;],&quot;image&quot;:&quot;\/images\/projects\/perpus.png&quot;,&quot;demo_url&quot;:&quot;#&quot;,&quot;repo_url&quot;:&quot;https:\/\/github.com\/syahanamaya\/sistem-informasi-perpustakaan&quot;,&quot;features&quot;:[&quot;Katalog buku terstruktur dengan filter pencarian instan&quot;,&quot;Sistem sirkulasi peminjaman &amp; pengembalian otomatis&quot;,&quot;Perhitungan denda keterlambatan buku secara presisi&quot;,&quot;Dashboard ringkasan statistik untuk pustakawan&quot;,&quot;Desain antarmuka bersih &amp; responsif berbasis Tailwind CSS&quot;]})"
+                                class="w-9 h-9 rounded-full bg-primary-blue group-hover:bg-dark-blue text-white flex items-center justify-center shadow transition-all duration-200 transform group-hover:scale-110 flex-shrink-0 ml-2"
+                                aria-label="Lihat Detail Sistem Informasi Perpustakaan"
+                            >
+                                <svg class="w-4 h-4 transform group-hover:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+                                </svg>
+                            </button>
+                        </div>
+
+                    </div>
+                </div>
+                            <div 
+                    class="bg-white text-dark-navy rounded-3xl overflow-hidden shadow-xl border border-white/20 transition-all duration-300 transform hover:-translate-y-2 hover:shadow-2xl flex flex-col group cursor-pointer"
+                    @click="openProject({&quot;id&quot;:&quot;pengaduan&quot;,&quot;title&quot;:&quot;Sistem Pengaduan Siswa&quot;,&quot;category&quot;:&quot;Web Application&quot;,&quot;short_description&quot;:&quot;Aplikasi pengaduan siswa di SMK Jakarta Pusat 1 dengan metode Agile.&quot;,&quot;full_description&quot;:&quot;Aplikasi pengaduan siswa berbasis web untuk membantu proses penyampaian dan pengelolaan aspirasi maupun keluhan di lingkungan sekolah secara transparan dan terorganisir. Dilengkapi alur verifikasi pengaduan, notifikasi status tiket, dan opsi laporan anonim untuk melindungi privasi siswa.&quot;,&quot;technologies&quot;:[&quot;Laravel&quot;,&quot;MySQL&quot;,&quot;HTML\/CSS\/JS&quot;],&quot;image&quot;:&quot;\/images\/projects\/pengaduan.png&quot;,&quot;demo_url&quot;:&quot;#&quot;,&quot;repo_url&quot;:&quot;https:\/\/github.com\/syahanamaya\/sistem-pengaduan-siswa&quot;,&quot;features&quot;:[&quot;Formulir pelaporan pengaduan dilengkapi kategori masalah&quot;,&quot;Pelacakan status tiket (Pending, Diproses, Selesai)&quot;,&quot;Tanggapan resmi langsung dari pihak kesiswaan\/guru&quot;,&quot;Rekapitulasi dan pelaporan berkala bagi kepala sekolah&quot;,&quot;Antarmuka ramah pengguna bagi siswa melalui smartphone&quot;]})"
+                >
+                    <!-- Project Preview in Device Mockup Container -->
+                    <div class="bg-gray-100 p-4 border-b border-gray-100 relative overflow-hidden flex items-center justify-center">
+                        <div class="w-full bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
+                            <!-- Browser Mockup Bar -->
+                            <div class="bg-gray-50 px-3 py-1.5 border-b border-gray-200 flex items-center space-x-1.5">
+                                <span class="w-2 h-2 rounded-full bg-red-400 inline-block"></span>
+                                <span class="w-2 h-2 rounded-full bg-yellow-400 inline-block"></span>
+                                <span class="w-2 h-2 rounded-full bg-green-400 inline-block"></span>
+                                <span class="text-[9px] text-gray-400 font-mono ml-1.5 truncate">Sistem Pengaduan Siswa</span>
+                            </div>
+                            
+                            <!-- Screenshot Image -->
+                            <div class="relative overflow-hidden aspect-[16/9] bg-slate-50 flex items-center justify-center">
+                                                                    <img 
+                                        src="./images/projects/pengaduan.png" 
+                                        alt="Sistem Pengaduan Siswa" 
+                                        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                        loading="lazy"
+                                    >
+                                                                <div class="absolute inset-0 bg-primary-blue/10 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                                    <span class="px-3 py-1 rounded-full bg-white/95 text-xs font-semibold text-primary-blue shadow-sm">
+                                        Lihat detail
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card Body -->
+                    <div class="p-6 flex-grow flex flex-col justify-between space-y-4">
+                        <div class="space-y-2">
+                            <span class="text-[11px] font-semibold text-primary-blue uppercase tracking-wider block">
+                                Web Application
+                            </span>
+                            <h3 class="text-xl font-bold text-dark-navy group-hover:text-primary-blue transition-colors">
+                                Sistem Pengaduan Siswa
+                            </h3>
+                            <p class="text-secondary-text text-sm leading-relaxed line-clamp-3">
+                                Aplikasi pengaduan siswa di SMK Jakarta Pusat 1 dengan metode Agile.
+                            </p>
+                        </div>
+
+                        <!-- Card Footer: Badges & Arrow Action -->
+                        <div class="pt-3 border-t border-soft-blue/30 flex items-center justify-between">
+                            <!-- Technology Badges -->
+                            <div class="flex flex-wrap gap-1.5">
+                                                                    <span class="px-2.5 py-0.5 rounded-full text-xs font-medium bg-very-light-blue text-primary-blue border border-soft-blue/60">
+                                        Laravel
+                                    </span>
+                                                                    <span class="px-2.5 py-0.5 rounded-full text-xs font-medium bg-very-light-blue text-primary-blue border border-soft-blue/60">
+                                        MySQL
+                                    </span>
+                                                                    <span class="px-2.5 py-0.5 rounded-full text-xs font-medium bg-very-light-blue text-primary-blue border border-soft-blue/60">
+                                        HTML/CSS/JS
+                                    </span>
+                                                            </div>
+
+                            <!-- Circular Detail Button -->
+                            <button 
+                                type="button"
+                                @click.stop="openProject({&quot;id&quot;:&quot;pengaduan&quot;,&quot;title&quot;:&quot;Sistem Pengaduan Siswa&quot;,&quot;category&quot;:&quot;Web Application&quot;,&quot;short_description&quot;:&quot;Aplikasi pengaduan siswa di SMK Jakarta Pusat 1 dengan metode Agile.&quot;,&quot;full_description&quot;:&quot;Aplikasi pengaduan siswa berbasis web untuk membantu proses penyampaian dan pengelolaan aspirasi maupun keluhan di lingkungan sekolah secara transparan dan terorganisir. Dilengkapi alur verifikasi pengaduan, notifikasi status tiket, dan opsi laporan anonim untuk melindungi privasi siswa.&quot;,&quot;technologies&quot;:[&quot;Laravel&quot;,&quot;MySQL&quot;,&quot;HTML\/CSS\/JS&quot;],&quot;image&quot;:&quot;\/images\/projects\/pengaduan.png&quot;,&quot;demo_url&quot;:&quot;#&quot;,&quot;repo_url&quot;:&quot;https:\/\/github.com\/syahanamaya\/sistem-pengaduan-siswa&quot;,&quot;features&quot;:[&quot;Formulir pelaporan pengaduan dilengkapi kategori masalah&quot;,&quot;Pelacakan status tiket (Pending, Diproses, Selesai)&quot;,&quot;Tanggapan resmi langsung dari pihak kesiswaan\/guru&quot;,&quot;Rekapitulasi dan pelaporan berkala bagi kepala sekolah&quot;,&quot;Antarmuka ramah pengguna bagi siswa melalui smartphone&quot;]})"
+                                class="w-9 h-9 rounded-full bg-primary-blue group-hover:bg-dark-blue text-white flex items-center justify-center shadow transition-all duration-200 transform group-hover:scale-110 flex-shrink-0 ml-2"
+                                aria-label="Lihat Detail Sistem Pengaduan Siswa"
+                            >
+                                <svg class="w-4 h-4 transform group-hover:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+                                </svg>
+                            </button>
+                        </div>
+
+                    </div>
+                </div>
+                            <div 
+                    class="bg-white text-dark-navy rounded-3xl overflow-hidden shadow-xl border border-white/20 transition-all duration-300 transform hover:-translate-y-2 hover:shadow-2xl flex flex-col group cursor-pointer"
+                    @click="openProject({&quot;id&quot;:&quot;komnas&quot;,&quot;title&quot;:&quot;Web Form Komnas HAM&quot;,&quot;category&quot;:&quot;Web Form &amp; Portal&quot;,&quot;short_description&quot;:&quot;Pengembangan website form pengaduan pelanggaran HAM sebagai project perkuliahan.&quot;,&quot;full_description&quot;:&quot;Pengembangan formulir digital interaktif untuk intake pengaduan dugaan pelanggaran HAM yang dibuat sebagai tugas besar perkuliahan. Mengutamakan kemudahan navigasi multi-step form dan validasi berkas lampiran.&quot;,&quot;technologies&quot;:[&quot;PHP&quot;,&quot;MySQL&quot;,&quot;HTML\/CSS\/JS&quot;],&quot;image&quot;:&quot;\/images\/projects\/komnas.png&quot;,&quot;demo_url&quot;:&quot;#&quot;,&quot;repo_url&quot;:&quot;https:\/\/github.com\/syahanamaya\/web-form-komnas-ham&quot;,&quot;features&quot;:[&quot;Multi-step form terstruktur dengan panduan pengisian&quot;,&quot;Unggah bukti berkas dan verifikasi format dokumen&quot;,&quot;Validasi data sisi klien dan server&quot;,&quot;Konfirmasi bukti tanda terima pengaduan digital&quot;]})"
+                >
+                    <!-- Project Preview in Device Mockup Container -->
+                    <div class="bg-gray-100 p-4 border-b border-gray-100 relative overflow-hidden flex items-center justify-center">
+                        <div class="w-full bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
+                            <!-- Browser Mockup Bar -->
+                            <div class="bg-gray-50 px-3 py-1.5 border-b border-gray-200 flex items-center space-x-1.5">
+                                <span class="w-2 h-2 rounded-full bg-red-400 inline-block"></span>
+                                <span class="w-2 h-2 rounded-full bg-yellow-400 inline-block"></span>
+                                <span class="w-2 h-2 rounded-full bg-green-400 inline-block"></span>
+                                <span class="text-[9px] text-gray-400 font-mono ml-1.5 truncate">Web Form Komnas HAM</span>
+                            </div>
+                            
+                            <!-- Screenshot Image -->
+                            <div class="relative overflow-hidden aspect-[16/9] bg-slate-50 flex items-center justify-center">
+                                                                    <img 
+                                        src="./images/projects/komnas.png" 
+                                        alt="Web Form Komnas HAM" 
+                                        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                        loading="lazy"
+                                    >
+                                                                <div class="absolute inset-0 bg-primary-blue/10 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                                    <span class="px-3 py-1 rounded-full bg-white/95 text-xs font-semibold text-primary-blue shadow-sm">
+                                        Lihat detail
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card Body -->
+                    <div class="p-6 flex-grow flex flex-col justify-between space-y-4">
+                        <div class="space-y-2">
+                            <span class="text-[11px] font-semibold text-primary-blue uppercase tracking-wider block">
+                                Web Form &amp; Portal
+                            </span>
+                            <h3 class="text-xl font-bold text-dark-navy group-hover:text-primary-blue transition-colors">
+                                Web Form Komnas HAM
+                            </h3>
+                            <p class="text-secondary-text text-sm leading-relaxed line-clamp-3">
+                                Pengembangan website form pengaduan pelanggaran HAM sebagai project perkuliahan.
+                            </p>
+                        </div>
+
+                        <!-- Card Footer: Badges & Arrow Action -->
+                        <div class="pt-3 border-t border-soft-blue/30 flex items-center justify-between">
+                            <!-- Technology Badges -->
+                            <div class="flex flex-wrap gap-1.5">
+                                                                    <span class="px-2.5 py-0.5 rounded-full text-xs font-medium bg-very-light-blue text-primary-blue border border-soft-blue/60">
+                                        PHP
+                                    </span>
+                                                                    <span class="px-2.5 py-0.5 rounded-full text-xs font-medium bg-very-light-blue text-primary-blue border border-soft-blue/60">
+                                        MySQL
+                                    </span>
+                                                                    <span class="px-2.5 py-0.5 rounded-full text-xs font-medium bg-very-light-blue text-primary-blue border border-soft-blue/60">
+                                        HTML/CSS/JS
+                                    </span>
+                                                            </div>
+
+                            <!-- Circular Detail Button -->
+                            <button 
+                                type="button"
+                                @click.stop="openProject({&quot;id&quot;:&quot;komnas&quot;,&quot;title&quot;:&quot;Web Form Komnas HAM&quot;,&quot;category&quot;:&quot;Web Form &amp; Portal&quot;,&quot;short_description&quot;:&quot;Pengembangan website form pengaduan pelanggaran HAM sebagai project perkuliahan.&quot;,&quot;full_description&quot;:&quot;Pengembangan formulir digital interaktif untuk intake pengaduan dugaan pelanggaran HAM yang dibuat sebagai tugas besar perkuliahan. Mengutamakan kemudahan navigasi multi-step form dan validasi berkas lampiran.&quot;,&quot;technologies&quot;:[&quot;PHP&quot;,&quot;MySQL&quot;,&quot;HTML\/CSS\/JS&quot;],&quot;image&quot;:&quot;\/images\/projects\/komnas.png&quot;,&quot;demo_url&quot;:&quot;#&quot;,&quot;repo_url&quot;:&quot;https:\/\/github.com\/syahanamaya\/web-form-komnas-ham&quot;,&quot;features&quot;:[&quot;Multi-step form terstruktur dengan panduan pengisian&quot;,&quot;Unggah bukti berkas dan verifikasi format dokumen&quot;,&quot;Validasi data sisi klien dan server&quot;,&quot;Konfirmasi bukti tanda terima pengaduan digital&quot;]})"
+                                class="w-9 h-9 rounded-full bg-primary-blue group-hover:bg-dark-blue text-white flex items-center justify-center shadow transition-all duration-200 transform group-hover:scale-110 flex-shrink-0 ml-2"
+                                aria-label="Lihat Detail Web Form Komnas HAM"
+                            >
+                                <svg class="w-4 h-4 transform group-hover:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+                                </svg>
+                            </button>
+                        </div>
+
+                    </div>
+                </div>
+                    </div>
+
+        <!-- Mobile "Lihat Semua" Link at bottom -->
+        <div class="mt-8 text-center sm:hidden">
+            <a 
+                href="./projects.html" 
+                class="inline-flex items-center space-x-1.5 text-sm font-semibold text-[#B9D8F5] hover:text-white transition"
+            >
+                <span>Lihat proyek lainnya</span>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+                </svg>
+            </a>
+        </div>
+
+    </div>
+</section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-[#1F568A] text-white py-10 md:py-12 border-t border-white/10">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
+            
+            <!-- Left: Logo & Identity -->
+            <div class="flex items-center space-x-2">
+                <svg class="w-5 h-5 text-soft-blue" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+                </svg>
+                <span class="font-bold text-base sm:text-lg tracking-tight text-white">
+                    Syahana Maya Syabana
+                </span>
+            </div>
+
+            <!-- Center: Friendly Message -->
+            <div class="text-sm font-medium text-soft-blue flex items-center space-x-1.5">
+                <span>Thank you for visiting my portfolio</span>
+                <span class="text-red-300">♡</span>
+            </div>
+
+            <!-- Right: Campus Affiliation -->
+            <div class="text-xs sm:text-sm text-soft-blue/90">
+                Fresh Graduate Sistem Informasi | Universitas Pamulang
+            </div>
+
+        </div>
+
+        <!-- Bottom Copyright & Social Links -->
+        <div class="mt-8 pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-soft-blue/80">
+            <div>
+                &copy; 2026 Shahana Maya Syabana. All rights reserved.
+            </div>
+
+            <!-- Social Links in Footer -->
+            <div class="flex items-center space-x-4">
+                                    <a 
+                        href="https://instagram.com/syahanamaya" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        class="hover:text-white transition-colors"
+                        aria-label="Instagram"
+                    >
+                        Instagram
+                    </a>
+                                    <a 
+                        href="https://linkedin.com/in/syahana-maya" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        class="hover:text-white transition-colors"
+                        aria-label="LinkedIn"
+                    >
+                        LinkedIn
+                    </a>
+                                    <a 
+                        href="https://github.com/syahanamaya" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        class="hover:text-white transition-colors"
+                        aria-label="GitHub"
+                    >
+                        GitHub
+                    </a>
+                                    <a 
+                        href="mailto:syahanamaya@gmail.com" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        class="hover:text-white transition-colors"
+                        aria-label="Email"
+                    >
+                        Email
+                    </a>
+                                <a href="./index.html" class="hover:text-white transition-colors flex items-center space-x-1 ml-2 pl-2 border-l border-white/20">
+                    <span>Back to top</span>
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+
+    </div>
+</footer>
+
+    <!-- Project Detail Modal (Alpine.js) -->
+    <div 
+        x-show="projectModalOpen" 
+        x-transition:enter="transition ease-out duration-300"
+        x-transition:enter-start="opacity-0"
+        x-transition:enter-end="opacity-100"
+        x-transition:leave="transition ease-in duration-200"
+        x-transition:leave-start="opacity-100"
+        x-transition:leave-end="opacity-0"
+        class="fixed inset-0 z-50 overflow-y-auto bg-dark-navy/60 backdrop-blur-sm p-4 sm:p-6 md:p-10 flex items-center justify-center"
+        style="display: none;"
+        @keydown.escape.window="closeProject()"
+        @click.self="closeProject()"
+    >
+        <div 
+            x-show="projectModalOpen"
+            x-transition:enter="transition ease-out duration-300 transform"
+            x-transition:enter-start="opacity-0 translate-y-6 scale-95"
+            x-transition:enter-end="opacity-100 translate-y-0 scale-100"
+            x-transition:leave="transition ease-in duration-200 transform"
+            x-transition:leave-start="opacity-100 translate-y-0 scale-100"
+            x-transition:leave-end="opacity-0 translate-y-6 scale-95"
+            class="bg-white rounded-3xl max-w-2xl w-full shadow-2xl overflow-hidden border border-soft-blue/50 my-8 relative"
+            @click.stop
+        >
+            <!-- Close Button -->
+            <button 
+                @click="closeProject()"
+                class="absolute top-4 right-4 z-10 w-10 h-10 rounded-full bg-white/90 hover:bg-soft-blue/50 text-dark-navy flex items-center justify-center transition shadow-sm border border-soft-blue/30"
+                aria-label="Tutup Detail Proyek"
+            >
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                </svg>
+            </button>
+
+            <!-- Modal Header Image -->
+            <div class="bg-gradient-to-br from-very-light-blue via-soft-blue/30 to-very-light-blue p-6 sm:p-8 border-b border-soft-blue/30 flex items-center justify-center relative overflow-hidden">
+                <div class="w-full max-w-md bg-white rounded-xl shadow-md border border-soft-blue/40 overflow-hidden transform hover:scale-[1.01] transition">
+                    <div class="bg-gray-100 px-3 py-2 border-b border-gray-200 flex items-center space-x-1.5">
+                        <span class="w-2.5 h-2.5 rounded-full bg-red-400 inline-block"></span>
+                        <span class="w-2.5 h-2.5 rounded-full bg-yellow-400 inline-block"></span>
+                        <span class="w-2.5 h-2.5 rounded-full bg-green-400 inline-block"></span>
+                        <span class="text-[10px] text-secondary-text ml-2 font-mono truncate" x-text="activeProject?.title"></span>
+                    </div>
+                    <div class="p-3 bg-white flex items-center justify-center min-h-[140px]">
+                        <template x-if="activeProject?.image">
+                            <img 
+                                :src="activeProject.image" 
+                                :alt="activeProject.title" 
+                                class="max-h-48 w-auto rounded object-contain shadow-sm"
+                            >
+                        </template>
+                        <template x-if="!activeProject?.image">
+                            <div class="w-full min-h-[140px] rounded-lg bg-gradient-to-br from-very-light-blue to-white flex flex-col items-center justify-center text-center p-5">
+                                <span class="text-xs font-semibold uppercase text-primary-blue" x-text="activeProject?.category"></span>
+                                <span class="mt-2 font-display text-lg font-bold text-dark-navy" x-text="activeProject?.title"></span>
+                            </div>
+                        </template>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal Body Content -->
+            <div class="p-6 sm:p-8 space-y-6">
+                <div>
+                    <div class="flex items-center space-x-2 text-xs font-semibold text-primary-blue uppercase tracking-wider mb-1">
+                        <span class="inline-block w-2 h-2 rounded-full bg-primary-blue"></span>
+                        <span x-text="activeProject?.category"></span>
+                    </div>
+                    <h3 class="text-2xl sm:text-3xl font-bold text-dark-navy" x-text="activeProject?.title"></h3>
+                </div>
+
+                <!-- Technologies -->
+                <div>
+                    <h4 class="text-xs font-semibold text-secondary-text uppercase tracking-wider mb-2">Keahlian Terkait</h4>
+                    <div class="flex flex-wrap gap-2">
+                        <template x-for="tech in activeProject?.technologies" :key="tech">
+                            <span class="px-3 py-1 rounded-full text-xs font-medium bg-very-light-blue text-primary-blue border border-soft-blue/70" x-text="tech"></span>
+                        </template>
+                    </div>
+                </div>
+
+                <!-- Description -->
+                <div>
+                    <h4 class="text-xs font-semibold text-secondary-text uppercase tracking-wider mb-2">Ringkasan Peran</h4>
+                    <p class="text-secondary-text text-sm sm:text-base leading-relaxed" x-text="activeProject?.full_description || activeProject?.short_description"></p>
+                </div>
+
+                <!-- Key Features -->
+                <template x-if="activeProject?.features && activeProject?.features.length > 0">
+                    <div>
+                        <h4 class="text-xs font-semibold text-secondary-text uppercase tracking-wider mb-2.5">Tanggung Jawab</h4>
+                        <ul class="space-y-2 text-sm text-dark-navy">
+                            <template x-for="feature in activeProject?.features" :key="feature">
+                                <li class="flex items-start space-x-2">
+                                    <svg class="w-4 h-4 text-primary-blue mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                                    </svg>
+                                    <span x-text="feature"></span>
+                                </li>
+                            </template>
+                        </ul>
+                    </div>
+                </template>
+
+                <!-- Actions -->
+                <div class="pt-4 border-t border-soft-blue/30 flex flex-wrap items-center justify-between gap-3">
+                    <button 
+                        @click="closeProject()"
+                        class="px-5 py-2.5 rounded-full border border-gray-300 text-secondary-text hover:text-dark-navy hover:bg-gray-50 text-sm font-medium transition"
+                    >
+                        Tutup
+                    </button>
+                    <a 
+                        :href="activeProject?.repo_url || './contact.html'" 
+                        class="inline-flex items-center space-x-2 px-6 py-2.5 rounded-full bg-primary-blue hover:bg-dark-blue text-white text-sm font-semibold shadow-md transition"
+                    >
+                        <span>Hubungi Saya</span>
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification (Copied) -->
+    <div 
+        x-show="copiedText"
+        x-transition:enter="transition ease-out duration-300"
+        x-transition:enter-start="opacity-0 translate-y-3"
+        x-transition:enter-end="opacity-100 translate-y-0"
+        x-transition:leave="transition ease-in duration-200"
+        x-transition:leave-start="opacity-100 translate-y-0"
+        x-transition:leave-end="opacity-0 translate-y-3"
+        class="fixed bottom-6 right-6 z-50 bg-dark-blue text-white text-sm font-medium px-5 py-3 rounded-full shadow-lg flex items-center space-x-2"
+        style="display: none;"
+    >
+        <svg class="w-4 h-4 text-soft-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+        </svg>
+        <span>Teks berhasil disalin ke clipboard!</span>
+    </div>
+</body>
+</html>
