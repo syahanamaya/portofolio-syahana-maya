@@ -1,150 +1,109 @@
-<section 
-    id="projects" 
-    class="py-20 md:py-28 bg-[#1F568A] text-white relative overflow-hidden"
-    x-intersect.threshold.0.3="activeSection = 'projects'"
+@php
+    $projectGroups = collect($portfolio['projects']['items'])->groupBy('category_group');
+    $projectCategories = ['Semua', 'Web Development', 'UI/UX Design', 'Graphic Design'];
+@endphp
+
+<section
+    id="projects"
+    class="relative overflow-hidden bg-[#F5FAFF] text-dark-navy"
+    x-data="{ activeProjectCategory: 'Semua' }"
 >
-    <!-- Background Sparkle / Star Doodles for visual charm -->
-    <div class="absolute top-10 left-12 text-white/20 pointer-events-none">
-        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M12 2l2.4 7.2h7.6l-6.1 4.5 2.3 7.3-6.2-4.6-6.2 4.6 2.3-7.3-6.1-4.5h7.6z"/>
-        </svg>
-    </div>
-    <div class="absolute bottom-12 right-16 text-white/15 pointer-events-none">
-        <svg class="w-10 h-10" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M12 2l2.4 7.2h7.6l-6.1 4.5 2.3 7.3-6.2-4.6-6.2 4.6 2.3-7.3-6.1-4.5h7.6z"/>
-        </svg>
-    </div>
-    <div class="absolute top-1/3 right-10 text-white/10 pointer-events-none">
-        <svg class="w-6 h-6 animate-pulse-soft" fill="currentColor" viewBox="0 0 24 24">
-            <circle cx="12" cy="12" r="6"/>
-        </svg>
-    </div>
+    <div class="relative overflow-hidden border-b border-[#DCEBFA] bg-[#EAF5FF]">
+        <div class="absolute inset-x-0 bottom-0 h-8 bg-[#F5FAFF] [clip-path:ellipse(55%_100%_at_50%_100%)]" aria-hidden="true"></div>
 
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
-        <!-- Header with "Lihat Semua" Link -->
-        <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-12 md:mb-16 gap-4">
-            <div>
-                <span class="inline-block text-xs sm:text-sm font-semibold tracking-wider text-[#B9D8F5] uppercase mb-1">
-                    &lsquo;{{ $portfolio['projects']['tag'] }}
+        <div class="relative z-10 py-8 md:py-10">
+            <div class="max-w-3xl">
+                <span class="inline-flex items-center gap-2 text-sm font-semibold text-primary-blue">
+                    <span class="h-px w-6 bg-primary-blue"></span>
+                    {{ $portfolio['projects']['tag'] }}
                 </span>
-                <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight">
+                <h1 class="mt-2 font-display text-3xl sm:text-4xl font-bold text-dark-navy">
                     {{ $portfolio['projects']['title'] }}
-                </h2>
-                <p class="text-[#B9D8F5]/90 text-sm sm:text-base mt-2 max-w-xl">
+                </h1>
+                <p class="mt-2 max-w-xl text-sm sm:text-base leading-relaxed text-secondary-text">
                     {{ $portfolio['projects']['description'] }}
                 </p>
             </div>
 
-            <!-- "Lihat Semua" button -->
-            <a 
-                href="{{ route('projects') }}" 
-                class="hidden sm:inline-flex items-center space-x-1.5 text-sm font-semibold text-[#B9D8F5] hover:text-white transition group"
-            >
-                <span>Lihat Semua</span>
-                <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
-                </svg>
-            </a>
+            <nav class="mt-5 flex flex-wrap gap-2" aria-label="Filter kategori proyek">
+                @foreach($projectCategories as $category)
+                    <button
+                        type="button"
+                        @click="activeProjectCategory = '{{ $category }}'"
+                        :aria-pressed="activeProjectCategory === '{{ $category }}'"
+                        :class="activeProjectCategory === '{{ $category }}' ? 'bg-primary-blue text-white border-primary-blue' : 'bg-white/80 text-secondary-text border-[#C9DDF2] hover:border-primary-blue hover:text-primary-blue'"
+                        class="inline-flex min-h-8 items-center rounded-full border px-3.5 py-1 text-xs font-medium transition-colors"
+                    >
+                        {{ $category }}
+                    </button>
+                @endforeach
+            </nav>
         </div>
+    </div>
+    </div>
 
-        <!-- Projects Grid: 3 Columns Desktop, 2 Columns Tablet, 1 Column Mobile -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-            @foreach($portfolio['projects']['items'] as $project)
-                <div 
-                    class="bg-white text-dark-navy rounded-3xl overflow-hidden shadow-xl border border-white/20 transition-all duration-300 transform hover:-translate-y-2 hover:shadow-2xl flex flex-col group cursor-pointer"
-                    @click="openProject({{ json_encode($project) }})"
-                >
-                    <!-- Project Preview in Device Mockup Container -->
-                    <div class="bg-gray-100 p-4 border-b border-gray-100 relative overflow-hidden flex items-center justify-center">
-                        <div class="w-full bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
-                            <!-- Browser Mockup Bar -->
-                            <div class="bg-gray-50 px-3 py-1.5 border-b border-gray-200 flex items-center space-x-1.5">
-                                <span class="w-2 h-2 rounded-full bg-red-400 inline-block"></span>
-                                <span class="w-2 h-2 rounded-full bg-yellow-400 inline-block"></span>
-                                <span class="w-2 h-2 rounded-full bg-green-400 inline-block"></span>
-                                <span class="text-[9px] text-gray-400 font-mono ml-1.5 truncate">{{ $project['title'] }}</span>
-                            </div>
-                            
-                            <!-- Screenshot Image -->
-                            <div class="relative overflow-hidden aspect-[16/9] bg-slate-50 flex items-center justify-center">
-                                @if(isset($project['image']))
-                                    <img 
-                                        src="{{ asset($project['image']) }}" 
-                                        alt="{{ $project['title'] }}" 
-                                        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-7 md:py-9 space-y-8 md:space-y-10">
+        @foreach($projectCategories as $category)
+            @if($category !== 'Semua' && isset($projectGroups[$category]))
+                <section x-show="activeProjectCategory === 'Semua' || activeProjectCategory === '{{ $category }}'" x-transition.opacity>
+                    <div class="mb-4 flex items-center gap-2.5">
+                        <span class="h-5 w-1 rounded-full bg-primary-blue" aria-hidden="true"></span>
+                        <h2 class="font-display text-lg sm:text-xl font-bold text-dark-navy">{{ $category }}</h2>
+                        <span class="text-xs text-secondary-text">{{ $projectGroups[$category]->count() }} proyek</span>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5">
+                        @foreach($projectGroups[$category] as $project)
+                            <article
+                                class="group flex min-w-0 flex-col overflow-hidden rounded-lg border border-[#DFEAF5] bg-white shadow-sm transition duration-200 hover:-translate-y-0.5 hover:border-[#B9D8F5] hover:shadow-md"
+                            >
+                                <button
+                                    type="button"
+                                    @click="openProject({{ json_encode($project) }})"
+                                    class="relative block aspect-[16/9] w-full overflow-hidden bg-[#F0F6FC] p-2 text-left"
+                                    aria-label="Lihat detail {{ $project['title'] }}"
+                                >
+                                    <img
+                                        src="{{ asset($project['image']) }}"
+                                        alt="{{ $project['title'] }}"
+                                        class="h-full w-full rounded object-contain transition-transform duration-300 group-hover:scale-[1.02]"
                                         loading="lazy"
                                     >
-                                @else
-                                    <div class="absolute inset-0 bg-gradient-to-br from-very-light-blue via-white to-soft-blue/50"></div>
-                                    <div class="relative px-5 text-center">
-                                        <span class="font-doodle text-2xl sm:text-3xl font-bold text-primary-blue">{{ $project['category'] }}</span>
+                                </button>
+
+                                <div class="flex flex-1 flex-col p-3.5">
+                                    <div class="flex-1">
+                                        <span class="text-[10px] font-semibold uppercase text-primary-blue">{{ $project['category'] }}</span>
+                                        <h3 class="mt-1 text-sm font-bold leading-snug text-dark-navy group-hover:text-primary-blue">{{ $project['title'] }}</h3>
+                                        <p class="mt-1.5 text-xs leading-relaxed text-secondary-text line-clamp-3">{{ $project['short_description'] }}</p>
                                     </div>
-                                @endif
-                                <div class="absolute inset-0 bg-primary-blue/10 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                                    <span class="px-3 py-1 rounded-full bg-white/95 text-xs font-semibold text-primary-blue shadow-sm">
-                                        Lihat detail
-                                    </span>
+
+                                    <div class="mt-3 flex items-end justify-between gap-2 border-t border-[#E8EFF7] pt-2.5">
+                                        <div class="flex min-w-0 flex-wrap gap-1">
+                                            @foreach($project['technologies'] as $tech)
+                                                <span class="rounded-full bg-[#EEF6FF] px-2 py-0.5 text-[9px] font-medium text-primary-blue">{{ $tech }}</span>
+                                            @endforeach
+                                        </div>
+                                        <button
+                                            type="button"
+                                            @click="openProject({{ json_encode($project) }})"
+                                            class="inline-flex shrink-0 items-center gap-1 rounded-full bg-primary-blue px-2.5 py-1.5 text-[10px] font-semibold text-white transition hover:bg-dark-blue"
+                                            aria-label="Lihat Detail {{ $project['title'] }}"
+                                        >
+                                            Lihat Detail
+                                            <svg class="h-3 w-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14m-6-6 6 6-6 6"/>
+                                            </svg>
+                                        </button>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
+                            </article>
+                        @endforeach
                     </div>
-
-                    <!-- Card Body -->
-                    <div class="p-6 flex-grow flex flex-col justify-between space-y-4">
-                        <div class="space-y-2">
-                            <span class="text-[11px] font-semibold text-primary-blue uppercase tracking-wider block">
-                                {{ $project['category'] }}
-                            </span>
-                            <h3 class="text-xl font-bold text-dark-navy group-hover:text-primary-blue transition-colors">
-                                {{ $project['title'] }}
-                            </h3>
-                            <p class="text-secondary-text text-sm leading-relaxed line-clamp-3">
-                                {{ $project['short_description'] }}
-                            </p>
-                        </div>
-
-                        <!-- Card Footer: Badges & Arrow Action -->
-                        <div class="pt-3 border-t border-soft-blue/30 flex items-center justify-between">
-                            <!-- Technology Badges -->
-                            <div class="flex flex-wrap gap-1.5">
-                                @foreach($project['technologies'] as $tech)
-                                    <span class="px-2.5 py-0.5 rounded-full text-xs font-medium bg-very-light-blue text-primary-blue border border-soft-blue/60">
-                                        {{ $tech }}
-                                    </span>
-                                @endforeach
-                            </div>
-
-                            <!-- Circular Detail Button -->
-                            <button 
-                                type="button"
-                                @click.stop="openProject({{ json_encode($project) }})"
-                                class="w-9 h-9 rounded-full bg-primary-blue group-hover:bg-dark-blue text-white flex items-center justify-center shadow transition-all duration-200 transform group-hover:scale-110 flex-shrink-0 ml-2"
-                                aria-label="Lihat Detail {{ $project['title'] }}"
-                            >
-                                <svg class="w-4 h-4 transform group-hover:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
-                                </svg>
-                            </button>
-                        </div>
-
-                    </div>
-                </div>
-            @endforeach
-        </div>
-
-        <!-- Mobile "Lihat Semua" Link at bottom -->
-        <div class="mt-8 text-center sm:hidden">
-            <a 
-                href="{{ route('projects') }}" 
-                class="inline-flex items-center space-x-1.5 text-sm font-semibold text-[#B9D8F5] hover:text-white transition"
-            >
-                <span>Lihat proyek lainnya</span>
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
-                </svg>
-            </a>
-        </div>
-
+                </section>
+            @endif
+        @endforeach
     </div>
 </section>

@@ -45,6 +45,31 @@ class PortfolioTest extends TestCase
         }
     }
 
+    public function test_projects_page_groups_the_available_work_by_category(): void
+    {
+        $this->get('/projects')
+            ->assertOk()
+            ->assertSeeText('Web Development')
+            ->assertSeeText('UI/UX Design')
+            ->assertSeeText('Graphic Design')
+            ->assertSeeText('UI Design Komnas HAM')
+            ->assertSeeText('UI Design Pengaduan Siswa')
+            ->assertSeeText('UI Design Perpustakaan')
+            ->assertSeeText('Desain Brosur')
+            ->assertSeeText('Desain Carousel');
+    }
+
+    public function test_all_project_preview_and_gallery_images_exist(): void
+    {
+        foreach (config('portfolio.projects.items') as $project) {
+            $this->assertFileExists(public_path(ltrim($project['image'], '/')));
+
+            foreach ($project['gallery_images'] ?? [] as $galleryImage) {
+                $this->assertFileExists(public_path(ltrim($galleryImage, '/')));
+            }
+        }
+    }
+
     /**
      * Test that CV and assets exist in public directory.
      */

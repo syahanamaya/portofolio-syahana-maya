@@ -131,6 +131,22 @@
 
             <!-- Modal Body Content -->
             <div class="p-6 sm:p-8 space-y-6">
+                <template x-if="activeProject?.gallery_images?.length">
+                    <div>
+                        <h4 class="text-xs font-semibold text-secondary-text uppercase tracking-wider mb-2">Galeri Proyek</h4>
+                        <div class="flex gap-2 overflow-x-auto pb-2">
+                            <template x-for="galleryImage in activeProject.gallery_images" :key="galleryImage">
+                                <img
+                                    :src="galleryImage"
+                                    :alt="activeProject.title"
+                                    class="h-20 w-28 shrink-0 rounded border border-soft-blue/50 bg-very-light-blue object-contain"
+                                    loading="lazy"
+                                >
+                            </template>
+                        </div>
+                    </div>
+                </template>
+
                 <div>
                     <div class="flex items-center space-x-2 text-xs font-semibold text-primary-blue uppercase tracking-wider mb-1">
                         <span class="inline-block w-2 h-2 rounded-full bg-primary-blue"></span>

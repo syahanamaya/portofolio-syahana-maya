@@ -77,6 +77,7 @@ class ExportStaticPortfolio extends Command
                 'url("/' => 'url("./',
                 'url(/images/' => 'url(./images/',
                 ':src="activeProject?.image"' => ':src="activeProject ? \'.\' + activeProject.image : \'\'"',
+                ':src="galleryImage"' => ':src="galleryImage.startsWith(\'/\') ? \'.\' + galleryImage : galleryImage"',
             ];
 
             foreach ($replacements as $search => $replace) {
