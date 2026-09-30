@@ -10,7 +10,7 @@ return [
         'hero_title_lead' => "I'm",
         'hero_title_name' => 'Syahana Maya Syabana',
         'hero_subtitle' => "Fresh Graduate Information Systems | Web Developer | Lifelong Learner",
-        'hero_description' => "Saya adalah fresh graduate Sistem Informasi yang memiliki ketertarikan pada pengembangan web, manajemen data, dan solusi digital yang bermanfaat. Saya terus mengembangkan kemampuan dan pengalaman melalui berbagai proyek untuk membangun karier di bidang teknologi informasi.",
+        'hero_description' => "Fresh graduate Sistem Informasi yang passionate dalam web development, UI/UX, dan dunia kreatif digital. Saya terus belajar, bereksperimen, dan menciptakan karya yang menggabungkan fungsi dengan visual yang menarik.",
         'cv_file' => 'cv.pdf',
         'profile_hero' => '/images/profile/shahana-hero.png',
         'profile_avatar' => '/images/profile/shahana-avatar.png',
