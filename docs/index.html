@@ -422,6 +422,23 @@
         </div>
     </div>
 </section>
+
+    <script>
+        const legacySectionRoutes = {
+            '#home': "./index.html",
+            '#about': "./about.html",
+            '#skills': "./skills.html",
+            '#projects': "./projects.html",
+            '#experience': "./experience.html",
+            '#certifications': "./certifications.html",
+            '#contact': "./contact.html",
+        };
+        const legacySectionRoute = legacySectionRoutes[window.location.hash];
+
+        if (legacySectionRoute) {
+            window.location.replace(legacySectionRoute);
+        }
+    </script>
     </main>
 
     <!-- Footer -->

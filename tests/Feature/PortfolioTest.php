@@ -23,6 +23,16 @@ class PortfolioTest extends TestCase
         $response->assertDontSeeText('Proyek Saya');
     }
 
+    public function test_homepage_maps_legacy_section_hashes_to_page_routes(): void
+    {
+        $this->get('/')
+            ->assertOk()
+            ->assertSee("'#projects':", false)
+            ->assertSee("'#about':", false)
+            ->assertSee(route('projects'), false)
+            ->assertSee(route('about'), false);
+    }
+
     public function test_each_navigation_destination_loads_its_own_section(): void
     {
         $pages = [
