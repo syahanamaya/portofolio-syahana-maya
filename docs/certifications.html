@@ -36,6 +36,8 @@
         activeSection: 'home',
         projectModalOpen: false,
         activeProject: null,
+        activeProjectImage: null,
+        activeProjectImages: [],
         copiedText: false,
         copyToast(text) {
             navigator.clipboard.writeText(text);
@@ -44,11 +46,16 @@
         },
         openProject(project) {
             this.activeProject = project;
+            this.activeProjectImages = [project.image, ...(project.gallery_images || [])].filter(Boolean);
+            this.activeProjectImage = this.activeProjectImages[0] || null;
             this.projectModalOpen = true;
             document.body.style.overflow = 'hidden';
         },
         closeProject() {
             this.projectModalOpen = false;
+            this.activeProject = null;
+            this.activeProjectImage = null;
+            this.activeProjectImages = [];
             document.body.style.overflow = 'auto';
         }
     }"
@@ -499,14 +506,14 @@
                         <span class="text-[10px] text-secondary-text ml-2 font-mono truncate" x-text="activeProject?.title"></span>
                     </div>
                     <div class="p-3 bg-white flex items-center justify-center min-h-[140px]">
-                        <template x-if="activeProject?.image">
+                        <template x-if="activeProjectImage">
                             <img 
-                                :src="activeProject.image" 
+                                :src="activeProjectImage" 
                                 :alt="activeProject.title" 
-                                class="max-h-48 w-auto rounded object-contain shadow-sm"
+                                class="max-h-64 w-full rounded object-contain shadow-sm"
                             >
                         </template>
-                        <template x-if="!activeProject?.image">
+                        <template x-if="!activeProjectImage">
                             <div class="w-full min-h-[140px] rounded-lg bg-gradient-to-br from-very-light-blue to-white flex flex-col items-center justify-center text-center p-5">
                                 <span class="text-xs font-semibold uppercase text-primary-blue" x-text="activeProject?.category"></span>
                                 <span class="mt-2 font-display text-lg font-bold text-dark-navy" x-text="activeProject?.title"></span>
@@ -518,17 +525,26 @@
 
             <!-- Modal Body Content -->
             <div class="p-6 sm:p-8 space-y-6">
-                <template x-if="activeProject?.gallery_images?.length">
+                <template x-if="activeProjectImages.length">
                     <div>
                         <h4 class="text-xs font-semibold text-secondary-text uppercase tracking-wider mb-2">Galeri Proyek</h4>
                         <div class="flex gap-2 overflow-x-auto pb-2">
-                            <template x-for="galleryImage in activeProject.gallery_images" :key="galleryImage">
-                                <img
-                                    :src="galleryImage.startsWith('/') ? '.' + galleryImage : galleryImage"
-                                    :alt="activeProject.title"
-                                    class="h-20 w-28 shrink-0 rounded border border-soft-blue/50 bg-very-light-blue object-contain"
-                                    loading="lazy"
+                            <template x-for="projectImage in activeProjectImages" :key="projectImage">
+                                <button
+                                    type="button"
+                                    @click="activeProjectImage = projectImage"
+                                    :aria-pressed="activeProjectImage === projectImage"
+                                    :class="activeProjectImage === projectImage ? 'border-primary-blue ring-2 ring-primary-blue/30' : 'border-soft-blue/50 hover:border-primary-blue/70'"
+                                    class="h-20 w-28 shrink-0 overflow-hidden rounded border bg-very-light-blue transition"
+                                    :aria-label="'Tampilkan gambar ' + activeProject.title"
                                 >
+                                    <img
+                                        :src="projectImage"
+                                        :alt="activeProject.title"
+                                        class="h-full w-full object-contain"
+                                        loading="lazy"
+                                    >
+                                </button>
                             </template>
                         </div>
                     </div>
