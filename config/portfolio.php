@@ -113,7 +113,7 @@ return [
                 'title' => 'Sistem Informasi Perpustakaan',
                 'category_group' => 'Web Development',
                 'category' => 'Web Application & Skripsi',
-                'short_description' => 'Perancangan dan implementasi sistem informasi perpustakaan berbasis web menggunakan metode Agile.',
+                'short_description' => 'Merancang dan mengembangkan sistem informasi perpustakaan berbasis web untuk mendukung pengelolaan koleksi dan layanan transaksi.',
                 'full_description' => 'Merancang dan mengembangkan sistem informasi perpustakaan berbasis web untuk mendukung pengelolaan koleksi dan layanan sirkulasi. Sistem mencakup pengelolaan data buku, kategori, rak, dan siswa; pencatatan peminjaman serta pengembalian; perhitungan denda berdasarkan aturan; dan penyajian laporan serta dashboard. Tersedia juga fitur bagi siswa untuk mencari koleksi, memantau peminjaman, melihat riwayat, menyimpan buku favorit, dan membaca pengumuman. Data disimpan menggunakan MySQL.',
                 'technologies' => ['Laravel', 'MySQL', 'Tailwind'],
                 'image' => '/images/projects/UI Design/UI Design Perpustakaan/Petugas/Halaman Dashboard.png',
