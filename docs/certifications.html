@@ -498,7 +498,7 @@
 
             <!-- Modal Header Image -->
             <div class="bg-gradient-to-br from-very-light-blue via-soft-blue/30 to-very-light-blue p-6 sm:p-8 border-b border-soft-blue/30 flex items-center justify-center relative overflow-hidden">
-                <div class="w-full max-w-md bg-white rounded-xl shadow-md border border-soft-blue/40 overflow-hidden transform hover:scale-[1.01] transition">
+                <div class="w-full max-w-full bg-white rounded-xl shadow-md border border-soft-blue/40 overflow-hidden transform hover:scale-[1.01] transition">
                     <div class="bg-gray-100 px-3 py-2 border-b border-gray-200 flex items-center space-x-1.5">
                         <span class="w-2.5 h-2.5 rounded-full bg-red-400 inline-block"></span>
                         <span class="w-2.5 h-2.5 rounded-full bg-yellow-400 inline-block"></span>
@@ -510,7 +510,7 @@
                             <img 
                                 :src="activeProjectImage" 
                                 :alt="activeProject.title" 
-                                class="max-h-64 w-full rounded object-contain shadow-sm"
+                                class="max-w-full w-auto rounded object-contain shadow-sm" style="max-height: 70vh;"
                             >
                         </template>
                         <template x-if="!activeProjectImage">

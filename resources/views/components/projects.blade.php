@@ -67,7 +67,7 @@
                                     <img
                                         src="{{ asset($project['image']) }}"
                                         alt="{{ $project['title'] }}"
-                                        class="h-full w-full rounded object-cover transition-transform duration-300 group-hover:scale-[1.02]"
+                                        class="h-full w-full rounded object-contain transition-transform duration-300 group-hover:scale-[1.02]"
                                         loading="lazy"
                                     >
                                 </button>
