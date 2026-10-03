@@ -72,12 +72,23 @@ class PortfolioTest extends TestCase
     public function test_all_project_preview_and_gallery_images_exist(): void
     {
         foreach (config('portfolio.projects.items') as $project) {
+            $this->assertNotEmpty($project['gallery_images'] ?? [], $project['title'] . ' should have a project gallery');
             $this->assertFileExists(public_path(ltrim($project['image'], '/')));
 
             foreach ($project['gallery_images'] ?? [] as $galleryImage) {
                 $this->assertFileExists(public_path(ltrim($galleryImage, '/')));
             }
         }
+    }
+
+    public function test_project_gallery_images_can_be_selected_for_the_large_preview(): void
+    {
+        $this->get('/projects')
+            ->assertOk()
+            ->assertSee('activeProjectImages = [project.image', false)
+            ->assertSee(':src="activeProjectImage"', false)
+            ->assertSee('@click="activeProjectImage = projectImage"', false)
+            ->assertSee(':aria-pressed="activeProjectImage === projectImage"', false);
     }
 
     /**
