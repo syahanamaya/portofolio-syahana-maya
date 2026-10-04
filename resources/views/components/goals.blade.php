@@ -1,7 +1,6 @@
 <section 
     id="certifications" 
     class="py-16 md:py-24 bg-very-light-blue/40 relative overflow-hidden"
-    x-intersect.threshold.0.3="activeSection = 'certifications'"
 >
     <!-- Background Sparkles -->
     <div class="absolute top-10 right-10 text-soft-blue pointer-events-none">

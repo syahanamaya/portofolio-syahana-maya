@@ -1,7 +1,6 @@
 <section 
     id="home" 
     class="relative pt-28 pb-16 md:pt-36 md:pb-24 overflow-hidden bg-gradient-to-b from-very-light-blue via-very-light-blue/40 to-white"
-    x-intersect.threshold.0.3="activeSection = 'home'"
 >
     <!-- Background Decorative Organic Shapes & Doodles -->
     <div class="absolute top-10 right-0 -mr-20 w-96 h-96 bg-soft-blue/30 rounded-full blur-3xl pointer-events-none -z-10"></div>
@@ -49,6 +48,7 @@
                 <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
                     <a 
                         href="{{ route('home') }}#projects"
+                        @click="activeSection = 'projects'"
                         class="w-full sm:w-auto inline-flex items-center justify-center space-x-2 px-7 py-3.5 rounded-full bg-primary-blue hover:bg-dark-blue text-white font-semibold shadow-md hover:shadow-lg transition-all duration-200 transform hover:-translate-y-0.5 group"
                     >
                         <span>Lihat Portfolio Saya</span>
@@ -58,6 +58,7 @@
                     </a>
                     <a 
                         href="{{ route('home') }}#about"
+                        @click="activeSection = 'about'"
                         class="w-full sm:w-auto inline-flex items-center justify-center px-7 py-3.5 rounded-full bg-white hover:bg-very-light-blue text-primary-blue border-2 border-primary-blue/70 font-semibold shadow-sm hover:shadow transition-all duration-200"
                     >
                         <span>Tentang Saya</span>

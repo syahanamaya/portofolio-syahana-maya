@@ -35,6 +35,25 @@
     x-data="{
         mobileMenuOpen: false,
         activeSection: 'home',
+        sectionObserver: null,
+        observeSections() {
+            this.sectionObserver = new IntersectionObserver((entries) => {
+                const activeEntry = entries
+                    .filter((entry) => entry.isIntersecting)
+                    .sort((first, second) => second.intersectionRatio - first.intersectionRatio)[0];
+
+                if (activeEntry) {
+                    this.activeSection = activeEntry.target.id;
+                }
+            }, {
+                rootMargin: '-20% 0px -65% 0px',
+                threshold: 0,
+            });
+
+            document.querySelectorAll('main section[id]').forEach((section) => {
+                this.sectionObserver.observe(section);
+            });
+        },
         projectModalOpen: false,
         activeProject: null,
         activeProjectImage: null,
@@ -60,6 +79,7 @@
             document.body.style.overflow = 'auto';
         }
     }"
+    x-init="observeSections()"
     class="bg-white text-dark-navy antialiased selection:bg-soft-blue selection:text-dark-navy flex flex-col min-h-screen relative"
 >
     <!-- Navbar -->

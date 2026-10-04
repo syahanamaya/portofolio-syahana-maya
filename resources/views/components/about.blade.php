@@ -1,7 +1,6 @@
 <section 
     id="about" 
     class="py-16 md:py-24 bg-white relative overflow-hidden"
-    x-intersect.threshold.0.3="activeSection = 'about'"
 >
     <!-- Background Accents -->
     <div class="absolute top-1/2 left-0 -translate-y-1/2 w-64 h-64 bg-very-light-blue rounded-full blur-3xl -z-10 pointer-events-none"></div>

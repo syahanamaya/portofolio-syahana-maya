@@ -34,6 +34,25 @@
     x-data="{
         mobileMenuOpen: false,
         activeSection: 'home',
+        sectionObserver: null,
+        observeSections() {
+            this.sectionObserver = new IntersectionObserver((entries) => {
+                const activeEntry = entries
+                    .filter((entry) => entry.isIntersecting)
+                    .sort((first, second) => second.intersectionRatio - first.intersectionRatio)[0];
+
+                if (activeEntry) {
+                    this.activeSection = activeEntry.target.id;
+                }
+            }, {
+                rootMargin: '-20% 0px -65% 0px',
+                threshold: 0,
+            });
+
+            document.querySelectorAll('main section[id]').forEach((section) => {
+                this.sectionObserver.observe(section);
+            });
+        },
         projectModalOpen: false,
         activeProject: null,
         activeProjectImage: null,
@@ -59,6 +78,7 @@
             document.body.style.overflow = 'auto';
         }
     }"
+    x-init="observeSections()"
     class="bg-white text-dark-navy antialiased selection:bg-soft-blue selection:text-dark-navy flex flex-col min-h-screen relative"
 >
     <!-- Navbar -->
@@ -76,7 +96,7 @@
 >
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
         <!-- Logo / Name -->
-        <a href="./index.html" class="flex items-center space-x-2 group focus:outline-none">
+        <a href="./index.html#home" @click="activeSection = 'home'" class="flex items-center space-x-2 group focus:outline-none">
             <!-- Cute Hand-drawn Star Icon -->
             <svg class="w-6 h-6 text-primary-blue group-hover:rotate-12 transition-transform duration-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
@@ -90,6 +110,7 @@
         <nav class="hidden md:flex items-center space-x-7 text-sm font-medium">
                                             <a
                     href="./index.html#home"
+                    @click="activeSection = 'home'"
                     class="transition-colors relative py-1 text-dark-navy hover:text-primary-blue"
                     :class="activeSection === 'home' ? 'text-primary-blue font-semibold' : ''"
                     :aria-current="activeSection === 'home' ? 'page' : null"
@@ -98,6 +119,7 @@
                 </a>
                                             <a
                     href="./index.html#about"
+                    @click="activeSection = 'about'"
                     class="transition-colors relative py-1 text-dark-navy hover:text-primary-blue"
                     :class="activeSection === 'about' ? 'text-primary-blue font-semibold' : ''"
                     :aria-current="activeSection === 'about' ? 'page' : null"
@@ -106,6 +128,7 @@
                 </a>
                                             <a
                     href="./index.html#skills"
+                    @click="activeSection = 'skills'"
                     class="transition-colors relative py-1 text-dark-navy hover:text-primary-blue"
                     :class="activeSection === 'skills' ? 'text-primary-blue font-semibold' : ''"
                     :aria-current="activeSection === 'skills' ? 'page' : null"
@@ -114,6 +137,7 @@
                 </a>
                                             <a
                     href="./index.html#projects"
+                    @click="activeSection = 'projects'"
                     class="transition-colors relative py-1 text-dark-navy hover:text-primary-blue"
                     :class="activeSection === 'projects' ? 'text-primary-blue font-semibold' : ''"
                     :aria-current="activeSection === 'projects' ? 'page' : null"
@@ -122,6 +146,7 @@
                 </a>
                                             <a
                     href="./index.html#experience"
+                    @click="activeSection = 'experience'"
                     class="transition-colors relative py-1 text-dark-navy hover:text-primary-blue"
                     :class="activeSection === 'experience' ? 'text-primary-blue font-semibold' : ''"
                     :aria-current="activeSection === 'experience' ? 'page' : null"
@@ -130,6 +155,7 @@
                 </a>
                                             <a
                     href="./index.html#certifications"
+                    @click="activeSection = 'certifications'"
                     class="transition-colors relative py-1 text-dark-navy hover:text-primary-blue"
                     :class="activeSection === 'certifications' ? 'text-primary-blue font-semibold' : ''"
                     :aria-current="activeSection === 'certifications' ? 'page' : null"
@@ -138,6 +164,7 @@
                 </a>
                                             <a
                     href="./index.html#contact"
+                    @click="activeSection = 'contact'"
                     class="transition-colors relative py-1 text-dark-navy hover:text-primary-blue"
                     :class="activeSection === 'contact' ? 'text-primary-blue font-semibold' : ''"
                     :aria-current="activeSection === 'contact' ? 'page' : null"
@@ -193,7 +220,7 @@
         <div class="flex flex-col space-y-3.5 pt-2">
                                             <a
                     href="./index.html#home"
-                    @click="mobileMenuOpen = false"
+                    @click="activeSection = 'home'; mobileMenuOpen = false"
                     class="px-3 py-2 rounded-xl text-base font-medium transition text-dark-navy hover:bg-very-light-blue hover:text-primary-blue"
                     :class="activeSection === 'home' ? 'bg-very-light-blue text-primary-blue' : ''"
                     :aria-current="activeSection === 'home' ? 'page' : null"
@@ -202,7 +229,7 @@
                 </a>
                                             <a
                     href="./index.html#about"
-                    @click="mobileMenuOpen = false"
+                    @click="activeSection = 'about'; mobileMenuOpen = false"
                     class="px-3 py-2 rounded-xl text-base font-medium transition text-dark-navy hover:bg-very-light-blue hover:text-primary-blue"
                     :class="activeSection === 'about' ? 'bg-very-light-blue text-primary-blue' : ''"
                     :aria-current="activeSection === 'about' ? 'page' : null"
@@ -211,7 +238,7 @@
                 </a>
                                             <a
                     href="./index.html#skills"
-                    @click="mobileMenuOpen = false"
+                    @click="activeSection = 'skills'; mobileMenuOpen = false"
                     class="px-3 py-2 rounded-xl text-base font-medium transition text-dark-navy hover:bg-very-light-blue hover:text-primary-blue"
                     :class="activeSection === 'skills' ? 'bg-very-light-blue text-primary-blue' : ''"
                     :aria-current="activeSection === 'skills' ? 'page' : null"
@@ -220,7 +247,7 @@
                 </a>
                                             <a
                     href="./index.html#projects"
-                    @click="mobileMenuOpen = false"
+                    @click="activeSection = 'projects'; mobileMenuOpen = false"
                     class="px-3 py-2 rounded-xl text-base font-medium transition text-dark-navy hover:bg-very-light-blue hover:text-primary-blue"
                     :class="activeSection === 'projects' ? 'bg-very-light-blue text-primary-blue' : ''"
                     :aria-current="activeSection === 'projects' ? 'page' : null"
@@ -229,7 +256,7 @@
                 </a>
                                             <a
                     href="./index.html#experience"
-                    @click="mobileMenuOpen = false"
+                    @click="activeSection = 'experience'; mobileMenuOpen = false"
                     class="px-3 py-2 rounded-xl text-base font-medium transition text-dark-navy hover:bg-very-light-blue hover:text-primary-blue"
                     :class="activeSection === 'experience' ? 'bg-very-light-blue text-primary-blue' : ''"
                     :aria-current="activeSection === 'experience' ? 'page' : null"
@@ -238,7 +265,7 @@
                 </a>
                                             <a
                     href="./index.html#certifications"
-                    @click="mobileMenuOpen = false"
+                    @click="activeSection = 'certifications'; mobileMenuOpen = false"
                     class="px-3 py-2 rounded-xl text-base font-medium transition text-dark-navy hover:bg-very-light-blue hover:text-primary-blue"
                     :class="activeSection === 'certifications' ? 'bg-very-light-blue text-primary-blue' : ''"
                     :aria-current="activeSection === 'certifications' ? 'page' : null"
@@ -247,7 +274,7 @@
                 </a>
                                             <a
                     href="./index.html#contact"
-                    @click="mobileMenuOpen = false"
+                    @click="activeSection = 'contact'; mobileMenuOpen = false"
                     class="px-3 py-2 rounded-xl text-base font-medium transition text-dark-navy hover:bg-very-light-blue hover:text-primary-blue"
                     :class="activeSection === 'contact' ? 'bg-very-light-blue text-primary-blue' : ''"
                     :aria-current="activeSection === 'contact' ? 'page' : null"
@@ -277,7 +304,6 @@
             <section
     id="home"
     class="relative pt-28 pb-16 md:pt-36 md:pb-24 overflow-hidden bg-gradient-to-b from-very-light-blue via-very-light-blue/40 to-white"
-    x-intersect.threshold.0.3="activeSection = 'home'"
 >
     <!-- Background Decorative Organic Shapes & Doodles -->
     <div class="absolute top-10 right-0 -mr-20 w-96 h-96 bg-soft-blue/30 rounded-full blur-3xl pointer-events-none -z-10"></div>
@@ -325,6 +351,7 @@
                 <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
                     <a
                         href="./index.html#projects"
+                        @click="activeSection = 'projects'"
                         class="w-full sm:w-auto inline-flex items-center justify-center space-x-2 px-7 py-3.5 rounded-full bg-primary-blue hover:bg-dark-blue text-white font-semibold shadow-md hover:shadow-lg transition-all duration-200 transform hover:-translate-y-0.5 group"
                     >
                         <span>Lihat Portfolio Saya</span>
@@ -334,6 +361,7 @@
                     </a>
                     <a
                         href="./index.html#about"
+                        @click="activeSection = 'about'"
                         class="w-full sm:w-auto inline-flex items-center justify-center px-7 py-3.5 rounded-full bg-white hover:bg-very-light-blue text-primary-blue border-2 border-primary-blue/70 font-semibold shadow-sm hover:shadow transition-all duration-200"
                     >
                         <span>Tentang Saya</span>
@@ -460,7 +488,6 @@
     <section
     id="about"
     class="py-16 md:py-24 bg-white relative overflow-hidden"
-    x-intersect.threshold.0.3="activeSection = 'about'"
 >
     <!-- Background Accents -->
     <div class="absolute top-1/2 left-0 -translate-y-1/2 w-64 h-64 bg-very-light-blue rounded-full blur-3xl -z-10 pointer-events-none"></div>
@@ -601,7 +628,6 @@
     <section
     id="skills"
     class="py-16 md:py-24 bg-very-light-blue/60 relative overflow-hidden"
-    x-intersect.threshold.0.3="activeSection = 'skills'"
 >
     <!-- Background Sparkles / Dots -->
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -1240,7 +1266,6 @@
     <section
     id="experience"
     class="py-16 md:py-24 bg-white relative overflow-hidden"
-    x-intersect.threshold.0.3="activeSection = 'experience'"
 >
     <!-- Background Accents -->
     <div class="absolute bottom-0 right-0 w-80 h-80 bg-very-light-blue rounded-full blur-3xl -z-10 pointer-events-none"></div>
@@ -1366,7 +1391,6 @@
     <section
     id="certifications"
     class="py-16 md:py-24 bg-very-light-blue/40 relative overflow-hidden"
-    x-intersect.threshold.0.3="activeSection = 'certifications'"
 >
     <!-- Background Sparkles -->
     <div class="absolute top-10 right-10 text-soft-blue pointer-events-none">
@@ -1493,7 +1517,6 @@
     <section
     id="contact"
     class="py-16 md:py-24 bg-white relative overflow-hidden"
-    x-intersect.threshold.0.3="activeSection = 'contact'"
 >
     <!-- Background Soft Blur Shape -->
     <div class="absolute top-1/2 right-0 w-96 h-96 bg-very-light-blue rounded-full blur-3xl -z-10 pointer-events-none"></div>

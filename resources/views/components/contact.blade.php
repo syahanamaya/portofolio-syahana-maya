@@ -1,7 +1,6 @@
 <section 
     id="contact" 
     class="py-16 md:py-24 bg-white relative overflow-hidden"
-    x-intersect.threshold.0.3="activeSection = 'contact'"
 >
     <!-- Background Soft Blur Shape -->
     <div class="absolute top-1/2 right-0 w-96 h-96 bg-very-light-blue rounded-full blur-3xl -z-10 pointer-events-none"></div>

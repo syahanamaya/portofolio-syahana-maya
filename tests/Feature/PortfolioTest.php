@@ -31,6 +31,8 @@ class PortfolioTest extends TestCase
     {
         $this->get('/')
             ->assertOk()
+            ->assertSee('new IntersectionObserver', false)
+            ->assertSee('activeSection ===', false)
             ->assertSee(route('home') . '#about', false)
             ->assertSee(route('home') . '#skills', false)
             ->assertSee(route('home') . '#projects', false)

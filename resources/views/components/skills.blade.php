@@ -1,7 +1,6 @@
 <section 
     id="skills" 
     class="py-16 md:py-24 bg-very-light-blue/60 relative overflow-hidden"
-    x-intersect.threshold.0.3="activeSection = 'skills'"
 >
     <!-- Background Sparkles / Dots -->
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">

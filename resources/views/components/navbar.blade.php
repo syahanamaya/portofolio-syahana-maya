@@ -24,7 +24,7 @@
 >
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
         <!-- Logo / Name -->
-        <a href="{{ route('home') }}" class="flex items-center space-x-2 group focus:outline-none">
+        <a href="{{ route('home') }}#home" @click="activeSection = 'home'" class="flex items-center space-x-2 group focus:outline-none">
             <!-- Cute Hand-drawn Star Icon -->
             <svg class="w-6 h-6 text-primary-blue group-hover:rotate-12 transition-transform duration-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
@@ -40,6 +40,7 @@
                 @php($sectionId = $item['route'] === 'home' ? 'home' : $item['route'])
                 <a
                     href="{{ route('home') }}#{{ $sectionId }}"
+                    @click="activeSection = '{{ $sectionId }}'"
                     class="transition-colors relative py-1 text-dark-navy hover:text-primary-blue"
                     :class="activeSection === '{{ $sectionId }}' ? 'text-primary-blue font-semibold' : ''"
                     :aria-current="activeSection === '{{ $sectionId }}' ? 'page' : null"
@@ -98,7 +99,7 @@
                 @php($sectionId = $item['route'] === 'home' ? 'home' : $item['route'])
                 <a
                     href="{{ route('home') }}#{{ $sectionId }}"
-                    @click="mobileMenuOpen = false"
+                    @click="activeSection = '{{ $sectionId }}'; mobileMenuOpen = false"
                     class="px-3 py-2 rounded-xl text-base font-medium transition text-dark-navy hover:bg-very-light-blue hover:text-primary-blue"
                     :class="activeSection === '{{ $sectionId }}' ? 'bg-very-light-blue text-primary-blue' : ''"
                     :aria-current="activeSection === '{{ $sectionId }}' ? 'page' : null"
