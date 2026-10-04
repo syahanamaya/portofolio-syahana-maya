@@ -14,7 +14,7 @@ class PortfolioTest extends TestCase
         $response = $this->get('/');
 
         $response->assertStatus(200);
-        $response->assertSeeText('Syahana Maya Syabana');
+        $response->assertSeeText("Syahana Maya Sya'bana");
         $response->assertSeeText('Web Developer');
         $response->assertSeeText('Lifelong Learner');
         $response->assertSeeText('Lihat Portfolio Saya');

@@ -6,9 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     
     <title>{{ $portfolio['personal']['name'] }} | Portfolio Pribadi</title>
-    <meta name="description" content="Portfolio Syahana Maya Syabana, fresh graduate Sistem Informasi Universitas Pamulang dengan pengalaman dukungan TI dan administrasi media sosial.">
-    <meta name="keywords" content="Shahana Maya, Portfolio, Web Developer, Laravel, Tailwind CSS, Sistem Informasi, Universitas Pamulang">
-    <meta name="author" content="Syahana Maya Syabana">
+    <meta name="description" content="Portfolio Syahana Maya Sya'bana, fresh graduate Sistem Informasi Universitas Pamulang dengan pengalaman dukungan TI dan administrasi media sosial.">
+    <meta name="keywords" content="Syahana Maya, Portfolio, Web Developer, Laravel, Tailwind CSS, Sistem Informasi, Universitas Pamulang">
+    <meta name="author" content="Syahana Maya Sya'bana">
     
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="{{ asset('favicon.png') }}">

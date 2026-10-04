@@ -29,7 +29,7 @@
         <!-- Bottom Copyright & Social Links -->
         <div class="mt-1 pt-1 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-1 text-xs text-soft-blue/80">
             <div>
-                &copy; {{ date('Y') }} Shahana Maya Syabana. All rights reserved.
+                &copy; {{ date('Y') }} Syahana Maya Sya'bana. All rights reserved.
             </div>
 
             <!-- Social Links in Footer -->
