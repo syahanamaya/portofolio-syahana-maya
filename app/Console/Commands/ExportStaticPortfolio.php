@@ -31,11 +31,10 @@ class ExportStaticPortfolio extends Command
 
         $this->info("Memulai ekspor portofolio statis ke: {$outputPath} ...");
 
-        // 1. Bersihkan & buat direktori output
-        if (File::exists($outputPath)) {
-            File::deleteDirectory($outputPath);
+        // 1. Create the output directory without deleting existing user files.
+        if (! File::exists($outputPath)) {
+            File::makeDirectory($outputPath, 0755, true);
         }
-        File::makeDirectory($outputPath, 0755, true);
 
         // 2. Render setiap halaman Laravel ke file HTML
         $portfolio = config('portfolio');
@@ -63,13 +62,9 @@ class ExportStaticPortfolio extends Command
 
             $html = view($page['view'], $viewData)->render();
 
-            foreach (array_keys($legacyPages) as $routeName) {
-                $html = str_replace(route($routeName), "./{$routeName}.html", $html);
-            }
-
             foreach ($pages as $routeName => $targetPage) {
                 if ($routeName !== 'home') {
-                    $html = str_replace(route($routeName), './' . $targetPage['file'], $html);
+                    $html = str_replace(route($routeName), "./index.html#{$routeName}", $html);
                 }
             }
 
@@ -130,7 +125,7 @@ class ExportStaticPortfolio extends Command
             $this->info("✓ Direktori images/ (foto & dekorasi) berhasil disalin.");
         }
 
-        if (File::exists(public_path('cv.pdf'))) {
+        if (File::exists(public_path('cv.pdf')) && ! File::exists("{$outputPath}/cv.pdf")) {
             File::copy(public_path('cv.pdf'), "{$outputPath}/cv.pdf");
             $this->info("✓ cv.pdf berhasil disalin.");
         }

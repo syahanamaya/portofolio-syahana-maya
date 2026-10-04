@@ -2,6 +2,7 @@
 
 namespace Tests\Feature;
 
+use Illuminate\Support\Facades\File;
 use Tests\TestCase;
 
 class PortfolioTest extends TestCase
@@ -54,6 +55,43 @@ class PortfolioTest extends TestCase
 
         foreach ($sections as $path => $section) {
             $this->get($path)->assertRedirect('/#' . $section);
+        }
+    }
+
+    public function test_static_export_keeps_all_sections_on_one_page_and_redirects_old_pages(): void
+    {
+        $output = 'storage/framework/testing/portfolio-static-' . uniqid();
+        $outputPath = base_path($output);
+        $sections = [
+            'about' => ['about', 'Profil Profesional'],
+            'skills' => ['skills', 'Keahlian Saya'],
+            'projects' => ['projects', 'Proyek Saya'],
+            'experience' => ['experience', 'Pengalaman & Pendidikan'],
+            'certifications' => ['certifications', 'Sertifikasi'],
+            'contact' => ['contact', 'Hubungi Saya'],
+        ];
+
+        try {
+            File::makeDirectory($outputPath, 0755, true);
+            File::put("{$outputPath}/keep.txt", 'preserve existing output');
+            File::put("{$outputPath}/cv.pdf", 'preserve existing CV');
+
+            $this->artisan('export:static', ['--output' => $output])
+                ->assertExitCode(0);
+
+            $index = File::get("{$outputPath}/index.html");
+            $this->assertSame('preserve existing output', File::get("{$outputPath}/keep.txt"));
+            $this->assertSame('preserve existing CV', File::get("{$outputPath}/cv.pdf"));
+
+            foreach ($sections as $file => [$sectionId]) {
+                $this->assertStringContainsString('id="' . $sectionId . '"', $index);
+
+                $sectionPage = File::get("{$outputPath}/{$file}.html");
+                $this->assertStringContainsString('index.html#' . $sectionId, $sectionPage);
+                $this->assertStringContainsString('window.location.replace', $sectionPage);
+            }
+        } finally {
+            File::deleteDirectory($outputPath);
         }
     }
 
