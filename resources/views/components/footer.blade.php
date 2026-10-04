@@ -1,7 +1,7 @@
-<footer class="bg-[#1F568A] text-white py-10 md:py-12 border-t border-white/10">
+<footer class="bg-[#1F568A] text-white py-6 md:py-8 border-t border-white/10">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        <div class="flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
+        <div class="flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
             
             <!-- Left: Logo & Identity -->
             <div class="flex items-center space-x-2">
@@ -27,7 +27,7 @@
         </div>
 
         <!-- Bottom Copyright & Social Links -->
-        <div class="mt-8 pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-soft-blue/80">
+        <div class="mt-5 pt-4 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-soft-blue/80">
             <div>
                 &copy; {{ date('Y') }} Shahana Maya Syabana. All rights reserved.
             </div>
