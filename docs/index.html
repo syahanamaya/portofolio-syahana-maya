@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    
+
     <title>Syahana Maya Sya&#039;bana | Portfolio Pribadi</title>
     <meta name="description" content="Portfolio Syahana Maya Sya'bana, fresh graduate Sistem Informasi Universitas Pamulang dengan pengalaman dukungan TI dan administrasi media sosial.">
     <meta name="keywords" content="Syahana Maya, Portfolio, Web Developer, Laravel, Tailwind CSS, Sistem Informasi, Universitas Pamulang">
     <meta name="author" content="Syahana Maya Sya'bana">
-    
+
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="./favicon.png">
     <link rel="apple-touch-icon" href="./favicon.png">
@@ -30,7 +30,7 @@
         }
     </style>
 </head>
-<body 
+<body
     x-data="{
         mobileMenuOpen: false,
         activeSection: 'home',
@@ -62,8 +62,8 @@
     class="bg-white text-dark-navy antialiased selection:bg-soft-blue selection:text-dark-navy flex flex-col min-h-screen relative"
 >
     <!-- Navbar -->
-    <header 
-    x-data="{ 
+    <header
+    x-data="{
         scrolled: false,
         updateScroll() {
             this.scrolled = window.scrollY > 20;
@@ -88,54 +88,68 @@
 
         <!-- Desktop Navigation Links -->
         <nav class="hidden md:flex items-center space-x-7 text-sm font-medium">
-                            <a
-                    href="./index.html"
-                    class="transition-colors relative py-1 text-primary-blue font-semibold"
-                     aria-current="page"                 >
+                                            <a
+                    href="./index.html#home"
+                    class="transition-colors relative py-1 text-dark-navy hover:text-primary-blue"
+                    :class="activeSection === 'home' ? 'text-primary-blue font-semibold' : ''"
+                    :aria-current="activeSection === 'home' ? 'page' : null"
+                >
                     Home
                 </a>
-                            <a
-                    href="./about.html"
+                                            <a
+                    href="./index.html#about"
                     class="transition-colors relative py-1 text-dark-navy hover:text-primary-blue"
-                                    >
+                    :class="activeSection === 'about' ? 'text-primary-blue font-semibold' : ''"
+                    :aria-current="activeSection === 'about' ? 'page' : null"
+                >
                     About
                 </a>
-                            <a
-                    href="./skills.html"
+                                            <a
+                    href="./index.html#skills"
                     class="transition-colors relative py-1 text-dark-navy hover:text-primary-blue"
-                                    >
+                    :class="activeSection === 'skills' ? 'text-primary-blue font-semibold' : ''"
+                    :aria-current="activeSection === 'skills' ? 'page' : null"
+                >
                     Skills
                 </a>
-                            <a
-                    href="./projects.html"
+                                            <a
+                    href="./index.html#projects"
                     class="transition-colors relative py-1 text-dark-navy hover:text-primary-blue"
-                                    >
+                    :class="activeSection === 'projects' ? 'text-primary-blue font-semibold' : ''"
+                    :aria-current="activeSection === 'projects' ? 'page' : null"
+                >
                     Projects
                 </a>
-                            <a
-                    href="./experience.html"
+                                            <a
+                    href="./index.html#experience"
                     class="transition-colors relative py-1 text-dark-navy hover:text-primary-blue"
-                                    >
+                    :class="activeSection === 'experience' ? 'text-primary-blue font-semibold' : ''"
+                    :aria-current="activeSection === 'experience' ? 'page' : null"
+                >
                     Experience &amp; Education
                 </a>
-                            <a
-                    href="./certifications.html"
+                                            <a
+                    href="./index.html#certifications"
                     class="transition-colors relative py-1 text-dark-navy hover:text-primary-blue"
-                                    >
+                    :class="activeSection === 'certifications' ? 'text-primary-blue font-semibold' : ''"
+                    :aria-current="activeSection === 'certifications' ? 'page' : null"
+                >
                     Sertifikat
                 </a>
-                            <a
-                    href="./contact.html"
+                                            <a
+                    href="./index.html#contact"
                     class="transition-colors relative py-1 text-dark-navy hover:text-primary-blue"
-                                    >
+                    :class="activeSection === 'contact' ? 'text-primary-blue font-semibold' : ''"
+                    :aria-current="activeSection === 'contact' ? 'page' : null"
+                >
                     Contact
                 </a>
                     </nav>
 
         <!-- Desktop Download CV Button -->
         <div class="hidden md:block">
-            <a 
-                href="./cv.pdf" 
+            <a
+                href="./cv.pdf"
                 download="CV-Syahana-Maya-Sya'bana.pdf"
                 class="inline-flex items-center space-x-2 px-5 py-2.5 rounded-full bg-primary-blue hover:bg-dark-blue text-white text-sm font-semibold shadow-sm hover:shadow-md transition-all duration-200 transform hover:-translate-y-0.5"
             >
@@ -148,9 +162,9 @@
 
         <!-- Mobile Hamburger Button -->
         <div class="flex items-center md:hidden">
-            <button 
+            <button
                 @click="mobileMenuOpen = !mobileMenuOpen"
-                type="button" 
+                type="button"
                 class="p-2 rounded-xl text-dark-navy hover:text-primary-blue hover:bg-very-light-blue focus:outline-none transition"
                 aria-label="Menu Navigasi"
             >
@@ -165,8 +179,8 @@
     </div>
 
     <!-- Mobile Drawer Menu -->
-    <div 
-        x-show="mobileMenuOpen" 
+    <div
+        x-show="mobileMenuOpen"
         x-transition:enter="transition ease-out duration-200"
         x-transition:enter-start="opacity-0 -translate-y-2"
         x-transition:enter-end="opacity-100 translate-y-0"
@@ -177,59 +191,73 @@
         style="display: none;"
     >
         <div class="flex flex-col space-y-3.5 pt-2">
-                            <a
-                    href="./index.html"
+                                            <a
+                    href="./index.html#home"
                     @click="mobileMenuOpen = false"
-                    class="px-3 py-2 rounded-xl text-base font-medium transition bg-very-light-blue text-primary-blue"
-                     aria-current="page"                 >
+                    class="px-3 py-2 rounded-xl text-base font-medium transition text-dark-navy hover:bg-very-light-blue hover:text-primary-blue"
+                    :class="activeSection === 'home' ? 'bg-very-light-blue text-primary-blue' : ''"
+                    :aria-current="activeSection === 'home' ? 'page' : null"
+                >
                     Home
                 </a>
-                            <a
-                    href="./about.html"
+                                            <a
+                    href="./index.html#about"
                     @click="mobileMenuOpen = false"
                     class="px-3 py-2 rounded-xl text-base font-medium transition text-dark-navy hover:bg-very-light-blue hover:text-primary-blue"
-                                    >
+                    :class="activeSection === 'about' ? 'bg-very-light-blue text-primary-blue' : ''"
+                    :aria-current="activeSection === 'about' ? 'page' : null"
+                >
                     About
                 </a>
-                            <a
-                    href="./skills.html"
+                                            <a
+                    href="./index.html#skills"
                     @click="mobileMenuOpen = false"
                     class="px-3 py-2 rounded-xl text-base font-medium transition text-dark-navy hover:bg-very-light-blue hover:text-primary-blue"
-                                    >
+                    :class="activeSection === 'skills' ? 'bg-very-light-blue text-primary-blue' : ''"
+                    :aria-current="activeSection === 'skills' ? 'page' : null"
+                >
                     Skills
                 </a>
-                            <a
-                    href="./projects.html"
+                                            <a
+                    href="./index.html#projects"
                     @click="mobileMenuOpen = false"
                     class="px-3 py-2 rounded-xl text-base font-medium transition text-dark-navy hover:bg-very-light-blue hover:text-primary-blue"
-                                    >
+                    :class="activeSection === 'projects' ? 'bg-very-light-blue text-primary-blue' : ''"
+                    :aria-current="activeSection === 'projects' ? 'page' : null"
+                >
                     Projects
                 </a>
-                            <a
-                    href="./experience.html"
+                                            <a
+                    href="./index.html#experience"
                     @click="mobileMenuOpen = false"
                     class="px-3 py-2 rounded-xl text-base font-medium transition text-dark-navy hover:bg-very-light-blue hover:text-primary-blue"
-                                    >
+                    :class="activeSection === 'experience' ? 'bg-very-light-blue text-primary-blue' : ''"
+                    :aria-current="activeSection === 'experience' ? 'page' : null"
+                >
                     Experience &amp; Education
                 </a>
-                            <a
-                    href="./certifications.html"
+                                            <a
+                    href="./index.html#certifications"
                     @click="mobileMenuOpen = false"
                     class="px-3 py-2 rounded-xl text-base font-medium transition text-dark-navy hover:bg-very-light-blue hover:text-primary-blue"
-                                    >
+                    :class="activeSection === 'certifications' ? 'bg-very-light-blue text-primary-blue' : ''"
+                    :aria-current="activeSection === 'certifications' ? 'page' : null"
+                >
                     Sertifikat
                 </a>
-                            <a
-                    href="./contact.html"
+                                            <a
+                    href="./index.html#contact"
                     @click="mobileMenuOpen = false"
                     class="px-3 py-2 rounded-xl text-base font-medium transition text-dark-navy hover:bg-very-light-blue hover:text-primary-blue"
-                                    >
+                    :class="activeSection === 'contact' ? 'bg-very-light-blue text-primary-blue' : ''"
+                    :aria-current="activeSection === 'contact' ? 'page' : null"
+                >
                     Contact
                 </a>
-            
+
             <div class="pt-3 border-t border-soft-blue/30">
-                <a 
-                    href="./cv.pdf" 
+                <a
+                    href="./cv.pdf"
                     download="CV-Syahana-Maya-Sya'bana.pdf"
                     @click="mobileMenuOpen = false"
                     class="w-full flex items-center justify-center space-x-2 px-5 py-3 rounded-xl bg-primary-blue hover:bg-dark-blue text-white text-base font-semibold shadow-md transition"
@@ -246,8 +274,8 @@
 
     <!-- Main Content -->
     <main class="flex-grow ">
-            <section 
-    id="home" 
+            <section
+    id="home"
     class="relative pt-28 pb-16 md:pt-36 md:pb-24 overflow-hidden bg-gradient-to-b from-very-light-blue via-very-light-blue/40 to-white"
     x-intersect.threshold.0.3="activeSection = 'home'"
 >
@@ -257,10 +285,10 @@
 
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
-            
+
             <!-- Left Column: Introduction & Call to Actions -->
             <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
-                
+
                 <!-- Greeting Badge with Sun Doodle -->
                 <div class="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-soft-blue/40 border border-soft-blue/60 text-dark-navy">
                     <!-- Sun Doodle SVG -->
@@ -281,7 +309,7 @@
                 <!-- Main Name Heading -->
                 <div class="space-y-2">
                     <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-[3.25rem] font-extrabold text-dark-navy tracking-tight leading-[1.15]">
-                        I'm <span class="text-primary-blue">Syahana Maya Sya'bana</span>
+                        I'm <span class="text-primary-blue">Syahana Maya Sya&#039;bana</span>
                     </h1>
                     <p class="text-base sm:text-lg md:text-xl font-semibold text-secondary-text">
                         Web Developer | PHP • Laravel • MySQL
@@ -295,8 +323,8 @@
 
                 <!-- Action Buttons -->
                 <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
-                    <a 
-                        href="./projects.html" 
+                    <a
+                        href="./index.html#projects"
                         class="w-full sm:w-auto inline-flex items-center justify-center space-x-2 px-7 py-3.5 rounded-full bg-primary-blue hover:bg-dark-blue text-white font-semibold shadow-md hover:shadow-lg transition-all duration-200 transform hover:-translate-y-0.5 group"
                     >
                         <span>Lihat Portfolio Saya</span>
@@ -304,8 +332,8 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
                         </svg>
                     </a>
-                    <a 
-                        href="./about.html" 
+                    <a
+                        href="./index.html#about"
                         class="w-full sm:w-auto inline-flex items-center justify-center px-7 py-3.5 rounded-full bg-white hover:bg-very-light-blue text-primary-blue border-2 border-primary-blue/70 font-semibold shadow-sm hover:shadow transition-all duration-200"
                     >
                         <span>Tentang Saya</span>
@@ -315,9 +343,9 @@
                 <!-- Social Icons Row -->
                 <div class="pt-4 flex items-center justify-center lg:justify-start space-x-3.5">
                     <!-- Instagram -->
-                    <a 
-                        href="https://instagram.com/syhnamys" 
-                        target="_blank" 
+                    <a
+                        href="https://instagram.com/syhnamys"
+                        target="_blank"
                         rel="noopener noreferrer"
                         class="w-10 h-10 rounded-full bg-soft-blue/40 hover:bg-primary-blue text-dark-navy hover:text-white flex items-center justify-center transition-all duration-200 transform hover:-translate-y-1 shadow-sm"
                         aria-label="Instagram"
@@ -328,11 +356,11 @@
                             <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
                         </svg>
                     </a>
-                    
+
                     <!-- LinkedIn -->
-                    <a 
-                        href="https://www.linkedin.com/in/syahana-maya-sya-bana-a7bba3333" 
-                        target="_blank" 
+                    <a
+                        href="https://www.linkedin.com/in/syahana-maya-sya-bana-a7bba3333"
+                        target="_blank"
                         rel="noopener noreferrer"
                         class="w-10 h-10 rounded-full bg-soft-blue/40 hover:bg-primary-blue text-dark-navy hover:text-white flex items-center justify-center transition-all duration-200 transform hover:-translate-y-1 shadow-sm"
                         aria-label="LinkedIn"
@@ -343,9 +371,9 @@
                     </a>
 
                     <!-- GitHub -->
-                    <a 
-                        href="https://github.com/terang0710" 
-                        target="_blank" 
+                    <a
+                        href="https://github.com/terang0710"
+                        target="_blank"
                         rel="noopener noreferrer"
                         class="w-10 h-10 rounded-full bg-soft-blue/40 hover:bg-primary-blue text-dark-navy hover:text-white flex items-center justify-center transition-all duration-200 transform hover:-translate-y-1 shadow-sm"
                         aria-label="GitHub"
@@ -356,8 +384,8 @@
                     </a>
 
                     <!-- Email -->
-                    <a 
-                        href="mailto:syahanamaya@gmail.com" 
+                    <a
+                        href="mailto:syahanamaya@gmail.com"
                         class="w-10 h-10 rounded-full bg-soft-blue/40 hover:bg-primary-blue text-dark-navy hover:text-white flex items-center justify-center transition-all duration-200 transform hover:-translate-y-1 shadow-sm"
                         aria-label="Email"
                     >
@@ -371,10 +399,10 @@
 
             <!-- Right Column: Profile Visual & Doodles -->
             <div class="lg:col-span-5 flex justify-center relative">
-                
+
                 <!-- Main Visual Container -->
                 <div class="relative w-full max-w-sm sm:max-w-md flex flex-col items-center">
-                    
+
                     <!-- Background Organic Blob -->
                     <div class="absolute inset-0 bg-gradient-to-tr from-soft-blue/40 via-soft-blue/60 to-very-light-blue rounded-[3rem] transform -rotate-2 scale-95 -z-10 shadow-inner"></div>
 
@@ -406,8 +434,8 @@
 
                     <!-- Profile Image with Sticker-Like White Border & Shadow -->
                     <div class="relative p-2 rounded-3xl overflow-hidden transition-transform duration-300 hover:scale-[1.02]">
-                        <img 
-                            src="./images/profile/foto-profile.png" 
+                        <img
+                            src="./images/profile/foto-profile.png"
                             alt="Syahana Maya Sya'bana"
                             class="w-full h-auto object-cover rounded-2xl drop-shadow-xl"
                             loading="eager"
@@ -429,31 +457,1237 @@
         </div>
     </div>
 </section>
+    <section
+    id="about"
+    class="py-16 md:py-24 bg-white relative overflow-hidden"
+    x-intersect.threshold.0.3="activeSection = 'about'"
+>
+    <!-- Background Accents -->
+    <div class="absolute top-1/2 left-0 -translate-y-1/2 w-64 h-64 bg-very-light-blue rounded-full blur-3xl -z-10 pointer-events-none"></div>
 
-    <script>
-        const legacySectionRoutes = {
-            '#home': "./index.html",
-            '#about': "./about.html",
-            '#skills': "./skills.html",
-            '#projects': "./projects.html",
-            '#experience': "./experience.html",
-            '#certifications': "./certifications.html",
-            '#contact': "./contact.html",
-        };
-        const legacySectionRoute = legacySectionRoutes[window.location.hash];
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
 
-        if (legacySectionRoute) {
-            window.location.replace(legacySectionRoute);
-        }
-    </script>
+        <!-- Section Header -->
+        <div class="mb-10 md:mb-14">
+            <span class="inline-block text-xs sm:text-sm font-semibold tracking-wider text-primary-blue uppercase mb-1">
+                &lsquo;About Me
+            </span>
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-dark-navy tracking-tight">
+                Profil Profesional
+            </h2>
+        </div>
+
+        <!-- 2-Column Content Grid -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+
+            <!-- Left Column: Biography & Info Cards -->
+            <div class="lg:col-span-8 space-y-6">
+                <!-- Biography Paragraphs -->
+                <div class="space-y-4 text-secondary-text text-base sm:text-lg leading-relaxed">
+                                            <p>Saya fresh graduate S1 Sistem Informasi Universitas Pamulang dengan IPK 3,68. Saya berpengalaman menganalisis kebutuhan pengguna, merancang proses bisnis, dan mengembangkan sistem informasi berbasis web menggunakan metode Agile.</p>
+                                            <p>Saya terbiasa menyusun dokumentasi sistem, activity diagram, dan use case diagram, serta merancang antarmuka menggunakan Figma. Saya tertarik mengembangkan solusi digital yang bermanfaat melalui analisis sistem dan pengembangan web.</p>
+                                    </div>
+
+                <!-- Info Cards (2x2 Grid on Tablet/Desktop, 1 Column on Mobile) -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
+
+                    <!-- Card 1: Education -->
+                    <div class="p-4 rounded-2xl bg-very-light-blue/70 border border-soft-blue/50 flex items-start space-x-3.5 hover:border-primary-blue/50 hover:bg-very-light-blue transition duration-200">
+                        <div class="w-10 h-10 rounded-xl bg-white text-primary-blue flex items-center justify-center shadow-sm flex-shrink-0 border border-soft-blue/40">
+                            <!-- Graduation Cap Icon -->
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zM5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82z"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-sm text-dark-navy">Fresh Graduate Sistem Informasi</h4>
+                            <p class="text-xs text-secondary-text mt-0.5">Universitas Pamulang</p>
+                        </div>
+                    </div>
+
+                    <!-- Card 2: Location -->
+                    <div class="p-4 rounded-2xl bg-very-light-blue/70 border border-soft-blue/50 flex items-start space-x-3.5 hover:border-primary-blue/50 hover:bg-very-light-blue transition duration-200">
+                        <div class="w-10 h-10 rounded-xl bg-white text-primary-blue flex items-center justify-center shadow-sm flex-shrink-0 border border-soft-blue/40">
+                            <!-- Map Pin Icon -->
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-sm text-dark-navy">Tangerang Selatan</h4>
+                            <p class="text-xs text-secondary-text mt-0.5">Banten, Indonesia</p>
+                        </div>
+                    </div>
+
+                    <!-- Card 3: Semester Status -->
+                    <div class="p-4 rounded-2xl bg-very-light-blue/70 border border-soft-blue/50 flex items-start space-x-3.5 hover:border-primary-blue/50 hover:bg-very-light-blue transition duration-200">
+                        <div class="w-10 h-10 rounded-xl bg-white text-primary-blue flex items-center justify-center shadow-sm flex-shrink-0 border border-soft-blue/40">
+                            <!-- Calendar Icon -->
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                                <line x1="16" y1="2" x2="16" y2="6"></line>
+                                <line x1="8" y1="2" x2="8" y2="6"></line>
+                                <line x1="3" y1="10" x2="21" y2="10"></line>
+                            </svg>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-sm text-dark-navy">IPK 3,68</h4>
+                            <p class="text-xs text-secondary-text mt-0.5">Lulus September 2026</p>
+                        </div>
+                    </div>
+
+                    <!-- Card 4: Hobbies -->
+                    <div class="p-4 rounded-2xl bg-very-light-blue/70 border border-soft-blue/50 flex items-start space-x-3.5 hover:border-primary-blue/50 hover:bg-very-light-blue transition duration-200">
+                        <div class="w-10 h-10 rounded-xl bg-white text-primary-blue flex items-center justify-center shadow-sm flex-shrink-0 border border-soft-blue/40">
+                            <!-- Heart / Star Icon -->
+                            <svg class="w-5 h-5 text-primary-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                                <rect x="3" y="7" width="18" height="14" rx="2"/>
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M8 7V5a2 2 0 012-2h4a2 2 0 012 2v2M3 12h18"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-sm text-dark-navy">Pengalaman Kerja</h4>
+                            <p class="text-xs text-secondary-text mt-0.5">Komnas HAM & UMKM Warung Makan</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Right Column: Cute Sticky Note & Doodles -->
+            <div class="lg:col-span-4 flex flex-col items-center justify-center relative">
+
+                <!-- Washi Tape Sticky Note -->
+                <div class="relative w-64 sm:w-72 p-6 rounded-2xl bg-[#EAF3FC] border border-[#C5DFF8] shadow-lg transform rotate-2 hover:rotate-0 transition-transform duration-300">
+
+                    <!-- Semi-transparent Washi Tape on Top -->
+                    <div class="absolute -top-3 left-1/2 -translate-x-1/2 w-28 h-6 bg-primary-blue/30 backdrop-blur-xs rounded-sm transform -rotate-1 border border-primary-blue/20"></div>
+
+                    <!-- Post-it Content -->
+                    <div class="pt-3 pb-2 text-center space-y-3">
+                        <div class="font-doodle text-xl sm:text-2xl font-bold text-dark-blue leading-snug">
+                            System<br>Analysis<br>& Design
+                        </div>
+                        <div class="text-primary-blue flex justify-center">
+                            <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+                            </svg>
+                        </div>
+                    </div>
+
+                    <!-- Subtle Pin / Heart in corner -->
+                    <div class="absolute bottom-3 right-3 text-primary-blue/40">
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                        </svg>
+                    </div>
+                </div>
+
+                <!-- Hand-drawn curved arrow doodle pointing to skills / more about me -->
+                <div class="mt-6 flex items-center space-x-2 text-primary-blue">
+                    <span class="font-doodle text-base font-bold">More about me</span>
+                    <svg class="w-6 h-6 transform rotate-90" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M7 17l9.2-9.2M17 17V7H7"/>
+                    </svg>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+</section>
+    <section
+    id="skills"
+    class="py-16 md:py-24 bg-very-light-blue/60 relative overflow-hidden"
+    x-intersect.threshold.0.3="activeSection = 'skills'"
+>
+    <!-- Background Sparkles / Dots -->
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <!-- Header with "Still Learning" Doodle -->
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 md:mb-14 relative">
+            <div>
+                <span class="inline-block text-xs sm:text-sm font-semibold tracking-wider text-primary-blue uppercase mb-1">
+                    &lsquo;My Skills
+                </span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-dark-navy tracking-tight">
+                    Keahlian Saya
+                </h2>
+                <p class="text-secondary-text text-sm sm:text-base mt-2 max-w-xl">
+                    Keahlian sistem informasi, analisis, desain, dan aplikasi perkantoran yang tercantum dalam CV saya:
+                </p>
+            </div>
+
+            <!-- "Still Learning" Doodle on Desktop -->
+            <div class="mt-4 md:mt-0 flex items-center space-x-2 text-primary-blue">
+                <div class="text-right">
+                    <span class="font-doodle text-lg sm:text-xl font-bold block transform -rotate-3">Skills in Practice</span>
+                </div>
+                <!-- Cute Smiley Face Doodle -->
+                <svg class="w-7 h-7 transform rotate-6 animate-pulse-soft" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <path d="M8 14s1.5 2 4 2 4-2 4-2"></path>
+                    <line x1="9" y1="9" x2="9.01" y2="9"></line>
+                    <line x1="15" y1="9" x2="15.01" y2="9"></line>
+                </svg>
+            </div>
+        </div>
+
+        <!-- Skills Grid: 2x2 on Desktop/Tablet, 1 Column on Mobile -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="bg-white rounded-3xl p-6 sm:p-7 border border-soft-blue/60 shadow-sm hover:shadow-md hover:border-primary-blue/40 transition-all duration-300 transform hover:-translate-y-1">
+
+                    <!-- Card Header -->
+                    <div class="flex items-center space-x-3.5 mb-5 pb-3 border-b border-soft-blue/30">
+                        <div class="w-11 h-11 rounded-2xl bg-very-light-blue text-primary-blue flex items-center justify-center flex-shrink-0 border border-soft-blue/50">
+                                                            <!-- Code Icon -->
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <polyline points="16 18 22 12 16 6"></polyline>
+                                    <polyline points="8 6 2 12 8 18"></polyline>
+                                </svg>
+                                                    </div>
+                        <h3 class="font-bold text-lg text-dark-navy">
+                            Sistem Informasi
+                        </h3>
+                    </div>
+
+                    <!-- Skill Items List -->
+                    <ul class="space-y-2.5">
+                                                    <li class="flex items-center space-x-2.5 text-secondary-text text-sm sm:text-base group-hover:text-dark-navy transition-colors">
+                                <!-- Bullet Blue Dot with Ring -->
+                                <span class="w-2 h-2 rounded-full bg-primary-blue flex-shrink-0"></span>
+                                <span class="font-medium text-dark-navy/90">Analisis Sistem dan Kebutuhan Pengguna</span>
+                            </li>
+                                                    <li class="flex items-center space-x-2.5 text-secondary-text text-sm sm:text-base group-hover:text-dark-navy transition-colors">
+                                <!-- Bullet Blue Dot with Ring -->
+                                <span class="w-2 h-2 rounded-full bg-primary-blue flex-shrink-0"></span>
+                                <span class="font-medium text-dark-navy/90">Perancangan Proses Bisnis</span>
+                            </li>
+                                                    <li class="flex items-center space-x-2.5 text-secondary-text text-sm sm:text-base group-hover:text-dark-navy transition-colors">
+                                <!-- Bullet Blue Dot with Ring -->
+                                <span class="w-2 h-2 rounded-full bg-primary-blue flex-shrink-0"></span>
+                                <span class="font-medium text-dark-navy/90">UML: Activity &amp; Use Case Diagram</span>
+                            </li>
+                                                    <li class="flex items-center space-x-2.5 text-secondary-text text-sm sm:text-base group-hover:text-dark-navy transition-colors">
+                                <!-- Bullet Blue Dot with Ring -->
+                                <span class="w-2 h-2 rounded-full bg-primary-blue flex-shrink-0"></span>
+                                <span class="font-medium text-dark-navy/90">Dokumentasi Sistem</span>
+                            </li>
+                                                    <li class="flex items-center space-x-2.5 text-secondary-text text-sm sm:text-base group-hover:text-dark-navy transition-colors">
+                                <!-- Bullet Blue Dot with Ring -->
+                                <span class="w-2 h-2 rounded-full bg-primary-blue flex-shrink-0"></span>
+                                <span class="font-medium text-dark-navy/90">Pengembangan Sistem Informasi Berbasis Web</span>
+                            </li>
+                                                    <li class="flex items-center space-x-2.5 text-secondary-text text-sm sm:text-base group-hover:text-dark-navy transition-colors">
+                                <!-- Bullet Blue Dot with Ring -->
+                                <span class="w-2 h-2 rounded-full bg-primary-blue flex-shrink-0"></span>
+                                <span class="font-medium text-dark-navy/90">Metode Agile</span>
+                            </li>
+                                            </ul>
+
+                </div>
+                            <div class="bg-white rounded-3xl p-6 sm:p-7 border border-soft-blue/60 shadow-sm hover:shadow-md hover:border-primary-blue/40 transition-all duration-300 transform hover:-translate-y-1">
+
+                    <!-- Card Header -->
+                    <div class="flex items-center space-x-3.5 mb-5 pb-3 border-b border-soft-blue/30">
+                        <div class="w-11 h-11 rounded-2xl bg-very-light-blue text-primary-blue flex items-center justify-center flex-shrink-0 border border-soft-blue/50">
+                                                            <!-- Tools / Wrench Icon -->
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+                                </svg>
+                                                    </div>
+                        <h3 class="font-bold text-lg text-dark-navy">
+                            Desain &amp; Kreatif
+                        </h3>
+                    </div>
+
+                    <!-- Skill Items List -->
+                    <ul class="space-y-2.5">
+                                                    <li class="flex items-center space-x-2.5 text-secondary-text text-sm sm:text-base group-hover:text-dark-navy transition-colors">
+                                <!-- Bullet Blue Dot with Ring -->
+                                <span class="w-2 h-2 rounded-full bg-primary-blue flex-shrink-0"></span>
+                                <span class="font-medium text-dark-navy/90">Figma</span>
+                            </li>
+                                                    <li class="flex items-center space-x-2.5 text-secondary-text text-sm sm:text-base group-hover:text-dark-navy transition-colors">
+                                <!-- Bullet Blue Dot with Ring -->
+                                <span class="w-2 h-2 rounded-full bg-primary-blue flex-shrink-0"></span>
+                                <span class="font-medium text-dark-navy/90">Adobe Illustrator</span>
+                            </li>
+                                                    <li class="flex items-center space-x-2.5 text-secondary-text text-sm sm:text-base group-hover:text-dark-navy transition-colors">
+                                <!-- Bullet Blue Dot with Ring -->
+                                <span class="w-2 h-2 rounded-full bg-primary-blue flex-shrink-0"></span>
+                                <span class="font-medium text-dark-navy/90">Adobe Photoshop</span>
+                            </li>
+                                                    <li class="flex items-center space-x-2.5 text-secondary-text text-sm sm:text-base group-hover:text-dark-navy transition-colors">
+                                <!-- Bullet Blue Dot with Ring -->
+                                <span class="w-2 h-2 rounded-full bg-primary-blue flex-shrink-0"></span>
+                                <span class="font-medium text-dark-navy/90">CapCut</span>
+                            </li>
+                                            </ul>
+
+                </div>
+                            <div class="bg-white rounded-3xl p-6 sm:p-7 border border-soft-blue/60 shadow-sm hover:shadow-md hover:border-primary-blue/40 transition-all duration-300 transform hover:-translate-y-1">
+
+                    <!-- Card Header -->
+                    <div class="flex items-center space-x-3.5 mb-5 pb-3 border-b border-soft-blue/30">
+                        <div class="w-11 h-11 rounded-2xl bg-very-light-blue text-primary-blue flex items-center justify-center flex-shrink-0 border border-soft-blue/50">
+                                                            <!-- Pencil / Design Icon -->
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"/>
+                                </svg>
+                                                    </div>
+                        <h3 class="font-bold text-lg text-dark-navy">
+                            Microsoft Office
+                        </h3>
+                    </div>
+
+                    <!-- Skill Items List -->
+                    <ul class="space-y-2.5">
+                                                    <li class="flex items-center space-x-2.5 text-secondary-text text-sm sm:text-base group-hover:text-dark-navy transition-colors">
+                                <!-- Bullet Blue Dot with Ring -->
+                                <span class="w-2 h-2 rounded-full bg-primary-blue flex-shrink-0"></span>
+                                <span class="font-medium text-dark-navy/90">Microsoft Excel</span>
+                            </li>
+                                                    <li class="flex items-center space-x-2.5 text-secondary-text text-sm sm:text-base group-hover:text-dark-navy transition-colors">
+                                <!-- Bullet Blue Dot with Ring -->
+                                <span class="w-2 h-2 rounded-full bg-primary-blue flex-shrink-0"></span>
+                                <span class="font-medium text-dark-navy/90">Microsoft Word</span>
+                            </li>
+                                                    <li class="flex items-center space-x-2.5 text-secondary-text text-sm sm:text-base group-hover:text-dark-navy transition-colors">
+                                <!-- Bullet Blue Dot with Ring -->
+                                <span class="w-2 h-2 rounded-full bg-primary-blue flex-shrink-0"></span>
+                                <span class="font-medium text-dark-navy/90">Microsoft PowerPoint</span>
+                            </li>
+                                            </ul>
+
+                </div>
+                            <div class="bg-white rounded-3xl p-6 sm:p-7 border border-soft-blue/60 shadow-sm hover:shadow-md hover:border-primary-blue/40 transition-all duration-300 transform hover:-translate-y-1">
+
+                    <!-- Card Header -->
+                    <div class="flex items-center space-x-3.5 mb-5 pb-3 border-b border-soft-blue/30">
+                        <div class="w-11 h-11 rounded-2xl bg-very-light-blue text-primary-blue flex items-center justify-center flex-shrink-0 border border-soft-blue/50">
+                                                            <!-- Soft Skills / Users Icon -->
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                    <circle cx="9" cy="7" r="4"></circle>
+                                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                                </svg>
+                                                    </div>
+                        <h3 class="font-bold text-lg text-dark-navy">
+                            Kolaborasi
+                        </h3>
+                    </div>
+
+                    <!-- Skill Items List -->
+                    <ul class="space-y-2.5">
+                                                    <li class="flex items-center space-x-2.5 text-secondary-text text-sm sm:text-base group-hover:text-dark-navy transition-colors">
+                                <!-- Bullet Blue Dot with Ring -->
+                                <span class="w-2 h-2 rounded-full bg-primary-blue flex-shrink-0"></span>
+                                <span class="font-medium text-dark-navy/90">Teamwork</span>
+                            </li>
+                                            </ul>
+
+                </div>
+                    </div>
+
+    </div>
+</section>
+    <section
+    id="projects"
+    class="relative overflow-hidden bg-[#1F568A] text-white"
+    x-data="{ activeProjectCategory: 'Semua' }"
+>
+    <div class="pointer-events-none absolute inset-0 opacity-[0.045]" aria-hidden="true" style="background-image: linear-gradient(rgba(255,255,255,.7) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.7) 1px, transparent 1px); background-size: 40px 40px;"></div>
+
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+
+        <div class="relative z-10 py-8 md:py-10">
+            <div class="max-w-3xl">
+                <span class="inline-flex items-center gap-2 text-sm font-semibold text-[#B9D8F5]">
+                    <span class="h-px w-6 bg-[#B9D8F5]"></span>
+                    My Projects
+                </span>
+                <h1 class="mt-2 font-display text-3xl sm:text-4xl font-bold text-white">
+                    Proyek Saya
+                </h1>
+                <p class="mt-2 max-w-xl text-sm sm:text-base leading-relaxed text-white/75">
+                    Beberapa proyek sistem informasi dan web yang pernah saya kerjakan.
+                </p>
+            </div>
+
+            <nav class="mt-5 flex flex-wrap gap-2" aria-label="Filter kategori proyek">
+                                    <button
+                        type="button"
+                        @click="activeProjectCategory = 'Semua'"
+                        :aria-pressed="activeProjectCategory === 'Semua'"
+                        :class="activeProjectCategory === 'Semua' ? 'bg-white text-primary-blue border-white' : 'bg-white/10 text-white border-white/35 hover:bg-white/20 hover:border-white/80'"
+                        class="inline-flex min-h-8 items-center rounded-full border px-3.5 py-1 text-xs font-medium transition-colors"
+                    >
+                        Semua
+                    </button>
+                                    <button
+                        type="button"
+                        @click="activeProjectCategory = 'Web Development'"
+                        :aria-pressed="activeProjectCategory === 'Web Development'"
+                        :class="activeProjectCategory === 'Web Development' ? 'bg-white text-primary-blue border-white' : 'bg-white/10 text-white border-white/35 hover:bg-white/20 hover:border-white/80'"
+                        class="inline-flex min-h-8 items-center rounded-full border px-3.5 py-1 text-xs font-medium transition-colors"
+                    >
+                        Web Development
+                    </button>
+                                    <button
+                        type="button"
+                        @click="activeProjectCategory = 'UI/UX Design'"
+                        :aria-pressed="activeProjectCategory === 'UI/UX Design'"
+                        :class="activeProjectCategory === 'UI/UX Design' ? 'bg-white text-primary-blue border-white' : 'bg-white/10 text-white border-white/35 hover:bg-white/20 hover:border-white/80'"
+                        class="inline-flex min-h-8 items-center rounded-full border px-3.5 py-1 text-xs font-medium transition-colors"
+                    >
+                        UI/UX Design
+                    </button>
+                                    <button
+                        type="button"
+                        @click="activeProjectCategory = 'Graphic Design'"
+                        :aria-pressed="activeProjectCategory === 'Graphic Design'"
+                        :class="activeProjectCategory === 'Graphic Design' ? 'bg-white text-primary-blue border-white' : 'bg-white/10 text-white border-white/35 hover:bg-white/20 hover:border-white/80'"
+                        class="inline-flex min-h-8 items-center rounded-full border px-3.5 py-1 text-xs font-medium transition-colors"
+                    >
+                        Graphic Design
+                    </button>
+                            </nav>
+        </div>
+    </div>
+    </div>
+
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-7 md:py-9 space-y-8 md:space-y-10">
+                                                        <section x-show="activeProjectCategory === 'Semua' || activeProjectCategory === 'Web Development'" x-transition.opacity>
+                    <div class="mb-4 flex items-center gap-2.5">
+                        <span class="h-5 w-1 rounded-full bg-[#B9D8F5]" aria-hidden="true"></span>
+                        <h2 class="font-display text-lg sm:text-xl font-bold text-white">Web Development</h2>
+                        <span class="text-xs text-white/65">3 proyek</span>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5">
+                                                    <article
+                                class="group flex min-w-0 flex-col overflow-hidden rounded-lg border border-[#DFEAF5] bg-white shadow-sm transition duration-200 hover:-translate-y-0.5 hover:border-[#B9D8F5] hover:shadow-md"
+                            >
+                                <button
+                                    type="button"
+                                    @click="openProject({&quot;id&quot;:&quot;perpus&quot;,&quot;title&quot;:&quot;Sistem Informasi Perpustakaan&quot;,&quot;category_group&quot;:&quot;Web Development&quot;,&quot;category&quot;:&quot;Web Application &amp; Skripsi&quot;,&quot;short_description&quot;:&quot;Merancang dan mengembangkan sistem informasi perpustakaan berbasis web untuk mendukung pengelolaan koleksi dan layanan transaksi.&quot;,&quot;full_description&quot;:&quot;Perancangan dan implementasi sistem informasi perpustakaan berbasis web yang dibangun sebagai topik skripsi akhir. Sistem ini mendigitalisasi pengelolaan sirkulasi buku, katalogisasi koleksi, pendaftaran anggota, pencatatan peminjaman, serta perhitungan denda otomatis. Dikembangkan menggunakan metode Agile untuk memastikan alur kerja fleksibel dan antarmuka yang user-friendly.&quot;,&quot;technologies&quot;:[&quot;Laravel&quot;,&quot;MySQL&quot;,&quot;Tailwind&quot;],&quot;image&quot;:&quot;./images/projects\/Web\/Sistem Perpus\/Dashboard Petugas.png&quot;,&quot;gallery_images&quot;:[&quot;./images/projects\/Web\/Sistem Perpus\/Dashboard.png&quot;,&quot;./images/projects\/Web\/Sistem Perpus\/Dashboard Kepala Perpus.png&quot;,&quot;./images/projects\/Web\/Sistem Perpus\/cari buku.png&quot;,&quot;./images/projects\/Web\/Sistem Perpus\/Login.png&quot;,&quot;./images/projects\/Web\/Sistem Perpus\/Tambah Peminjaman.png&quot;],&quot;demo_url&quot;:&quot;#&quot;,&quot;repo_url&quot;:&quot;https:\/\/github.com\/syahanamaya\/sistem-informasi-perpustakaan&quot;,&quot;features&quot;:[&quot;Katalog buku terstruktur dengan filter pencarian instan&quot;,&quot;Sistem sirkulasi peminjaman &amp; pengembalian otomatis&quot;,&quot;Perhitungan denda keterlambatan buku secara presisi&quot;,&quot;Dashboard ringkasan statistik untuk pustakawan&quot;,&quot;Desain antarmuka bersih &amp; responsif berbasis Tailwind CSS&quot;]})"
+                                    class="relative block aspect-[16/10] w-full overflow-hidden bg-[#F0F4F8] p-2 text-left"
+                                    aria-label="Lihat detail Sistem Informasi Perpustakaan"
+                                >
+                                    <img
+                                        src="./images/projects/Web/Sistem Perpus/Dashboard Petugas.png"
+                                        alt="Sistem Informasi Perpustakaan"
+                                        class="h-full w-full rounded object-contain transition-transform duration-300 group-hover:scale-[1.02]"
+                                        loading="lazy"
+                                    >
+                                </button>
+
+                                <div class="flex flex-1 flex-col p-4">
+                                    <div class="flex-1">
+                                        <h3 class="min-h-10 text-base font-bold leading-snug text-dark-navy group-hover:text-primary-blue">Sistem Informasi Perpustakaan</h3>
+                                        <p class="mt-1.5 min-h-12 text-[13px] leading-relaxed text-secondary-text line-clamp-3">Merancang dan mengembangkan sistem informasi perpustakaan berbasis web untuk mendukung pengelolaan koleksi dan layanan transaksi.</p>
+                                    </div>
+
+                                    <div class="mt-3 flex items-center justify-between gap-2 border-t border-[#E8EFF7] pt-3">
+                                        <div class="flex min-w-0 flex-wrap gap-1.5">
+                                                                                            <span class="rounded-full border border-[#D8E8F8] bg-[#EEF6FF] px-2.5 py-1 text-[10px] font-medium text-primary-blue">Laravel</span>
+                                                                                            <span class="rounded-full border border-[#D8E8F8] bg-[#EEF6FF] px-2.5 py-1 text-[10px] font-medium text-primary-blue">MySQL</span>
+                                                                                            <span class="rounded-full border border-[#D8E8F8] bg-[#EEF6FF] px-2.5 py-1 text-[10px] font-medium text-primary-blue">Tailwind</span>
+                                                                                    </div>
+                                        <button
+                                            type="button"
+                                            @click="openProject({&quot;id&quot;:&quot;perpus&quot;,&quot;title&quot;:&quot;Sistem Informasi Perpustakaan&quot;,&quot;category_group&quot;:&quot;Web Development&quot;,&quot;category&quot;:&quot;Web Application &amp; Skripsi&quot;,&quot;short_description&quot;:&quot;Merancang dan mengembangkan sistem informasi perpustakaan berbasis web untuk mendukung pengelolaan koleksi dan layanan transaksi.&quot;,&quot;full_description&quot;:&quot;Perancangan dan implementasi sistem informasi perpustakaan berbasis web yang dibangun sebagai topik skripsi akhir. Sistem ini mendigitalisasi pengelolaan sirkulasi buku, katalogisasi koleksi, pendaftaran anggota, pencatatan peminjaman, serta perhitungan denda otomatis. Dikembangkan menggunakan metode Agile untuk memastikan alur kerja fleksibel dan antarmuka yang user-friendly.&quot;,&quot;technologies&quot;:[&quot;Laravel&quot;,&quot;MySQL&quot;,&quot;Tailwind&quot;],&quot;image&quot;:&quot;./images/projects\/Web\/Sistem Perpus\/Dashboard Petugas.png&quot;,&quot;gallery_images&quot;:[&quot;./images/projects\/Web\/Sistem Perpus\/Dashboard.png&quot;,&quot;./images/projects\/Web\/Sistem Perpus\/Dashboard Kepala Perpus.png&quot;,&quot;./images/projects\/Web\/Sistem Perpus\/cari buku.png&quot;,&quot;./images/projects\/Web\/Sistem Perpus\/Login.png&quot;,&quot;./images/projects\/Web\/Sistem Perpus\/Tambah Peminjaman.png&quot;],&quot;demo_url&quot;:&quot;#&quot;,&quot;repo_url&quot;:&quot;https:\/\/github.com\/syahanamaya\/sistem-informasi-perpustakaan&quot;,&quot;features&quot;:[&quot;Katalog buku terstruktur dengan filter pencarian instan&quot;,&quot;Sistem sirkulasi peminjaman &amp; pengembalian otomatis&quot;,&quot;Perhitungan denda keterlambatan buku secara presisi&quot;,&quot;Dashboard ringkasan statistik untuk pustakawan&quot;,&quot;Desain antarmuka bersih &amp; responsif berbasis Tailwind CSS&quot;]})"
+                                            class="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-primary-blue text-white shadow-sm transition hover:bg-dark-blue"
+                                            aria-label="Lihat Detail Sistem Informasi Perpustakaan"
+                                            title="Lihat detail"
+                                        >
+                                            <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14m-6-6 6 6-6 6"/>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </div>
+                            </article>
+                                                    <article
+                                class="group flex min-w-0 flex-col overflow-hidden rounded-lg border border-[#DFEAF5] bg-white shadow-sm transition duration-200 hover:-translate-y-0.5 hover:border-[#B9D8F5] hover:shadow-md"
+                            >
+                                <button
+                                    type="button"
+                                    @click="openProject({&quot;id&quot;:&quot;pengaduan&quot;,&quot;title&quot;:&quot;Sistem Pengaduan Siswa&quot;,&quot;category_group&quot;:&quot;Web Development&quot;,&quot;category&quot;:&quot;Web Application&quot;,&quot;short_description&quot;:&quot;Aplikasi pengaduan siswa di SMK Jakarta Pusat 1 dengan metode Agile.&quot;,&quot;full_description&quot;:&quot;Aplikasi pengaduan siswa berbasis web untuk membantu proses penyampaian dan pengelolaan aspirasi maupun keluhan di lingkungan sekolah secara transparan dan terorganisir. Dilengkapi alur verifikasi pengaduan, notifikasi status tiket, dan opsi laporan anonim untuk melindungi privasi siswa.&quot;,&quot;technologies&quot;:[&quot;Laravel&quot;,&quot;MySQL&quot;,&quot;HTML\/CSS\/JS&quot;],&quot;image&quot;:&quot;./images/projects\/UI Design\/UI Design Pengaduan Siswa\/Halaman Utama.png&quot;,&quot;gallery_images&quot;:[&quot;./images/projects\/UI Design\/UI Design Pengaduan Siswa\/Halaman Dashboard BKJP1.png&quot;,&quot;./images/projects\/UI Design\/UI Design Pengaduan Siswa\/Halaman Dashboard Kepsek.png&quot;,&quot;./images/projects\/UI Design\/UI Design Pengaduan Siswa\/Form Tanggapan.png&quot;],&quot;demo_url&quot;:&quot;#&quot;,&quot;repo_url&quot;:&quot;https:\/\/github.com\/syahanamaya\/sistem-pengaduan-siswa&quot;,&quot;features&quot;:[&quot;Formulir pelaporan pengaduan dilengkapi kategori masalah&quot;,&quot;Pelacakan status tiket (Pending, Diproses, Selesai)&quot;,&quot;Tanggapan resmi langsung dari pihak kesiswaan\/guru&quot;,&quot;Rekapitulasi dan pelaporan berkala bagi kepala sekolah&quot;,&quot;Antarmuka ramah pengguna bagi siswa melalui smartphone&quot;]})"
+                                    class="relative block aspect-[16/10] w-full overflow-hidden bg-[#F0F4F8] p-2 text-left"
+                                    aria-label="Lihat detail Sistem Pengaduan Siswa"
+                                >
+                                    <img
+                                        src="./images/projects/UI Design/UI Design Pengaduan Siswa/Halaman Utama.png"
+                                        alt="Sistem Pengaduan Siswa"
+                                        class="h-full w-full rounded object-contain transition-transform duration-300 group-hover:scale-[1.02]"
+                                        loading="lazy"
+                                    >
+                                </button>
+
+                                <div class="flex flex-1 flex-col p-4">
+                                    <div class="flex-1">
+                                        <h3 class="min-h-10 text-base font-bold leading-snug text-dark-navy group-hover:text-primary-blue">Sistem Pengaduan Siswa</h3>
+                                        <p class="mt-1.5 min-h-12 text-[13px] leading-relaxed text-secondary-text line-clamp-3">Aplikasi pengaduan siswa di SMK Jakarta Pusat 1 dengan metode Agile.</p>
+                                    </div>
+
+                                    <div class="mt-3 flex items-center justify-between gap-2 border-t border-[#E8EFF7] pt-3">
+                                        <div class="flex min-w-0 flex-wrap gap-1.5">
+                                                                                            <span class="rounded-full border border-[#D8E8F8] bg-[#EEF6FF] px-2.5 py-1 text-[10px] font-medium text-primary-blue">Laravel</span>
+                                                                                            <span class="rounded-full border border-[#D8E8F8] bg-[#EEF6FF] px-2.5 py-1 text-[10px] font-medium text-primary-blue">MySQL</span>
+                                                                                            <span class="rounded-full border border-[#D8E8F8] bg-[#EEF6FF] px-2.5 py-1 text-[10px] font-medium text-primary-blue">HTML/CSS/JS</span>
+                                                                                    </div>
+                                        <button
+                                            type="button"
+                                            @click="openProject({&quot;id&quot;:&quot;pengaduan&quot;,&quot;title&quot;:&quot;Sistem Pengaduan Siswa&quot;,&quot;category_group&quot;:&quot;Web Development&quot;,&quot;category&quot;:&quot;Web Application&quot;,&quot;short_description&quot;:&quot;Aplikasi pengaduan siswa di SMK Jakarta Pusat 1 dengan metode Agile.&quot;,&quot;full_description&quot;:&quot;Aplikasi pengaduan siswa berbasis web untuk membantu proses penyampaian dan pengelolaan aspirasi maupun keluhan di lingkungan sekolah secara transparan dan terorganisir. Dilengkapi alur verifikasi pengaduan, notifikasi status tiket, dan opsi laporan anonim untuk melindungi privasi siswa.&quot;,&quot;technologies&quot;:[&quot;Laravel&quot;,&quot;MySQL&quot;,&quot;HTML\/CSS\/JS&quot;],&quot;image&quot;:&quot;./images/projects\/UI Design\/UI Design Pengaduan Siswa\/Halaman Utama.png&quot;,&quot;gallery_images&quot;:[&quot;./images/projects\/UI Design\/UI Design Pengaduan Siswa\/Halaman Dashboard BKJP1.png&quot;,&quot;./images/projects\/UI Design\/UI Design Pengaduan Siswa\/Halaman Dashboard Kepsek.png&quot;,&quot;./images/projects\/UI Design\/UI Design Pengaduan Siswa\/Form Tanggapan.png&quot;],&quot;demo_url&quot;:&quot;#&quot;,&quot;repo_url&quot;:&quot;https:\/\/github.com\/syahanamaya\/sistem-pengaduan-siswa&quot;,&quot;features&quot;:[&quot;Formulir pelaporan pengaduan dilengkapi kategori masalah&quot;,&quot;Pelacakan status tiket (Pending, Diproses, Selesai)&quot;,&quot;Tanggapan resmi langsung dari pihak kesiswaan\/guru&quot;,&quot;Rekapitulasi dan pelaporan berkala bagi kepala sekolah&quot;,&quot;Antarmuka ramah pengguna bagi siswa melalui smartphone&quot;]})"
+                                            class="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-primary-blue text-white shadow-sm transition hover:bg-dark-blue"
+                                            aria-label="Lihat Detail Sistem Pengaduan Siswa"
+                                            title="Lihat detail"
+                                        >
+                                            <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14m-6-6 6 6-6 6"/>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </div>
+                            </article>
+                                                    <article
+                                class="group flex min-w-0 flex-col overflow-hidden rounded-lg border border-[#DFEAF5] bg-white shadow-sm transition duration-200 hover:-translate-y-0.5 hover:border-[#B9D8F5] hover:shadow-md"
+                            >
+                                <button
+                                    type="button"
+                                    @click="openProject({&quot;id&quot;:&quot;komnas&quot;,&quot;title&quot;:&quot;Web Form Komnas HAM&quot;,&quot;category_group&quot;:&quot;Web Development&quot;,&quot;category&quot;:&quot;Web Form &amp; Portal&quot;,&quot;short_description&quot;:&quot;Pengembangan website form pengaduan pelanggaran HAM sebagai project perkuliahan.&quot;,&quot;full_description&quot;:&quot;Pengembangan formulir digital interaktif untuk intake pengaduan dugaan pelanggaran HAM yang dibuat sebagai tugas besar perkuliahan. Mengutamakan kemudahan navigasi multi-step form dan validasi berkas lampiran.&quot;,&quot;technologies&quot;:[&quot;PHP&quot;,&quot;MySQL&quot;,&quot;HTML\/CSS\/JS&quot;],&quot;image&quot;:&quot;./images/projects\/UI Design\/UI Design komnas\/Dashboard Admin.png&quot;,&quot;gallery_images&quot;:[&quot;./images/projects\/UI Design\/UI Design komnas\/Dashboard Biro Hukum.png&quot;,&quot;./images/projects\/UI Design\/UI Design komnas\/Dashboard Pengusul.png&quot;,&quot;./images/projects\/UI Design\/UI Design komnas\/Usulan Peraturan.png&quot;],&quot;demo_url&quot;:&quot;#&quot;,&quot;repo_url&quot;:&quot;https:\/\/github.com\/syahanamaya\/web-form-komnas-ham&quot;,&quot;features&quot;:[&quot;Multi-step form terstruktur dengan panduan pengisian&quot;,&quot;Unggah bukti berkas dan verifikasi format dokumen&quot;,&quot;Validasi data sisi klien dan server&quot;,&quot;Konfirmasi bukti tanda terima pengaduan digital&quot;]})"
+                                    class="relative block aspect-[16/10] w-full overflow-hidden bg-[#F0F4F8] p-2 text-left"
+                                    aria-label="Lihat detail Web Form Komnas HAM"
+                                >
+                                    <img
+                                        src="./images/projects/UI Design/UI Design komnas/Dashboard Admin.png"
+                                        alt="Web Form Komnas HAM"
+                                        class="h-full w-full rounded object-contain transition-transform duration-300 group-hover:scale-[1.02]"
+                                        loading="lazy"
+                                    >
+                                </button>
+
+                                <div class="flex flex-1 flex-col p-4">
+                                    <div class="flex-1">
+                                        <h3 class="min-h-10 text-base font-bold leading-snug text-dark-navy group-hover:text-primary-blue">Web Form Komnas HAM</h3>
+                                        <p class="mt-1.5 min-h-12 text-[13px] leading-relaxed text-secondary-text line-clamp-3">Pengembangan website form pengaduan pelanggaran HAM sebagai project perkuliahan.</p>
+                                    </div>
+
+                                    <div class="mt-3 flex items-center justify-between gap-2 border-t border-[#E8EFF7] pt-3">
+                                        <div class="flex min-w-0 flex-wrap gap-1.5">
+                                                                                            <span class="rounded-full border border-[#D8E8F8] bg-[#EEF6FF] px-2.5 py-1 text-[10px] font-medium text-primary-blue">PHP</span>
+                                                                                            <span class="rounded-full border border-[#D8E8F8] bg-[#EEF6FF] px-2.5 py-1 text-[10px] font-medium text-primary-blue">MySQL</span>
+                                                                                            <span class="rounded-full border border-[#D8E8F8] bg-[#EEF6FF] px-2.5 py-1 text-[10px] font-medium text-primary-blue">HTML/CSS/JS</span>
+                                                                                    </div>
+                                        <button
+                                            type="button"
+                                            @click="openProject({&quot;id&quot;:&quot;komnas&quot;,&quot;title&quot;:&quot;Web Form Komnas HAM&quot;,&quot;category_group&quot;:&quot;Web Development&quot;,&quot;category&quot;:&quot;Web Form &amp; Portal&quot;,&quot;short_description&quot;:&quot;Pengembangan website form pengaduan pelanggaran HAM sebagai project perkuliahan.&quot;,&quot;full_description&quot;:&quot;Pengembangan formulir digital interaktif untuk intake pengaduan dugaan pelanggaran HAM yang dibuat sebagai tugas besar perkuliahan. Mengutamakan kemudahan navigasi multi-step form dan validasi berkas lampiran.&quot;,&quot;technologies&quot;:[&quot;PHP&quot;,&quot;MySQL&quot;,&quot;HTML\/CSS\/JS&quot;],&quot;image&quot;:&quot;./images/projects\/UI Design\/UI Design komnas\/Dashboard Admin.png&quot;,&quot;gallery_images&quot;:[&quot;./images/projects\/UI Design\/UI Design komnas\/Dashboard Biro Hukum.png&quot;,&quot;./images/projects\/UI Design\/UI Design komnas\/Dashboard Pengusul.png&quot;,&quot;./images/projects\/UI Design\/UI Design komnas\/Usulan Peraturan.png&quot;],&quot;demo_url&quot;:&quot;#&quot;,&quot;repo_url&quot;:&quot;https:\/\/github.com\/syahanamaya\/web-form-komnas-ham&quot;,&quot;features&quot;:[&quot;Multi-step form terstruktur dengan panduan pengisian&quot;,&quot;Unggah bukti berkas dan verifikasi format dokumen&quot;,&quot;Validasi data sisi klien dan server&quot;,&quot;Konfirmasi bukti tanda terima pengaduan digital&quot;]})"
+                                            class="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-primary-blue text-white shadow-sm transition hover:bg-dark-blue"
+                                            aria-label="Lihat Detail Web Form Komnas HAM"
+                                            title="Lihat detail"
+                                        >
+                                            <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14m-6-6 6 6-6 6"/>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </div>
+                            </article>
+                                            </div>
+                </section>
+                                                <section x-show="activeProjectCategory === 'Semua' || activeProjectCategory === 'UI/UX Design'" x-transition.opacity>
+                    <div class="mb-4 flex items-center gap-2.5">
+                        <span class="h-5 w-1 rounded-full bg-[#B9D8F5]" aria-hidden="true"></span>
+                        <h2 class="font-display text-lg sm:text-xl font-bold text-white">UI/UX Design</h2>
+                        <span class="text-xs text-white/65">3 proyek</span>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5">
+                                                    <article
+                                class="group flex min-w-0 flex-col overflow-hidden rounded-lg border border-[#DFEAF5] bg-white shadow-sm transition duration-200 hover:-translate-y-0.5 hover:border-[#B9D8F5] hover:shadow-md"
+                            >
+                                <button
+                                    type="button"
+                                    @click="openProject({&quot;id&quot;:&quot;ui-komnas&quot;,&quot;title&quot;:&quot;UI Design Komnas HAM&quot;,&quot;category_group&quot;:&quot;UI\/UX Design&quot;,&quot;category&quot;:&quot;UI Design&quot;,&quot;short_description&quot;:&quot;Rancangan dashboard dan alur pengusulan peraturan untuk beberapa peran pengguna di Komnas HAM.&quot;,&quot;full_description&quot;:&quot;Rancangan antarmuka untuk sistem pengusulan peraturan Komnas HAM. Desain mencakup dashboard admin, biro hukum, dan pengusul, serta halaman pencatatan dan pengajuan usulan.&quot;,&quot;technologies&quot;:[&quot;Figma&quot;,&quot;UI\/UX&quot;,&quot;Dashboard&quot;],&quot;image&quot;:&quot;./images/projects\/UI Design\/UI Design komnas\/Dashboard Admin.png&quot;,&quot;gallery_images&quot;:[&quot;./images/projects\/UI Design\/UI Design komnas\/Dashboard Biro Hukum.png&quot;,&quot;./images/projects\/UI Design\/UI Design komnas\/Dashboard Pengusul.png&quot;,&quot;./images/projects\/UI Design\/UI Design komnas\/Usulan Peraturan.png&quot;],&quot;demo_url&quot;:&quot;#&quot;,&quot;repo_url&quot;:null,&quot;features&quot;:[&quot;Dashboard untuk admin, biro hukum, dan pengusul&quot;,&quot;Tampilan daftar serta formulir usulan peraturan&quot;,&quot;Alur kerja disusun sesuai peran pengguna&quot;]})"
+                                    class="relative block aspect-[16/10] w-full overflow-hidden bg-[#F0F4F8] p-2 text-left"
+                                    aria-label="Lihat detail UI Design Komnas HAM"
+                                >
+                                    <img
+                                        src="./images/projects/UI Design/UI Design komnas/Dashboard Admin.png"
+                                        alt="UI Design Komnas HAM"
+                                        class="h-full w-full rounded object-contain transition-transform duration-300 group-hover:scale-[1.02]"
+                                        loading="lazy"
+                                    >
+                                </button>
+
+                                <div class="flex flex-1 flex-col p-4">
+                                    <div class="flex-1">
+                                        <h3 class="min-h-10 text-base font-bold leading-snug text-dark-navy group-hover:text-primary-blue">UI Design Komnas HAM</h3>
+                                        <p class="mt-1.5 min-h-12 text-[13px] leading-relaxed text-secondary-text line-clamp-3">Rancangan dashboard dan alur pengusulan peraturan untuk beberapa peran pengguna di Komnas HAM.</p>
+                                    </div>
+
+                                    <div class="mt-3 flex items-center justify-between gap-2 border-t border-[#E8EFF7] pt-3">
+                                        <div class="flex min-w-0 flex-wrap gap-1.5">
+                                                                                            <span class="rounded-full border border-[#D8E8F8] bg-[#EEF6FF] px-2.5 py-1 text-[10px] font-medium text-primary-blue">Figma</span>
+                                                                                            <span class="rounded-full border border-[#D8E8F8] bg-[#EEF6FF] px-2.5 py-1 text-[10px] font-medium text-primary-blue">UI/UX</span>
+                                                                                            <span class="rounded-full border border-[#D8E8F8] bg-[#EEF6FF] px-2.5 py-1 text-[10px] font-medium text-primary-blue">Dashboard</span>
+                                                                                    </div>
+                                        <button
+                                            type="button"
+                                            @click="openProject({&quot;id&quot;:&quot;ui-komnas&quot;,&quot;title&quot;:&quot;UI Design Komnas HAM&quot;,&quot;category_group&quot;:&quot;UI\/UX Design&quot;,&quot;category&quot;:&quot;UI Design&quot;,&quot;short_description&quot;:&quot;Rancangan dashboard dan alur pengusulan peraturan untuk beberapa peran pengguna di Komnas HAM.&quot;,&quot;full_description&quot;:&quot;Rancangan antarmuka untuk sistem pengusulan peraturan Komnas HAM. Desain mencakup dashboard admin, biro hukum, dan pengusul, serta halaman pencatatan dan pengajuan usulan.&quot;,&quot;technologies&quot;:[&quot;Figma&quot;,&quot;UI\/UX&quot;,&quot;Dashboard&quot;],&quot;image&quot;:&quot;./images/projects\/UI Design\/UI Design komnas\/Dashboard Admin.png&quot;,&quot;gallery_images&quot;:[&quot;./images/projects\/UI Design\/UI Design komnas\/Dashboard Biro Hukum.png&quot;,&quot;./images/projects\/UI Design\/UI Design komnas\/Dashboard Pengusul.png&quot;,&quot;./images/projects\/UI Design\/UI Design komnas\/Usulan Peraturan.png&quot;],&quot;demo_url&quot;:&quot;#&quot;,&quot;repo_url&quot;:null,&quot;features&quot;:[&quot;Dashboard untuk admin, biro hukum, dan pengusul&quot;,&quot;Tampilan daftar serta formulir usulan peraturan&quot;,&quot;Alur kerja disusun sesuai peran pengguna&quot;]})"
+                                            class="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-primary-blue text-white shadow-sm transition hover:bg-dark-blue"
+                                            aria-label="Lihat Detail UI Design Komnas HAM"
+                                            title="Lihat detail"
+                                        >
+                                            <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14m-6-6 6 6-6 6"/>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </div>
+                            </article>
+                                                    <article
+                                class="group flex min-w-0 flex-col overflow-hidden rounded-lg border border-[#DFEAF5] bg-white shadow-sm transition duration-200 hover:-translate-y-0.5 hover:border-[#B9D8F5] hover:shadow-md"
+                            >
+                                <button
+                                    type="button"
+                                    @click="openProject({&quot;id&quot;:&quot;ui-pengaduan&quot;,&quot;title&quot;:&quot;UI Design Pengaduan Siswa&quot;,&quot;category_group&quot;:&quot;UI\/UX Design&quot;,&quot;category&quot;:&quot;UI Design&quot;,&quot;short_description&quot;:&quot;Desain sistem pengaduan siswa dengan halaman utama, dashboard sekolah, dan formulir tindak lanjut.&quot;,&quot;full_description&quot;:&quot;Rancangan UI untuk alur pengaduan siswa di SMK Jakarta Pusat 1. Kumpulan layar mencakup halaman siswa, dashboard BK dan kepala sekolah, formulir tanggapan, serta laporan.&quot;,&quot;technologies&quot;:[&quot;Figma&quot;,&quot;UI\/UX&quot;,&quot;Web App&quot;],&quot;image&quot;:&quot;./images/projects\/UI Design\/UI Design Pengaduan Siswa\/Halaman Utama.png&quot;,&quot;gallery_images&quot;:[&quot;./images/projects\/UI Design\/UI Design Pengaduan Siswa\/Halaman Dashboard BKJP1.png&quot;,&quot;./images/projects\/UI Design\/UI Design Pengaduan Siswa\/Halaman Dashboard Kepsek.png&quot;,&quot;./images/projects\/UI Design\/UI Design Pengaduan Siswa\/Form Tanggapan.png&quot;],&quot;demo_url&quot;:&quot;#&quot;,&quot;repo_url&quot;:&quot;https:\/\/github.com\/syahanamaya\/sistem-pengaduan-siswa&quot;,&quot;features&quot;:[&quot;Halaman pengaduan untuk siswa&quot;,&quot;Dashboard untuk BK dan kepala sekolah&quot;,&quot;Tampilan formulir tanggapan dan laporan&quot;]})"
+                                    class="relative block aspect-[16/10] w-full overflow-hidden bg-[#F0F4F8] p-2 text-left"
+                                    aria-label="Lihat detail UI Design Pengaduan Siswa"
+                                >
+                                    <img
+                                        src="./images/projects/UI Design/UI Design Pengaduan Siswa/Halaman Utama.png"
+                                        alt="UI Design Pengaduan Siswa"
+                                        class="h-full w-full rounded object-contain transition-transform duration-300 group-hover:scale-[1.02]"
+                                        loading="lazy"
+                                    >
+                                </button>
+
+                                <div class="flex flex-1 flex-col p-4">
+                                    <div class="flex-1">
+                                        <h3 class="min-h-10 text-base font-bold leading-snug text-dark-navy group-hover:text-primary-blue">UI Design Pengaduan Siswa</h3>
+                                        <p class="mt-1.5 min-h-12 text-[13px] leading-relaxed text-secondary-text line-clamp-3">Desain sistem pengaduan siswa dengan halaman utama, dashboard sekolah, dan formulir tindak lanjut.</p>
+                                    </div>
+
+                                    <div class="mt-3 flex items-center justify-between gap-2 border-t border-[#E8EFF7] pt-3">
+                                        <div class="flex min-w-0 flex-wrap gap-1.5">
+                                                                                            <span class="rounded-full border border-[#D8E8F8] bg-[#EEF6FF] px-2.5 py-1 text-[10px] font-medium text-primary-blue">Figma</span>
+                                                                                            <span class="rounded-full border border-[#D8E8F8] bg-[#EEF6FF] px-2.5 py-1 text-[10px] font-medium text-primary-blue">UI/UX</span>
+                                                                                            <span class="rounded-full border border-[#D8E8F8] bg-[#EEF6FF] px-2.5 py-1 text-[10px] font-medium text-primary-blue">Web App</span>
+                                                                                    </div>
+                                        <button
+                                            type="button"
+                                            @click="openProject({&quot;id&quot;:&quot;ui-pengaduan&quot;,&quot;title&quot;:&quot;UI Design Pengaduan Siswa&quot;,&quot;category_group&quot;:&quot;UI\/UX Design&quot;,&quot;category&quot;:&quot;UI Design&quot;,&quot;short_description&quot;:&quot;Desain sistem pengaduan siswa dengan halaman utama, dashboard sekolah, dan formulir tindak lanjut.&quot;,&quot;full_description&quot;:&quot;Rancangan UI untuk alur pengaduan siswa di SMK Jakarta Pusat 1. Kumpulan layar mencakup halaman siswa, dashboard BK dan kepala sekolah, formulir tanggapan, serta laporan.&quot;,&quot;technologies&quot;:[&quot;Figma&quot;,&quot;UI\/UX&quot;,&quot;Web App&quot;],&quot;image&quot;:&quot;./images/projects\/UI Design\/UI Design Pengaduan Siswa\/Halaman Utama.png&quot;,&quot;gallery_images&quot;:[&quot;./images/projects\/UI Design\/UI Design Pengaduan Siswa\/Halaman Dashboard BKJP1.png&quot;,&quot;./images/projects\/UI Design\/UI Design Pengaduan Siswa\/Halaman Dashboard Kepsek.png&quot;,&quot;./images/projects\/UI Design\/UI Design Pengaduan Siswa\/Form Tanggapan.png&quot;],&quot;demo_url&quot;:&quot;#&quot;,&quot;repo_url&quot;:&quot;https:\/\/github.com\/syahanamaya\/sistem-pengaduan-siswa&quot;,&quot;features&quot;:[&quot;Halaman pengaduan untuk siswa&quot;,&quot;Dashboard untuk BK dan kepala sekolah&quot;,&quot;Tampilan formulir tanggapan dan laporan&quot;]})"
+                                            class="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-primary-blue text-white shadow-sm transition hover:bg-dark-blue"
+                                            aria-label="Lihat Detail UI Design Pengaduan Siswa"
+                                            title="Lihat detail"
+                                        >
+                                            <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14m-6-6 6 6-6 6"/>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </div>
+                            </article>
+                                                    <article
+                                class="group flex min-w-0 flex-col overflow-hidden rounded-lg border border-[#DFEAF5] bg-white shadow-sm transition duration-200 hover:-translate-y-0.5 hover:border-[#B9D8F5] hover:shadow-md"
+                            >
+                                <button
+                                    type="button"
+                                    @click="openProject({&quot;id&quot;:&quot;ui-perpustakaan&quot;,&quot;title&quot;:&quot;UI Design Perpustakaan&quot;,&quot;category_group&quot;:&quot;UI\/UX Design&quot;,&quot;category&quot;:&quot;UI Design&quot;,&quot;short_description&quot;:&quot;Desain aplikasi perpustakaan dengan tampilan yang disesuaikan untuk siswa, petugas, dan kepala perpustakaan.&quot;,&quot;full_description&quot;:&quot;Rancangan antarmuka sistem informasi perpustakaan yang mencakup kebutuhan tiga jenis pengguna: siswa, petugas, dan kepala perpustakaan. Layar meliputi dashboard, katalog, transaksi, dan laporan.&quot;,&quot;technologies&quot;:[&quot;Figma&quot;,&quot;UI\/UX&quot;,&quot;Prototyping&quot;],&quot;image&quot;:&quot;./images/projects\/UI Design\/UI Design Perpustakaan\/Kepala Perpustakaan\/Halaman Dashboard.png&quot;,&quot;gallery_images&quot;:[&quot;./images/projects\/UI Design\/UI Design Perpustakaan\/Petugas\/Halaman Dashboard.png&quot;,&quot;./images/projects\/UI Design\/UI Design Perpustakaan\/Siswa\/Halaman Beranda.png&quot;,&quot;./images/projects\/UI Design\/UI Design Perpustakaan\/Siswa\/Halaman Katalog.png&quot;],&quot;demo_url&quot;:&quot;#&quot;,&quot;repo_url&quot;:&quot;https:\/\/github.com\/syahanamaya\/sistem-informasi-perpustakaan&quot;,&quot;features&quot;:[&quot;Antarmuka sesuai peran siswa, petugas, dan kepala perpustakaan&quot;,&quot;Layar katalog buku dan riwayat transaksi&quot;,&quot;Dashboard pengelolaan dan laporan perpustakaan&quot;]})"
+                                    class="relative block aspect-[16/10] w-full overflow-hidden bg-[#F0F4F8] p-2 text-left"
+                                    aria-label="Lihat detail UI Design Perpustakaan"
+                                >
+                                    <img
+                                        src="./images/projects/UI Design/UI Design Perpustakaan/Kepala Perpustakaan/Halaman Dashboard.png"
+                                        alt="UI Design Perpustakaan"
+                                        class="h-full w-full rounded object-contain transition-transform duration-300 group-hover:scale-[1.02]"
+                                        loading="lazy"
+                                    >
+                                </button>
+
+                                <div class="flex flex-1 flex-col p-4">
+                                    <div class="flex-1">
+                                        <h3 class="min-h-10 text-base font-bold leading-snug text-dark-navy group-hover:text-primary-blue">UI Design Perpustakaan</h3>
+                                        <p class="mt-1.5 min-h-12 text-[13px] leading-relaxed text-secondary-text line-clamp-3">Desain aplikasi perpustakaan dengan tampilan yang disesuaikan untuk siswa, petugas, dan kepala perpustakaan.</p>
+                                    </div>
+
+                                    <div class="mt-3 flex items-center justify-between gap-2 border-t border-[#E8EFF7] pt-3">
+                                        <div class="flex min-w-0 flex-wrap gap-1.5">
+                                                                                            <span class="rounded-full border border-[#D8E8F8] bg-[#EEF6FF] px-2.5 py-1 text-[10px] font-medium text-primary-blue">Figma</span>
+                                                                                            <span class="rounded-full border border-[#D8E8F8] bg-[#EEF6FF] px-2.5 py-1 text-[10px] font-medium text-primary-blue">UI/UX</span>
+                                                                                            <span class="rounded-full border border-[#D8E8F8] bg-[#EEF6FF] px-2.5 py-1 text-[10px] font-medium text-primary-blue">Prototyping</span>
+                                                                                    </div>
+                                        <button
+                                            type="button"
+                                            @click="openProject({&quot;id&quot;:&quot;ui-perpustakaan&quot;,&quot;title&quot;:&quot;UI Design Perpustakaan&quot;,&quot;category_group&quot;:&quot;UI\/UX Design&quot;,&quot;category&quot;:&quot;UI Design&quot;,&quot;short_description&quot;:&quot;Desain aplikasi perpustakaan dengan tampilan yang disesuaikan untuk siswa, petugas, dan kepala perpustakaan.&quot;,&quot;full_description&quot;:&quot;Rancangan antarmuka sistem informasi perpustakaan yang mencakup kebutuhan tiga jenis pengguna: siswa, petugas, dan kepala perpustakaan. Layar meliputi dashboard, katalog, transaksi, dan laporan.&quot;,&quot;technologies&quot;:[&quot;Figma&quot;,&quot;UI\/UX&quot;,&quot;Prototyping&quot;],&quot;image&quot;:&quot;./images/projects\/UI Design\/UI Design Perpustakaan\/Kepala Perpustakaan\/Halaman Dashboard.png&quot;,&quot;gallery_images&quot;:[&quot;./images/projects\/UI Design\/UI Design Perpustakaan\/Petugas\/Halaman Dashboard.png&quot;,&quot;./images/projects\/UI Design\/UI Design Perpustakaan\/Siswa\/Halaman Beranda.png&quot;,&quot;./images/projects\/UI Design\/UI Design Perpustakaan\/Siswa\/Halaman Katalog.png&quot;],&quot;demo_url&quot;:&quot;#&quot;,&quot;repo_url&quot;:&quot;https:\/\/github.com\/syahanamaya\/sistem-informasi-perpustakaan&quot;,&quot;features&quot;:[&quot;Antarmuka sesuai peran siswa, petugas, dan kepala perpustakaan&quot;,&quot;Layar katalog buku dan riwayat transaksi&quot;,&quot;Dashboard pengelolaan dan laporan perpustakaan&quot;]})"
+                                            class="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-primary-blue text-white shadow-sm transition hover:bg-dark-blue"
+                                            aria-label="Lihat Detail UI Design Perpustakaan"
+                                            title="Lihat detail"
+                                        >
+                                            <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14m-6-6 6 6-6 6"/>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </div>
+                            </article>
+                                            </div>
+                </section>
+                                                <section x-show="activeProjectCategory === 'Semua' || activeProjectCategory === 'Graphic Design'" x-transition.opacity>
+                    <div class="mb-4 flex items-center gap-2.5">
+                        <span class="h-5 w-1 rounded-full bg-[#B9D8F5]" aria-hidden="true"></span>
+                        <h2 class="font-display text-lg sm:text-xl font-bold text-white">Graphic Design</h2>
+                        <span class="text-xs text-white/65">2 proyek</span>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5">
+                                                    <article
+                                class="group flex min-w-0 flex-col overflow-hidden rounded-lg border border-[#DFEAF5] bg-white shadow-sm transition duration-200 hover:-translate-y-0.5 hover:border-[#B9D8F5] hover:shadow-md"
+                            >
+                                <button
+                                    type="button"
+                                    @click="openProject({&quot;id&quot;:&quot;graphic-brosur&quot;,&quot;title&quot;:&quot;Desain Brosur&quot;,&quot;category_group&quot;:&quot;Graphic Design&quot;,&quot;category&quot;:&quot;Brosur&quot;,&quot;short_description&quot;:&quot;Desain brosur informatif dengan susunan konten dan elemen visual yang mudah dipindai.&quot;,&quot;full_description&quot;:&quot;Karya desain brosur yang ditampilkan dalam dua halaman. Fokus pada hierarki informasi, keterbacaan, dan konsistensi elemen visual.&quot;,&quot;technologies&quot;:[&quot;Graphic Design&quot;,&quot;Layout&quot;,&quot;Typography&quot;],&quot;image&quot;:&quot;./images/projects\/Graphic Design\/Brosur\/1.png&quot;,&quot;gallery_images&quot;:[&quot;./images/projects\/Graphic Design\/Brosur\/2.png&quot;],&quot;demo_url&quot;:&quot;#&quot;,&quot;repo_url&quot;:null,&quot;features&quot;:[&quot;Dua halaman desain brosur&quot;,&quot;Hierarki informasi dan tata letak visual&quot;]})"
+                                    class="relative block aspect-[16/10] w-full overflow-hidden bg-[#F0F4F8] p-2 text-left"
+                                    aria-label="Lihat detail Desain Brosur"
+                                >
+                                    <img
+                                        src="./images/projects/Graphic Design/Brosur/1.png"
+                                        alt="Desain Brosur"
+                                        class="h-full w-full rounded object-contain transition-transform duration-300 group-hover:scale-[1.02]"
+                                        loading="lazy"
+                                    >
+                                </button>
+
+                                <div class="flex flex-1 flex-col p-4">
+                                    <div class="flex-1">
+                                        <h3 class="min-h-10 text-base font-bold leading-snug text-dark-navy group-hover:text-primary-blue">Desain Brosur</h3>
+                                        <p class="mt-1.5 min-h-12 text-[13px] leading-relaxed text-secondary-text line-clamp-3">Desain brosur informatif dengan susunan konten dan elemen visual yang mudah dipindai.</p>
+                                    </div>
+
+                                    <div class="mt-3 flex items-center justify-between gap-2 border-t border-[#E8EFF7] pt-3">
+                                        <div class="flex min-w-0 flex-wrap gap-1.5">
+                                                                                            <span class="rounded-full border border-[#D8E8F8] bg-[#EEF6FF] px-2.5 py-1 text-[10px] font-medium text-primary-blue">Graphic Design</span>
+                                                                                            <span class="rounded-full border border-[#D8E8F8] bg-[#EEF6FF] px-2.5 py-1 text-[10px] font-medium text-primary-blue">Layout</span>
+                                                                                            <span class="rounded-full border border-[#D8E8F8] bg-[#EEF6FF] px-2.5 py-1 text-[10px] font-medium text-primary-blue">Typography</span>
+                                                                                    </div>
+                                        <button
+                                            type="button"
+                                            @click="openProject({&quot;id&quot;:&quot;graphic-brosur&quot;,&quot;title&quot;:&quot;Desain Brosur&quot;,&quot;category_group&quot;:&quot;Graphic Design&quot;,&quot;category&quot;:&quot;Brosur&quot;,&quot;short_description&quot;:&quot;Desain brosur informatif dengan susunan konten dan elemen visual yang mudah dipindai.&quot;,&quot;full_description&quot;:&quot;Karya desain brosur yang ditampilkan dalam dua halaman. Fokus pada hierarki informasi, keterbacaan, dan konsistensi elemen visual.&quot;,&quot;technologies&quot;:[&quot;Graphic Design&quot;,&quot;Layout&quot;,&quot;Typography&quot;],&quot;image&quot;:&quot;./images/projects\/Graphic Design\/Brosur\/1.png&quot;,&quot;gallery_images&quot;:[&quot;./images/projects\/Graphic Design\/Brosur\/2.png&quot;],&quot;demo_url&quot;:&quot;#&quot;,&quot;repo_url&quot;:null,&quot;features&quot;:[&quot;Dua halaman desain brosur&quot;,&quot;Hierarki informasi dan tata letak visual&quot;]})"
+                                            class="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-primary-blue text-white shadow-sm transition hover:bg-dark-blue"
+                                            aria-label="Lihat Detail Desain Brosur"
+                                            title="Lihat detail"
+                                        >
+                                            <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14m-6-6 6 6-6 6"/>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </div>
+                            </article>
+                                                    <article
+                                class="group flex min-w-0 flex-col overflow-hidden rounded-lg border border-[#DFEAF5] bg-white shadow-sm transition duration-200 hover:-translate-y-0.5 hover:border-[#B9D8F5] hover:shadow-md"
+                            >
+                                <button
+                                    type="button"
+                                    @click="openProject({&quot;id&quot;:&quot;graphic-carousel&quot;,&quot;title&quot;:&quot;Desain Carousel&quot;,&quot;category_group&quot;:&quot;Graphic Design&quot;,&quot;category&quot;:&quot;Social Media Design&quot;,&quot;short_description&quot;:&quot;Rangkaian desain carousel media sosial dengan informasi yang dibagi menjadi beberapa slide.&quot;,&quot;full_description&quot;:&quot;Karya desain carousel yang terdiri dari sembilan slide. Setiap slide menjadi bagian dari satu rangkaian visual untuk menyampaikan informasi secara bertahap.&quot;,&quot;technologies&quot;:[&quot;Graphic Design&quot;,&quot;Carousel&quot;,&quot;Social Media&quot;],&quot;image&quot;:&quot;./images/projects\/Graphic Design\/Carousel\/Tanpa judul - 25 September 2026 pukul 09.53.51-1.png&quot;,&quot;gallery_images&quot;:[&quot;./images/projects\/Graphic Design\/Carousel\/Tanpa judul - 25 September 2026 pukul 09.53.51-2.png&quot;,&quot;./images/projects\/Graphic Design\/Carousel\/Tanpa judul - 25 September 2026 pukul 09.53.51-3.png&quot;,&quot;./images/projects\/Graphic Design\/Carousel\/Tanpa judul - 25 September 2026 pukul 09.53.51-4.png&quot;,&quot;./images/projects\/Graphic Design\/Carousel\/Tanpa judul - 25 September 2026 pukul 09.53.51-5.png&quot;,&quot;./images/projects\/Graphic Design\/Carousel\/Tanpa judul - 25 September 2026 pukul 09.53.51-6.png&quot;,&quot;./images/projects\/Graphic Design\/Carousel\/Tanpa judul - 25 September 2026 pukul 09.53.51-7.png&quot;,&quot;./images/projects\/Graphic Design\/Carousel\/Tanpa judul - 25 September 2026 pukul 09.53.51-8.png&quot;,&quot;./images/projects\/Graphic Design\/Carousel\/Tanpa judul - 25 September 2026 pukul 09.53.51-9.png&quot;],&quot;demo_url&quot;:&quot;#&quot;,&quot;repo_url&quot;:null,&quot;features&quot;:[&quot;Sembilan slide dalam satu rangkaian&quot;,&quot;Informasi disusun bertahap untuk format media sosial&quot;]})"
+                                    class="relative block aspect-[16/10] w-full overflow-hidden bg-[#F0F4F8] p-2 text-left"
+                                    aria-label="Lihat detail Desain Carousel"
+                                >
+                                    <img
+                                        src="./images/projects/Graphic Design/Carousel/Tanpa judul - 25 September 2026 pukul 09.53.51-1.png"
+                                        alt="Desain Carousel"
+                                        class="h-full w-full rounded object-contain transition-transform duration-300 group-hover:scale-[1.02]"
+                                        loading="lazy"
+                                    >
+                                </button>
+
+                                <div class="flex flex-1 flex-col p-4">
+                                    <div class="flex-1">
+                                        <h3 class="min-h-10 text-base font-bold leading-snug text-dark-navy group-hover:text-primary-blue">Desain Carousel</h3>
+                                        <p class="mt-1.5 min-h-12 text-[13px] leading-relaxed text-secondary-text line-clamp-3">Rangkaian desain carousel media sosial dengan informasi yang dibagi menjadi beberapa slide.</p>
+                                    </div>
+
+                                    <div class="mt-3 flex items-center justify-between gap-2 border-t border-[#E8EFF7] pt-3">
+                                        <div class="flex min-w-0 flex-wrap gap-1.5">
+                                                                                            <span class="rounded-full border border-[#D8E8F8] bg-[#EEF6FF] px-2.5 py-1 text-[10px] font-medium text-primary-blue">Graphic Design</span>
+                                                                                            <span class="rounded-full border border-[#D8E8F8] bg-[#EEF6FF] px-2.5 py-1 text-[10px] font-medium text-primary-blue">Carousel</span>
+                                                                                            <span class="rounded-full border border-[#D8E8F8] bg-[#EEF6FF] px-2.5 py-1 text-[10px] font-medium text-primary-blue">Social Media</span>
+                                                                                    </div>
+                                        <button
+                                            type="button"
+                                            @click="openProject({&quot;id&quot;:&quot;graphic-carousel&quot;,&quot;title&quot;:&quot;Desain Carousel&quot;,&quot;category_group&quot;:&quot;Graphic Design&quot;,&quot;category&quot;:&quot;Social Media Design&quot;,&quot;short_description&quot;:&quot;Rangkaian desain carousel media sosial dengan informasi yang dibagi menjadi beberapa slide.&quot;,&quot;full_description&quot;:&quot;Karya desain carousel yang terdiri dari sembilan slide. Setiap slide menjadi bagian dari satu rangkaian visual untuk menyampaikan informasi secara bertahap.&quot;,&quot;technologies&quot;:[&quot;Graphic Design&quot;,&quot;Carousel&quot;,&quot;Social Media&quot;],&quot;image&quot;:&quot;./images/projects\/Graphic Design\/Carousel\/Tanpa judul - 25 September 2026 pukul 09.53.51-1.png&quot;,&quot;gallery_images&quot;:[&quot;./images/projects\/Graphic Design\/Carousel\/Tanpa judul - 25 September 2026 pukul 09.53.51-2.png&quot;,&quot;./images/projects\/Graphic Design\/Carousel\/Tanpa judul - 25 September 2026 pukul 09.53.51-3.png&quot;,&quot;./images/projects\/Graphic Design\/Carousel\/Tanpa judul - 25 September 2026 pukul 09.53.51-4.png&quot;,&quot;./images/projects\/Graphic Design\/Carousel\/Tanpa judul - 25 September 2026 pukul 09.53.51-5.png&quot;,&quot;./images/projects\/Graphic Design\/Carousel\/Tanpa judul - 25 September 2026 pukul 09.53.51-6.png&quot;,&quot;./images/projects\/Graphic Design\/Carousel\/Tanpa judul - 25 September 2026 pukul 09.53.51-7.png&quot;,&quot;./images/projects\/Graphic Design\/Carousel\/Tanpa judul - 25 September 2026 pukul 09.53.51-8.png&quot;,&quot;./images/projects\/Graphic Design\/Carousel\/Tanpa judul - 25 September 2026 pukul 09.53.51-9.png&quot;],&quot;demo_url&quot;:&quot;#&quot;,&quot;repo_url&quot;:null,&quot;features&quot;:[&quot;Sembilan slide dalam satu rangkaian&quot;,&quot;Informasi disusun bertahap untuk format media sosial&quot;]})"
+                                            class="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-primary-blue text-white shadow-sm transition hover:bg-dark-blue"
+                                            aria-label="Lihat Detail Desain Carousel"
+                                            title="Lihat detail"
+                                        >
+                                            <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14m-6-6 6 6-6 6"/>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </div>
+                            </article>
+                                            </div>
+                </section>
+                        </div>
+</section>
+    <section
+    id="experience"
+    class="py-16 md:py-24 bg-white relative overflow-hidden"
+    x-intersect.threshold.0.3="activeSection = 'experience'"
+>
+    <!-- Background Accents -->
+    <div class="absolute bottom-0 right-0 w-80 h-80 bg-very-light-blue rounded-full blur-3xl -z-10 pointer-events-none"></div>
+
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <!-- Header -->
+        <div class="mb-12 md:mb-16">
+            <span class="inline-block text-xs sm:text-sm font-semibold tracking-wider text-primary-blue uppercase mb-1">
+                &lsquo;Experience &amp; Education
+            </span>
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-dark-navy tracking-tight">
+                Pengalaman &amp; Pendidikan
+            </h2>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14">
+
+            <div class="space-y-6">
+                <!-- Column Title -->
+                <div class="flex items-center space-x-3 pb-3 border-b border-soft-blue/40">
+                    <div class="w-10 h-10 rounded-xl bg-very-light-blue text-primary-blue flex items-center justify-center border border-soft-blue/60 shadow-xs">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zM5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-dark-navy">Pendidikan</h3>
+                </div>
+
+                <!-- Education Timeline Items -->
+                <div class="relative pl-6 border-l-2 border-soft-blue/70 space-y-8 ml-3">
+                                            <div class="relative group">
+                            <!-- Bullet Marker -->
+                            <div class="absolute -left-[31px] top-1.5 w-3.5 h-3.5 rounded-full bg-white border-2 border-primary-blue group-hover:bg-primary-blue transition-colors"></div>
+
+                            <div class="bg-very-light-blue/50 group-hover:bg-very-light-blue rounded-2xl p-5 border border-soft-blue/40 transition duration-200">
+                                <span class="inline-block px-3 py-1 rounded-full text-xs font-semibold bg-white text-primary-blue border border-soft-blue/60 mb-2">
+                                    Sep 2022 – Sep 2026
+                                </span>
+                                <h4 class="text-lg font-bold text-dark-navy">Universitas Pamulang</h4>
+                                <p class="text-sm font-semibold text-primary-blue mt-0.5">S1 Sistem Informasi · IPK 3,68</p>
+                                <p class="text-xs sm:text-sm text-secondary-text mt-2 leading-relaxed">Lulus sebagai fresh graduate Sistem Informasi.</p>
+                            </div>
+                        </div>
+                                    </div>
+            </div>
+
+            <div class="space-y-6">
+                <div class="flex items-center space-x-3 pb-3 border-b border-soft-blue/40">
+                    <div class="w-10 h-10 rounded-xl bg-very-light-blue text-primary-blue flex items-center justify-center border border-soft-blue/60 shadow-xs">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                            <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                            <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-dark-navy">Pengalaman</h3>
+                </div>
+
+                <div class="relative pl-6 border-l-2 border-soft-blue/70 space-y-8 ml-3">
+                                            <div class="relative group">
+                            <div class="absolute -left-[31px] top-1.5 w-3.5 h-3.5 rounded-full bg-white border-2 border-primary-blue group-hover:bg-primary-blue transition-colors"></div>
+                            <div class="bg-very-light-blue/50 group-hover:bg-very-light-blue rounded-2xl p-5 border border-soft-blue/40 transition duration-200">
+                                <span class="inline-block px-3 py-1 rounded-full text-xs font-semibold bg-white text-primary-blue border border-soft-blue/60 mb-2">
+                                    Sep 2026 – Sekarang
+                                </span>
+                                <h4 class="text-lg font-bold text-dark-navy">UMKM Warung Makan</h4>
+                                <p class="text-sm font-semibold text-primary-blue mt-0.5">Admin Media Sosial</p>
+                                                                    <ul class="mt-3 space-y-1.5 text-xs sm:text-sm text-secondary-text">
+                                                                                    <li class="flex items-start space-x-2">
+                                                <span class="w-1.5 h-1.5 rounded-full bg-primary-blue mt-1.5 flex-shrink-0"></span>
+                                                <span>Menyusun content calendar.</span>
+                                            </li>
+                                                                                    <li class="flex items-start space-x-2">
+                                                <span class="w-1.5 h-1.5 rounded-full bg-primary-blue mt-1.5 flex-shrink-0"></span>
+                                                <span>Membuat caption Instagram dan Threads.</span>
+                                            </li>
+                                                                                    <li class="flex items-start space-x-2">
+                                                <span class="w-1.5 h-1.5 rounded-full bg-primary-blue mt-1.5 flex-shrink-0"></span>
+                                                <span>Membuat desain promosi.</span>
+                                            </li>
+                                                                                    <li class="flex items-start space-x-2">
+                                                <span class="w-1.5 h-1.5 rounded-full bg-primary-blue mt-1.5 flex-shrink-0"></span>
+                                                <span>Menjawab komentar dan direct message.</span>
+                                            </li>
+                                                                            </ul>
+                                                            </div>
+                        </div>
+                                            <div class="relative group">
+                            <div class="absolute -left-[31px] top-1.5 w-3.5 h-3.5 rounded-full bg-white border-2 border-primary-blue group-hover:bg-primary-blue transition-colors"></div>
+                            <div class="bg-very-light-blue/50 group-hover:bg-very-light-blue rounded-2xl p-5 border border-soft-blue/40 transition duration-200">
+                                <span class="inline-block px-3 py-1 rounded-full text-xs font-semibold bg-white text-primary-blue border border-soft-blue/60 mb-2">
+                                    Jul 2024 – Agu 2024
+                                </span>
+                                <h4 class="text-lg font-bold text-dark-navy">Komnas HAM</h4>
+                                <p class="text-sm font-semibold text-primary-blue mt-0.5">Staf Dukungan TI · Magang</p>
+                                                                    <ul class="mt-3 space-y-1.5 text-xs sm:text-sm text-secondary-text">
+                                                                                    <li class="flex items-start space-x-2">
+                                                <span class="w-1.5 h-1.5 rounded-full bg-primary-blue mt-1.5 flex-shrink-0"></span>
+                                                <span>Membantu pengaturan jaringan LAN dan Wi-Fi.</span>
+                                            </li>
+                                                                                    <li class="flex items-start space-x-2">
+                                                <span class="w-1.5 h-1.5 rounded-full bg-primary-blue mt-1.5 flex-shrink-0"></span>
+                                                <span>Melakukan instalasi Windows dan Microsoft Office.</span>
+                                            </li>
+                                                                                    <li class="flex items-start space-x-2">
+                                                <span class="w-1.5 h-1.5 rounded-full bg-primary-blue mt-1.5 flex-shrink-0"></span>
+                                                <span>Membuat desain dan perancangan website.</span>
+                                            </li>
+                                                                                    <li class="flex items-start space-x-2">
+                                                <span class="w-1.5 h-1.5 rounded-full bg-primary-blue mt-1.5 flex-shrink-0"></span>
+                                                <span>Membantu mencatat hasil rapat.</span>
+                                            </li>
+                                                                            </ul>
+                                                            </div>
+                        </div>
+                                    </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+    <section
+    id="certifications"
+    class="py-16 md:py-24 bg-very-light-blue/40 relative overflow-hidden"
+    x-intersect.threshold.0.3="activeSection = 'certifications'"
+>
+    <!-- Background Sparkles -->
+    <div class="absolute top-10 right-10 text-soft-blue pointer-events-none">
+        <svg class="w-8 h-8 fill-current" viewBox="0 0 24 24">
+            <path d="M12 0l2.5 8.5L23 11l-8.5 2.5L12 22l-2.5-8.5L1 11l8.5-2.5z"/>
+        </svg>
+    </div>
+
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <!-- Section Title -->
+        <div class="text-center max-w-xl mx-auto mb-12 md:mb-16">
+            <span class="inline-block text-xs sm:text-sm font-semibold tracking-wider text-primary-blue uppercase mb-1">
+                &lsquo;Sertifikasi
+            </span>
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-dark-navy tracking-tight">
+                Sertifikat Magang
+            </h2>
+            <p class="text-secondary-text text-sm sm:text-base mt-2">
+                Sertifikasi yang tercantum dalam CV.
+            </p>
+        </div>
+
+        <!-- Notebook & Sticky Note Composition Container -->
+        <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+
+            <!-- Left: Paper / Notebook Card (7 Columns) -->
+            <div class="md:col-span-7 bg-white rounded-3xl p-6 sm:p-8 shadow-md border border-soft-blue/60 relative overflow-hidden transform md:-rotate-1 hover:rotate-0 transition-transform duration-300">
+
+                <!-- Spiral / Ring Holes on Left Edge (Notebook Effect) -->
+                <div class="absolute left-2 top-0 bottom-0 flex flex-col justify-around py-4">
+                                            <div class="w-2.5 h-2.5 rounded-full bg-slate-200 border border-slate-300 shadow-inner"></div>
+                                            <div class="w-2.5 h-2.5 rounded-full bg-slate-200 border border-slate-300 shadow-inner"></div>
+                                            <div class="w-2.5 h-2.5 rounded-full bg-slate-200 border border-slate-300 shadow-inner"></div>
+                                            <div class="w-2.5 h-2.5 rounded-full bg-slate-200 border border-slate-300 shadow-inner"></div>
+                                            <div class="w-2.5 h-2.5 rounded-full bg-slate-200 border border-slate-300 shadow-inner"></div>
+                                            <div class="w-2.5 h-2.5 rounded-full bg-slate-200 border border-slate-300 shadow-inner"></div>
+                                            <div class="w-2.5 h-2.5 rounded-full bg-slate-200 border border-slate-300 shadow-inner"></div>
+                                            <div class="w-2.5 h-2.5 rounded-full bg-slate-200 border border-slate-300 shadow-inner"></div>
+                                    </div>
+
+                <!-- Notebook Content with Grid/Lines -->
+                <div class="pl-6 notebook-lines space-y-4">
+                    <div class="flex items-center justify-between border-b-2 border-primary-blue/30 pb-2">
+                        <span class="font-doodle text-2xl font-bold text-dark-navy tracking-wide">
+                            Sertifikat Profesional
+                        </span>
+                        <!-- Cute Doodle Sparkle -->
+                        <span class="font-doodle text-primary-blue text-sm">Pengembangan Profesional</span>
+                    </div>
+
+                    <div class="space-y-5 pt-4">
+                                                    <div class="flex items-start gap-4">
+                                <div class="w-10 h-10 rounded-xl bg-very-light-blue text-primary-blue flex items-center justify-center flex-shrink-0 border border-soft-blue/50">
+                                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M12 2 2 7l10 5 8-4v6h2V7L12 2zm-6 9.18v4.64L12 19l6-3.18v-4.64l-6 3-6-3z"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h3 class="text-lg font-bold text-dark-navy">Sertifikat Magang</h3>
+                                    <p class="text-sm text-secondary-text">Komnas HAM</p>
+                                    <span class="inline-block mt-2 px-3 py-1 rounded-full text-xs font-semibold bg-white text-primary-blue border border-soft-blue/60">Jul 2024 – Agu 2024</span>
+                                </div>
+                            </div>
+                                            </div>
+
+                    <!-- Cute Doodle Smiley at Bottom of Page -->
+                    <div class="pt-3 flex items-center justify-end space-x-2 text-primary-blue">
+                        <span class="font-doodle text-sm font-semibold">Komnas HAM</span>
+                        <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <path d="M8 14s1.5 2 4 2 4-2 4-2"></path>
+                            <line x1="9" y1="9" x2="9.01" y2="9"></line>
+                            <line x1="15" y1="9" x2="15.01" y2="9"></line>
+                        </svg>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Right: Sticky Quote Note & Cute Doodles (5 Columns) -->
+            <div class="md:col-span-5 flex flex-col items-center justify-center space-y-6">
+
+                <!-- Quote Sticky Card (Dark Blue / Cyan Tone) -->
+                <div class="relative w-full max-w-xs p-7 rounded-2xl bg-gradient-to-br from-[#2D6898] to-[#1F568A] text-white shadow-xl transform rotate-2 hover:rotate-0 transition-transform duration-300">
+
+                    <!-- Washi Tape on Top Center -->
+                    <div class="absolute -top-3 left-1/2 -translate-x-1/2 w-28 h-6 bg-white/20 backdrop-blur-xs rounded-sm border border-white/30 transform rotate-1"></div>
+
+                    <!-- Quote Content -->
+                    <div class="pt-3 text-center space-y-4">
+                        <p class="font-doodle text-xl sm:text-2xl font-bold leading-relaxed text-white">
+                            Mengubah kebutuhan menjadi rancangan sistem yang terstruktur
+                        </p>
+                        <div class="text-[#B9D8F5] flex justify-center">
+                            <svg class="w-6 h-6 animate-pulse-soft" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+                            </svg>
+                        </div>
+                    </div>
+
+                    <!-- Flower Doodle in corner -->
+                    <div class="absolute bottom-2.5 right-2.5 text-white/30">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 2a3 3 0 0 0-3 3c0 .8.3 1.5.8 2a3 3 0 0 0-2.8.8 3 3 0 0 0 0 4.4 3 3 0 0 0 2.8.8c-.5.5-.8 1.2-.8 2a3 3 0 0 0 6 0c0-.8-.3-1.5-.8-2a3 3 0 0 0 2.8-.8 3 3 0 0 0 0-4.4 3 3 0 0 0-2.8-.8c.5-.5.8-1.2.8-2a3 3 0 0 0-3-3z"/>
+                        </svg>
+                    </div>
+                </div>
+
+                <!-- Hand-drawn Doodle Note: "Learning from Everything" -->
+                <div class="flex items-center space-x-2 text-primary-blue font-doodle text-lg font-bold">
+                        <span>Sep 2022 – Sep 2026</span>
+                    <svg class="w-5 h-5 text-primary-blue animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+                    </svg>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+</section>
+    <section
+    id="contact"
+    class="py-16 md:py-24 bg-white relative overflow-hidden"
+    x-intersect.threshold.0.3="activeSection = 'contact'"
+>
+    <!-- Background Soft Blur Shape -->
+    <div class="absolute top-1/2 right-0 w-96 h-96 bg-very-light-blue rounded-full blur-3xl -z-10 pointer-events-none"></div>
+
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <!-- Big Rounded Box Container (matching reference mockup) -->
+        <div class="bg-very-light-blue/80 rounded-3xl p-8 sm:p-12 md:p-16 border border-soft-blue/60 shadow-xs relative overflow-hidden">
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+
+                <!-- Left Column: Title & Description (5 Columns) -->
+                <div class="lg:col-span-5 space-y-4 text-center lg:text-left">
+                    <span class="inline-block text-xs sm:text-sm font-semibold tracking-wider text-primary-blue uppercase">
+                        &lsquo;Get In Touch
+                    </span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-dark-navy tracking-tight">
+                        Hubungi Saya
+                    </h2>
+                    <p class="text-secondary-text text-sm sm:text-base leading-relaxed">
+                        Untuk informasi lebih lanjut mengenai proyek dan keahlian saya, silakan hubungi melalui kontak berikut.
+                    </p>
+
+                    <!-- Small Friendly Note -->
+                    <div class="pt-2 hidden lg:flex items-center space-x-2 text-primary-blue">
+                        <span class="font-doodle text-sm font-bold">Good things take time</span>
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd"/>
+                        </svg>
+                    </div>
+                </div>
+
+                <!-- Center Column: Contact Information Cards (4 Columns) -->
+                <div class="lg:col-span-4 space-y-3.5">
+
+                    <!-- Email Card with Copy-to-Clipboard -->
+                    <div
+                        @click="copyToast('syahanamaya@gmail.com')"
+                        class="bg-white rounded-2xl p-4 border border-soft-blue/60 shadow-xs flex items-center space-x-3.5 hover:border-primary-blue hover:shadow-md transition cursor-pointer group"
+                        title="Klik untuk menyalin email"
+                    >
+                        <div class="w-10 h-10 rounded-xl bg-very-light-blue text-primary-blue flex items-center justify-center flex-shrink-0 group-hover:bg-primary-blue group-hover:text-white transition-colors">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                            </svg>
+                        </div>
+                        <div class="flex-grow min-w-0">
+                            <div class="text-[11px] font-semibold text-secondary-text uppercase">Email</div>
+                            <div class="text-sm sm:text-base font-bold text-dark-navy truncate group-hover:text-primary-blue transition-colors">
+                                syahanamaya@gmail.com
+                            </div>
+                        </div>
+                        <span class="text-xs text-primary-blue opacity-0 group-hover:opacity-100 transition-opacity flex-shrink-0">
+                            Salin
+                        </span>
+                    </div>
+
+                    <!-- WhatsApp / Phone Card -->
+                    <a
+                        href="https://wa.me/6285892960832"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="bg-white rounded-2xl p-4 border border-soft-blue/60 shadow-xs flex items-center space-x-3.5 hover:border-primary-blue hover:shadow-md transition group block"
+                        title="Hubungi via WhatsApp"
+                    >
+                        <div class="w-10 h-10 rounded-xl bg-very-light-blue text-primary-blue flex items-center justify-center flex-shrink-0 group-hover:bg-primary-blue group-hover:text-white transition-colors">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+                            </svg>
+                        </div>
+                        <div class="flex-grow min-w-0">
+                            <div class="text-[11px] font-semibold text-secondary-text uppercase">WhatsApp / Telp</div>
+                            <div class="text-sm sm:text-base font-bold text-dark-navy truncate group-hover:text-primary-blue transition-colors">
+                                +62 858 9296 0832
+                            </div>
+                        </div>
+                        <span class="text-xs text-primary-blue opacity-0 group-hover:opacity-100 transition-opacity flex-shrink-0">
+                            Buka
+                        </span>
+                    </a>
+
+                    <!-- Location Card -->
+                    <div class="bg-white rounded-2xl p-4 border border-soft-blue/60 shadow-xs flex items-center space-x-3.5">
+                        <div class="w-10 h-10 rounded-xl bg-very-light-blue text-primary-blue flex items-center justify-center flex-shrink-0">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                            </svg>
+                        </div>
+                        <div class="flex-grow min-w-0">
+                            <div class="text-[11px] font-semibold text-secondary-text uppercase">Domisili</div>
+                            <div class="text-sm sm:text-base font-bold text-dark-navy truncate">
+                                Tangerang Selatan, Banten
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Right Column: "Let's Connect!" & Laptop Doodle (3 Columns) -->
+                <div class="lg:col-span-3 flex flex-col items-center justify-center text-center space-y-4">
+
+                    <!-- Let's Connect Title -->
+                    <div>
+                        <span class="font-doodle text-xl sm:text-2xl font-bold text-dark-navy block">
+                            Let's Connect!
+                        </span>
+                    </div>
+
+                    <!-- Social Icons Group -->
+                    <div class="flex items-center justify-center space-x-2.5">
+                                                    <a
+                                href="https://instagram.com/syahanamaya"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="w-9 h-9 rounded-full bg-white hover:bg-primary-blue text-dark-navy hover:text-white border border-soft-blue/70 flex items-center justify-center transition-all duration-200 transform hover:-translate-y-1 shadow-xs"
+                                aria-label="Instagram"
+                            >
+                                                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                                    </svg>
+                                                            </a>
+                                                    <a
+                                href="https://linkedin.com/in/syahana-maya"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="w-9 h-9 rounded-full bg-white hover:bg-primary-blue text-dark-navy hover:text-white border border-soft-blue/70 flex items-center justify-center transition-all duration-200 transform hover:-translate-y-1 shadow-xs"
+                                aria-label="LinkedIn"
+                            >
+                                                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.45c-.9 0-1.63.73-1.63 1.63s.73 1.63 1.63 1.63c.9 0 1.63-.73 1.63-1.63s-.73-1.63-1.63-1.63Z"/>
+                                    </svg>
+                                                            </a>
+                                                    <a
+                                href="https://github.com/syahanamaya"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="w-9 h-9 rounded-full bg-white hover:bg-primary-blue text-dark-navy hover:text-white border border-soft-blue/70 flex items-center justify-center transition-all duration-200 transform hover:-translate-y-1 shadow-xs"
+                                aria-label="GitHub"
+                            >
+                                                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
+                                    </svg>
+                                                            </a>
+                                                    <a
+                                href="mailto:syahanamaya@gmail.com"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="w-9 h-9 rounded-full bg-white hover:bg-primary-blue text-dark-navy hover:text-white border border-soft-blue/70 flex items-center justify-center transition-all duration-200 transform hover:-translate-y-1 shadow-xs"
+                                aria-label="Email"
+                            >
+                                                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                                    </svg>
+                                                            </a>
+                                            </div>
+
+                    <!-- Line Art Laptop Doodle SVG -->
+                    <div class="pt-2 flex flex-col items-center">
+                        <svg class="w-24 h-16 text-primary-blue animate-float" viewBox="0 0 100 60" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <!-- Laptop Screen -->
+                            <rect x="18" y="8" width="64" height="40" rx="3" stroke-width="2"/>
+                            <!-- Inner Screen -->
+                            <rect x="23" y="13" width="54" height="30" rx="1.5" stroke-width="1.5" stroke-dasharray="2 2"/>
+                            <!-- Laptop Base -->
+                            <path d="M10 48h80a4 4 0 0 1 4 4v1H6v-1a4 4 0 0 1 4-4z" stroke-width="2"/>
+                            <!-- Trackpad -->
+                            <rect x="42" y="50" width="16" height="3" rx="0.5" stroke-width="1"/>
+                            <!-- Sparkle on corner -->
+                            <path d="M85 8l2 5 5 2-5 2-2 5-2-5-5-2 5-2z" fill="currentColor" stroke="none"/>
+                            <!-- Heart near laptop -->
+                            <path d="M15 15a2 2 0 0 0 0 3l3 3 3-3a2 2 0 0 0-3-3l-0.5 0.5-0.5-0.5a2 2 0 0 0-2 0z" fill="currentColor" stroke="none"/>
+                        </svg>
+                        <span class="font-doodle text-xs text-primary-blue font-bold mt-1">♡ Let's build together</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+</section>
     </main>
 
     <!-- Footer -->
     <footer class="bg-[#1F568A] text-white py-1 md:py-2 border-t border-white/10">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        
+
         <div class="flex flex-col md:flex-row items-center justify-between gap-1 text-center md:text-left">
-            
+
             <!-- Left: Logo & Identity -->
             <div class="flex items-center space-x-2">
                 <svg class="w-5 h-5 text-soft-blue" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -485,36 +1719,36 @@
 
             <!-- Social Links in Footer -->
             <div class="flex items-center space-x-4">
-                                    <a 
-                        href="https://instagram.com/syahanamaya" 
-                        target="_blank" 
+                                    <a
+                        href="https://instagram.com/syahanamaya"
+                        target="_blank"
                         rel="noopener noreferrer"
                         class="hover:text-white transition-colors"
                         aria-label="Instagram"
                     >
                         Instagram
                     </a>
-                                    <a 
-                        href="https://linkedin.com/in/syahana-maya" 
-                        target="_blank" 
+                                    <a
+                        href="https://linkedin.com/in/syahana-maya"
+                        target="_blank"
                         rel="noopener noreferrer"
                         class="hover:text-white transition-colors"
                         aria-label="LinkedIn"
                     >
                         LinkedIn
                     </a>
-                                    <a 
-                        href="https://github.com/syahanamaya" 
-                        target="_blank" 
+                                    <a
+                        href="https://github.com/syahanamaya"
+                        target="_blank"
                         rel="noopener noreferrer"
                         class="hover:text-white transition-colors"
                         aria-label="GitHub"
                     >
                         GitHub
                     </a>
-                                    <a 
-                        href="mailto:syahanamaya@gmail.com" 
-                        target="_blank" 
+                                    <a
+                        href="mailto:syahanamaya@gmail.com"
+                        target="_blank"
                         rel="noopener noreferrer"
                         class="hover:text-white transition-colors"
                         aria-label="Email"
@@ -534,8 +1768,8 @@
 </footer>
 
     <!-- Project Detail Modal (Alpine.js) -->
-    <div 
-        x-show="projectModalOpen" 
+    <div
+        x-show="projectModalOpen"
         x-transition:enter="transition ease-out duration-300"
         x-transition:enter-start="opacity-0"
         x-transition:enter-end="opacity-100"
@@ -547,7 +1781,7 @@
         @keydown.escape.window="closeProject()"
         @click.self="closeProject()"
     >
-        <div 
+        <div
             x-show="projectModalOpen"
             x-transition:enter="transition ease-out duration-300 transform"
             x-transition:enter-start="opacity-0 translate-y-6 scale-95"
@@ -559,7 +1793,7 @@
             @click.stop
         >
             <!-- Close Button -->
-            <button 
+            <button
                 @click="closeProject()"
                 class="absolute top-4 right-4 z-10 w-10 h-10 rounded-full bg-white/90 hover:bg-soft-blue/50 text-dark-navy flex items-center justify-center transition shadow-sm border border-soft-blue/30"
                 aria-label="Tutup Detail Proyek"
@@ -580,9 +1814,9 @@
                     </div>
                     <div class="p-3 bg-white flex items-center justify-center min-h-[140px]">
                         <template x-if="activeProjectImage">
-                            <img 
-                                :src="activeProjectImage" 
-                                :alt="activeProject.title" 
+                            <img
+                                :src="activeProjectImage"
+                                :alt="activeProject.title"
                                 class="max-w-full w-auto rounded object-contain shadow-sm"
                                 style="max-height: 70vh;"
                             >
@@ -667,14 +1901,14 @@
 
                 <!-- Actions -->
                 <div class="pt-4 border-t border-soft-blue/30 flex flex-wrap items-center justify-between gap-3">
-                    <button 
+                    <button
                         @click="closeProject()"
                         class="px-5 py-2.5 rounded-full border border-gray-300 text-secondary-text hover:text-dark-navy hover:bg-gray-50 text-sm font-medium transition"
                     >
                         Tutup
                     </button>
-                    <a 
-                        :href="activeProject?.repo_url || './contact.html'" 
+                    <a
+                        :href="activeProject?.repo_url || './index.html#contact'"
                         class="inline-flex items-center space-x-2 px-6 py-2.5 rounded-full bg-primary-blue hover:bg-dark-blue text-white text-sm font-semibold shadow-md transition"
                     >
                         <span>Hubungi Saya</span>
@@ -688,7 +1922,7 @@
     </div>
 
     <!-- Toast Notification (Copied) -->
-    <div 
+    <div
         x-show="copiedText"
         x-transition:enter="transition ease-out duration-300"
         x-transition:enter-start="opacity-0 translate-y-3"

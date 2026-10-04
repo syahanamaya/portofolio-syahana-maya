@@ -39,14 +39,16 @@ class ExportStaticPortfolio extends Command
 
         // 2. Render setiap halaman Laravel ke file HTML
         $portfolio = config('portfolio');
+        $legacyPages = [
+            'about' => 'Tentang Saya',
+            'skills' => 'Keahlian',
+            'projects' => 'Proyek',
+            'experience' => 'Pengalaman',
+            'certifications' => 'Sertifikasi',
+            'contact' => 'Kontak',
+        ];
         $pages = [
             'home' => ['view' => 'home', 'component' => null, 'file' => 'index.html'],
-            'about' => ['view' => 'pages.section', 'component' => 'about', 'file' => 'about.html'],
-            'skills' => ['view' => 'pages.section', 'component' => 'skills', 'file' => 'skills.html'],
-            'projects' => ['view' => 'pages.section', 'component' => 'projects', 'file' => 'projects.html'],
-            'experience' => ['view' => 'pages.section', 'component' => 'experience', 'file' => 'experience.html'],
-            'certifications' => ['view' => 'pages.section', 'component' => 'goals', 'file' => 'certifications.html'],
-            'contact' => ['view' => 'pages.section', 'component' => 'contact', 'file' => 'contact.html'],
         ];
 
         foreach ($pages as $currentPage => $page) {
@@ -60,6 +62,10 @@ class ExportStaticPortfolio extends Command
             }
 
             $html = view($page['view'], $viewData)->render();
+
+            foreach (array_keys($legacyPages) as $routeName) {
+                $html = str_replace(route($routeName), "./{$routeName}.html", $html);
+            }
 
             foreach ($pages as $routeName => $targetPage) {
                 if ($routeName !== 'home') {
@@ -86,9 +92,31 @@ class ExportStaticPortfolio extends Command
             }
 
             $html = str_replace(route('home'), './index.html', $html);
+            $html = implode("\n", array_map('rtrim', explode("\n", $html)));
 
             File::put("{$outputPath}/{$page['file']}", $html);
             $this->info("✓ {$page['file']} berhasil dibuat.");
+        }
+
+        foreach ($legacyPages as $section => $label) {
+            $target = "./index.html#{$section}";
+            $redirectPage = <<<HTML
+                <!DOCTYPE html>
+                <html lang="id">
+                <head>
+                    <meta charset="UTF-8">
+                    <meta http-equiv="refresh" content="0;url={$target}">
+                    <title>{$label} | Portfolio</title>
+                </head>
+                <body>
+                    <p>Halaman ini telah digabungkan ke <a href="{$target}">portfolio satu halaman</a>.</p>
+                    <script>window.location.replace("{$target}");</script>
+                </body>
+                </html>
+                HTML;
+
+            File::put("{$outputPath}/{$section}.html", $redirectPage);
+            $this->info("✓ {$section}.html diarahkan ke section portfolio.");
         }
 
         // 4. Salin asset public ke direktori output

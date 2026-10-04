@@ -214,7 +214,7 @@
                         Tutup
                     </button>
                     <a 
-                        :href="activeProject?.repo_url || '{{ route('contact') }}'" 
+                        :href="activeProject?.repo_url || '{{ route('home') }}#contact'"
                         class="inline-flex items-center space-x-2 px-6 py-2.5 rounded-full bg-primary-blue hover:bg-dark-blue text-white text-sm font-semibold shadow-md transition"
                     >
                         <span>Hubungi Saya</span>

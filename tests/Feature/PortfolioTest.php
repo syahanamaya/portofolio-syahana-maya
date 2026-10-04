@@ -9,55 +9,55 @@ class PortfolioTest extends TestCase
     /**
      * Test that the homepage loads successfully and renders all key sections.
      */
-    public function test_homepage_loads_with_the_hero_section(): void
+    public function test_homepage_loads_all_portfolio_sections(): void
     {
         $response = $this->get('/');
 
         $response->assertStatus(200);
         $response->assertSeeText("Syahana Maya Sya'bana");
         $response->assertSeeText('Web Developer');
-        $response->assertSeeText('Lifelong Learner');
         $response->assertSeeText('Lihat Portfolio Saya');
         $response->assertSeeText('Tentang Saya');
-        $response->assertDontSeeText('Profil Profesional');
-        $response->assertDontSeeText('Proyek Saya');
+        $response->assertSee('id="home"', false)
+            ->assertSee('id="about"', false)
+            ->assertSee('id="skills"', false)
+            ->assertSee('id="projects"', false)
+            ->assertSee('id="experience"', false)
+            ->assertSee('id="certifications"', false)
+            ->assertSee('id="contact"', false);
     }
 
-    public function test_homepage_maps_legacy_section_hashes_to_page_routes(): void
+    public function test_homepage_navigation_uses_section_anchors(): void
     {
         $this->get('/')
             ->assertOk()
-            ->assertSee("'#projects':", false)
-            ->assertSee("'#about':", false)
-            ->assertSee(route('projects'), false)
-            ->assertSee(route('about'), false);
+            ->assertSee(route('home') . '#about', false)
+            ->assertSee(route('home') . '#skills', false)
+            ->assertSee(route('home') . '#projects', false)
+            ->assertSee(route('home') . '#experience', false)
+            ->assertSee(route('home') . '#certifications', false)
+            ->assertSee(route('home') . '#contact', false);
     }
 
-    public function test_each_navigation_destination_loads_its_own_section(): void
+    public function test_legacy_page_routes_redirect_to_homepage_sections(): void
     {
-        $pages = [
-            '/about' => ['about', 'Profil Profesional'],
-            '/skills' => ['skills', 'Keahlian Saya'],
-            '/projects' => ['projects', 'Proyek Saya'],
-            '/experience' => ['experience', 'Pengalaman & Pendidikan'],
-            '/certifications' => ['certifications', 'Sertifikasi'],
-            '/contact' => ['contact', 'Hubungi Saya'],
+        $sections = [
+            '/about' => 'about',
+            '/skills' => 'skills',
+            '/projects' => 'projects',
+            '/experience' => 'experience',
+            '/certifications' => 'certifications',
+            '/contact' => 'contact',
         ];
 
-        foreach ($pages as $path => [$routeName, $heading]) {
-            $response = $this->get($path)
-                ->assertOk()
-                ->assertSeeText($heading);
-
-            $activeLinkPattern = '/<a(?=[^>]*href="' . preg_quote(route($routeName), '/') . '")(?=[^>]*aria-current="page")(?=[^>]*text-primary-blue font-semibold)[^>]*>/';
-
-            $this->assertMatchesRegularExpression($activeLinkPattern, $response->getContent());
+        foreach ($sections as $path => $section) {
+            $this->get($path)->assertRedirect('/#' . $section);
         }
     }
 
     public function test_projects_page_groups_the_available_work_by_category(): void
     {
-        $this->get('/projects')
+        $this->get('/')
             ->assertOk()
             ->assertSeeText('Web Development')
             ->assertSeeText('UI/UX Design')
@@ -83,7 +83,7 @@ class PortfolioTest extends TestCase
 
     public function test_project_gallery_images_can_be_selected_for_the_large_preview(): void
     {
-        $this->get('/projects')
+        $this->get('/')
             ->assertOk()
             ->assertSee('activeProjectImages = [project.image', false)
             ->assertSee(':src="activeProjectImage"', false)

@@ -37,10 +37,12 @@
         <!-- Desktop Navigation Links -->
         <nav class="hidden md:flex items-center space-x-7 text-sm font-medium">
             @foreach($navigationItems as $item)
+                @php($sectionId = $item['route'] === 'home' ? 'home' : $item['route'])
                 <a
-                    href="{{ route($item['route']) }}"
-                    class="transition-colors relative py-1 {{ $currentPage === $item['route'] ? 'text-primary-blue font-semibold' : 'text-dark-navy hover:text-primary-blue' }}"
-                    @if($currentPage === $item['route']) aria-current="page" @endif
+                    href="{{ route('home') }}#{{ $sectionId }}"
+                    class="transition-colors relative py-1 text-dark-navy hover:text-primary-blue"
+                    :class="activeSection === '{{ $sectionId }}' ? 'text-primary-blue font-semibold' : ''"
+                    :aria-current="activeSection === '{{ $sectionId }}' ? 'page' : null"
                 >
                     {{ $item['label'] }}
                 </a>
@@ -93,11 +95,13 @@
     >
         <div class="flex flex-col space-y-3.5 pt-2">
             @foreach($navigationItems as $item)
+                @php($sectionId = $item['route'] === 'home' ? 'home' : $item['route'])
                 <a
-                    href="{{ route($item['route']) }}"
+                    href="{{ route('home') }}#{{ $sectionId }}"
                     @click="mobileMenuOpen = false"
-                    class="px-3 py-2 rounded-xl text-base font-medium transition {{ $currentPage === $item['route'] ? 'bg-very-light-blue text-primary-blue' : 'text-dark-navy hover:bg-very-light-blue hover:text-primary-blue' }}"
-                    @if($currentPage === $item['route']) aria-current="page" @endif
+                    class="px-3 py-2 rounded-xl text-base font-medium transition text-dark-navy hover:bg-very-light-blue hover:text-primary-blue"
+                    :class="activeSection === '{{ $sectionId }}' ? 'bg-very-light-blue text-primary-blue' : ''"
+                    :aria-current="activeSection === '{{ $sectionId }}' ? 'page' : null"
                 >
                     {{ $item['label'] }}
                 </a>

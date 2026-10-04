@@ -20,23 +20,4 @@ class HomeController extends Controller
         ]);
     }
 
-    public function section(string $section): View
-    {
-        $components = [
-            'about' => 'about',
-            'skills' => 'skills',
-            'projects' => 'projects',
-            'experience' => 'experience',
-            'certifications' => 'goals',
-            'contact' => 'contact',
-        ];
-
-        abort_unless(isset($components[$section]), 404);
-
-        return view('pages.section', [
-            'portfolio' => config('portfolio'),
-            'component' => $components[$section],
-            'currentPage' => $section,
-        ]);
-    }
 }
