@@ -51,7 +51,7 @@
         <div class="hidden md:block">
             <a 
                 href="{{ asset('cv.pdf') }}" 
-                download="CV-Shahana-Maya-Sya'bana.pdf"
+                download="CV-Shahana-Maya-Syabana.pdf"
                 class="inline-flex items-center space-x-2 px-5 py-2.5 rounded-full bg-primary-blue hover:bg-dark-blue text-white text-sm font-semibold shadow-sm hover:shadow-md transition-all duration-200 transform hover:-translate-y-0.5"
             >
                 <span>Download CV</span>
@@ -106,7 +106,7 @@
             <div class="pt-3 border-t border-soft-blue/30">
                 <a 
                     href="{{ asset('cv.pdf') }}" 
-                    download="CV-Shahana-Maya-Sya'bana.pdf"
+                    download="CV-Shahana-Maya-Syabana.pdf"
                     @click="mobileMenuOpen = false"
                     class="w-full flex items-center justify-center space-x-2 px-5 py-3 rounded-xl bg-primary-blue hover:bg-dark-blue text-white text-base font-semibold shadow-md transition"
                 >

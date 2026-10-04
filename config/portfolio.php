@@ -2,13 +2,13 @@
 
 return [
     'personal' => [
-        'name' => "Syahana Maya Sya'bana",
-        'display_name' => "Syahana Maya Sya'bana",
+        'name' => 'Syahana Maya Syabana',
+        'display_name' => 'Syahana Maya Syabana',
         'short_name' => 'Syahana Maya',
         'tagline' => "Fresh Graduate Sistem Informasi | Web Developer | Lifelong Learner",
         'hero_badge' => "Hello,",
         'hero_title_lead' => "I'm",
-        'hero_title_name' => "Syahana Maya Sya'bana",
+        'hero_title_name' => 'Syahana Maya Syabana',
         'hero_subtitle' => "Fresh Graduate Information Systems | Web Developer | Lifelong Learner",
         'hero_description' => "Fresh graduate Sistem Informasi yang passionate dalam web development, UI/UX, dan dunia kreatif digital. Saya terus belajar, bereksperimen, dan menciptakan karya yang menggabungkan fungsi dengan visual yang menarik.",
         'cv_file' => 'cv.pdf',
@@ -114,7 +114,7 @@ return [
                 'category_group' => 'Web Development',
                 'category' => 'Web Application & Skripsi',
                 'short_description' => 'Merancang dan mengembangkan sistem informasi perpustakaan berbasis web untuk mendukung pengelolaan koleksi dan layanan transaksi.',
-                'full_description' => 'Perancangan dan implementasi sistem informasi perpustakaan berbasis web yang dibangun sebagai topik skripsi akhir. Sistem ini mendigitalisasi pengelolaan sirkulasi buku, katalogisasi koleksi, pendaftaran anggota, pencatatan peminjaman, serta perhitungan denda otomatis. Dikembangkan menggunakan metode Agile untuk memastikan alur kerja fleksibel dan antarmuka yang user-friendly.',
+                'full_description' => 'Merancang dan mengembangkan sistem informasi perpustakaan berbasis web untuk mendukung pengelolaan koleksi dan layanan sirkulasi. Sistem mencakup pengelolaan data buku, kategori, rak, dan siswa; pencatatan peminjaman serta pengembalian; perhitungan denda berdasarkan aturan; dan penyajian laporan serta dashboard. Tersedia juga fitur bagi siswa untuk mencari koleksi, memantau peminjaman, melihat riwayat, menyimpan buku favorit, dan membaca pengumuman. Data disimpan menggunakan MySQL.',
                 'technologies' => ['Laravel', 'MySQL', 'Tailwind'],
                 'image' => '/images/projects/Web/Sistem Perpus/Dashboard Petugas.png',
                 'gallery_images' => [
@@ -125,13 +125,14 @@ return [
                     '/images/projects/Web/Sistem Perpus/Tambah Peminjaman.png',
                 ],
                 'demo_url' => '#',
-                'repo_url' => 'https://github.com/syahanamaya/sistem-informasi-perpustakaan',
+                'repo_url' => 'https://github.com/terang0710/perpustakaan-smk',
                 'features' => [
-                    'Katalog buku terstruktur dengan filter pencarian instan',
-                    'Sistem sirkulasi peminjaman & pengembalian otomatis',
-                    'Perhitungan denda keterlambatan buku secara presisi',
-                    'Dashboard ringkasan statistik untuk pustakawan',
-                    'Desain antarmuka bersih & responsif berbasis Tailwind CSS',
+                    'Mengembangkan pengelolaan data buku, kategori, rak, dan siswa.',
+                    'Membangun pencarian dan filter koleksi buku.',
+                    'Membuat alur pencatatan peminjaman, persetujuan, pengembalian, dan status transaksi.',
+                    'Menerapkan perhitungan denda keterlambatan berdasarkan aturan yang tersimpan di sistem.',
+                    'Mengembangkan dashboard, riwayat, serta laporan transaksi.',
+                    'Membuat antarmuka yang responsif untuk petugas, kepala perpustakaan, dan siswa.',
                 ],
             ],
             [
