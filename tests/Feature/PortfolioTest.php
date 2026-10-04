@@ -14,11 +14,14 @@ class PortfolioTest extends TestCase
         $response = $this->get('/');
 
         $response->assertStatus(200);
-        $response->assertSeeText('Syahana Maya Syabana');
+        $response->assertSeeText("SYAHANA MAYA SYA'BANA");
         $response->assertSeeText('Web Developer');
-        $response->assertSeeText('Lifelong Learner');
-        $response->assertSeeText('Lihat Portfolio Saya');
-        $response->assertSeeText('Tentang Saya');
+        $response->assertSeeText('PHP');
+        $response->assertSeeText('Laravel');
+        $response->assertSeeText('MySQL');
+        $response->assertSeeText('View Projects');
+        $response->assertSeeText('Download CV');
+        $response->assertDontSeeText('Lifelong Learner');
         $response->assertDontSeeText('Profil Profesional');
         $response->assertDontSeeText('Proyek Saya');
     }
