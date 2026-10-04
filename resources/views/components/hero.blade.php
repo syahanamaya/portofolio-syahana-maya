@@ -68,7 +68,7 @@
                 <div class="pt-4 flex items-center justify-center lg:justify-start space-x-3.5">
                     <!-- Instagram -->
                     <a 
-                        href="https://instagram.com/syahanamaya" 
+                        href="https://instagram.com/syhnamys" 
                         target="_blank" 
                         rel="noopener noreferrer"
                         class="w-10 h-10 rounded-full bg-soft-blue/40 hover:bg-primary-blue text-dark-navy hover:text-white flex items-center justify-center transition-all duration-200 transform hover:-translate-y-1 shadow-sm"
@@ -83,7 +83,7 @@
                     
                     <!-- LinkedIn -->
                     <a 
-                        href="https://linkedin.com/in/syahana-maya" 
+                        href="https://www.linkedin.com/in/syahana-maya-sya-bana-a7bba3333" 
                         target="_blank" 
                         rel="noopener noreferrer"
                         class="w-10 h-10 rounded-full bg-soft-blue/40 hover:bg-primary-blue text-dark-navy hover:text-white flex items-center justify-center transition-all duration-200 transform hover:-translate-y-1 shadow-sm"
@@ -96,7 +96,7 @@
 
                     <!-- GitHub -->
                     <a 
-                        href="https://github.com/syahanamaya" 
+                        href="https://github.com/terang0710" 
                         target="_blank" 
                         rel="noopener noreferrer"
                         class="w-10 h-10 rounded-full bg-soft-blue/40 hover:bg-primary-blue text-dark-navy hover:text-white flex items-center justify-center transition-all duration-200 transform hover:-translate-y-1 shadow-sm"
